@@ -28,3 +28,8 @@ overflow-wrap: break-word;
 input, button, textarea, select {
 font: inherit;
 }
+
+#root {
+  min-height: 100vh;
+  width: 100vw;
+}

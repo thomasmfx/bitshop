@@ -1,11 +1,16 @@
+import PropTypes from 'prop-types'
 import Nav from './components/Nav/Nav'
 
-function App() {
+function App({currentRoute}) {
   return (
     <div>
-      <Nav currentRoute={'home'}/>
+      <Nav currentRoute={currentRoute}/>
     </div>
   )
+}
+
+App.propTypes = {
+  currentRoute: PropTypes.string
 }
 
 export default App
