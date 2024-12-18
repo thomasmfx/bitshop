@@ -29,7 +29,14 @@ input, button, textarea, select {
 font: inherit;
 }
 
+:root {
+  --color-primary: #188efe;
+  --color-secondary: #dff0ff;
+}
+
 #root {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
+  display: grid;
+  grid-template-rows: min-content 1fr;
 }
