@@ -2,10 +2,11 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { Home, ShoppingBag, ShoppingCart, User } from 'react-feather'
+import Logo from '../Logo/Logo'
 
 const iconSize = 21
 
-const StyledNav = styled.nav`
+const StyledHeader = styled.header`
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   justify-items: center;
@@ -14,27 +15,28 @@ const StyledNav = styled.nav`
   gap: 1em;
 `
 
-const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
+const Nav = styled.nav`
+  display: grid;
+  grid-template-columns: repeat(3, min-content);
   gap: 1em;
 `
 
 const Button = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+  padding: 0.4em 0.8em;
+  gap: 0.5em;
+
   background: ${(props) =>
     props.selected ? 'var(--color-secondary)' : 'none'};
   color: ${(props) => (props.selected ? 'var(--color-primary)' : 'black')};
   border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5em;
-  font-family: Montserrat;
-  cursor: pointer;
-  padding: 0.4em 0.8em;
-  font-weight: 500;
   border-radius: 5px;
-  width: 140px;
+  font-family: Montserrat;
+  font-weight: 500;
+  cursor: pointer;
 
   &:hover {
     color: ${'var(--color-primary)'};
@@ -66,12 +68,6 @@ const ItemsCount = styled.div`
   transform: translate(-7%, 10%);
 `
 
-const Logo = styled.p`
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: ${'var(--color-primary)'};
-`
-
 function CartButton({ itemsCount, selected }) {
   return (
     <StyledCartButton selected={selected}>
@@ -86,13 +82,13 @@ function CartButton({ itemsCount, selected }) {
   )
 }
 
-function Nav({ currentRoute = '/' }) {
+function Header({ currentRoute = '/' }) {
   return (
-    <StyledNav>
+    <StyledHeader>
       <Link to={'/'} style={{ textDecoration: 'none' }}>
-        <Logo> bitShop •</Logo>
+        <Logo size={'1.8rem'} />
       </Link>
-      <Wrapper>
+      <Nav>
         <Link to={'/'} style={{ textDecoration: 'none' }}>
           <Button selected={currentRoute === '/'}>
             <Home size={iconSize} />
@@ -111,11 +107,11 @@ function Nav({ currentRoute = '/' }) {
             <p>Shop</p>
           </Button>
         </Link>
-      </Wrapper>
+      </Nav>
       <Link to={'/cart'} style={{ textDecoration: 'none' }}>
         <CartButton itemsCount="0" selected={currentRoute === 'cart'} />
       </Link>
-    </StyledNav>
+    </StyledHeader>
   )
 }
 
@@ -124,8 +120,8 @@ CartButton.propTypes = {
   selected: PropTypes.bool,
 }
 
-Nav.propTypes = {
+Header.propTypes = {
   currentRoute: PropTypes.string,
 }
 
-export default Nav
+export default Header
