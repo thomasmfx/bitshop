@@ -1,11 +1,10 @@
-import Nav from './components/Nav/Nav'
+import routes from './routes'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+const router = createBrowserRouter(routes)
 
 function App() {
-  return (
-    <div>
-      <Nav currentRoute="/" />
-    </div>
-  )
+  return <RouterProvider router={router} />
 }
 
 export default App

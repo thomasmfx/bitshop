@@ -1,12 +1,12 @@
-import App from './App'
-import Shop from './pages/Shop/Shop'
+import Home from './pages/Home/Home'
 import AboutUs from './pages/AboutUs/AboutUs'
+import Shop from './pages/Shop/Shop'
 import Cart from './pages/Cart/Cart'
 
 const routes = [
   {
     path: '/',
-    element: <App />,
+    element: <Home />,
   },
   {
     path: 'about-us',
