@@ -12,7 +12,7 @@ function Logo({ size, removeDot }) {
 }
 
 Logo.propTypes = {
-  size: PropTypes.number,
+  size: PropTypes.string,
   removeDot: PropTypes.bool,
 }
 
