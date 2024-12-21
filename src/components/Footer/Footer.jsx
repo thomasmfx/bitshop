@@ -12,7 +12,8 @@ const StyledFooter = styled.footer`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
-  padding: 1.5em 15em;
+  justify-items: center;
+  padding: 1.5em 0;
   gap: 2em;
   background-color: var(--color-tertiary);
 `
@@ -25,6 +26,7 @@ const Row = styled.div`
   grid-template-rows: 1fr;
   align-items: center;
   justify-items: ${(props) => (props.$align ? props.$align : 'start')};
+  gap: 5em;
 `
 
 const Column = styled.div`
@@ -46,7 +48,8 @@ const Image = styled.img`
 `
 
 const Text = styled.p`
-  font-size: ${(props) => (props.size ? props.size : '.9rem;')};
+  font-size: ${(props) => (props.$size ? props.$size : '.9rem;')};
+  max-width: 40ch;
 `
 
 const FakeLink = styled.a`
@@ -63,7 +66,7 @@ const FakeLink = styled.a`
 
 const List = styled.div`
   display: flex;
-  flex-direction: ${props => props.row ? 'row' : 'column'};
+  flex-direction: ${(props) => (props.$row ? 'row' : 'column')};
   align-items: flex-start;
   gap: 0.5em;
 `
@@ -144,10 +147,10 @@ function Footer() {
             </Contact>
             <Contact>
               <MapPin size={18} />
-              <Text> Rua Tupinambaranas, 16A </Text>
+              <Text> Oak Street, 901 </Text>
             </Contact>
           </List>
-          <List row={true}>
+          <List $row={true}>
             <SocialLink href="https://github.com/thomasmfx">
               <GitHub />
             </SocialLink>
@@ -167,8 +170,11 @@ function Footer() {
         </Column>
         <Column style={{ gap: 0 }}>
           <Title>Newsletter</Title>
+          <Text>
+            Stay ahead with our latest releases - subscribe to our newsletter:
+          </Text>
           <NewsletterForm />
-          <List row={true}>
+          <List $row={true}>
             <Image src={applePayBadge} />
             <Image src={googlePayBadge} />
             <Image src={masterCardBadge} />
@@ -178,7 +184,7 @@ function Footer() {
         </Column>
       </Row>
       <Row style={{ justifyItems: 'center', paddingTop: '1em' }}>
-        <Text size={'.8rem'}>Copyright © bitShop - All rights reserved</Text>
+        <Text $size={'.8rem'}>Copyright © bitShop - All rights reserved</Text>
       </Row>
     </StyledFooter>
   )
