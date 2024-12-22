@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { ShoppingCart } from 'react-feather'
 
+const Span = styled.span``
+
 const StyledButton = styled.button`
   display: flex;
   align-items: center;
@@ -28,7 +30,7 @@ function ButtonAddToCart({ onAddProductToCart }) {
   return (
     <StyledButton type="submit" onClick={(e) => onAddProductToCart(e)}>
       <ShoppingCart size={20} />
-      Add
+      <Span>Add</Span>
     </StyledButton>
   )
 }
