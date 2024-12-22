@@ -128,23 +128,25 @@ const Form = styled.form`
 `
 
 function NewsletterForm() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState('')
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
     setEmail('')
   }
 
   return (
     <Form onSubmit={(e) => e.preventDefault()}>
-      <Input 
+      <Input
         name="email"
         type="email"
         autoComplete="on"
         onChange={(e) => setEmail(e.target.value)}
         value={email}
       />
-      <Button type="submit" onClick={handleSubmit}>Sing up</Button>
+      <Button type="submit" onClick={handleSubmit}>
+        Sing up
+      </Button>
     </Form>
   )
 }

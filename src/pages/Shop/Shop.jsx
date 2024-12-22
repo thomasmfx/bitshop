@@ -27,8 +27,7 @@ export default function Shop() {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    fetchProducts()
-      .then(data => setProducts(data))
+    fetchProducts().then((data) => setProducts(data))
   }, [])
 
   return (
@@ -36,13 +35,13 @@ export default function Shop() {
       <Header currentRoute="shop" />
       <Main>
         <ProductsContainer>
-          {products.map((product) =>
-            <ProductCard 
-              key={product.id} 
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
               product={product}
-              isNew={(product.id % 5) === 0}
+              isNew={product.id % 5 === 0}
             />
-          )}
+          ))}
         </ProductsContainer>
       </Main>
       <Footer />

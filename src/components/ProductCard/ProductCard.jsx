@@ -12,8 +12,8 @@ const ProductContainer = styled.div`
   box-shadow: lightgray 0px 5px 15px;
   border-radius: 10px;
   cursor: pointer;
-  transition: all .3s ease;
-  
+  transition: all 0.3s ease;
+
   &:hover {
     transform: scale(1.01);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 50px 0px;
@@ -35,7 +35,7 @@ const ProductInfo = styled.div`
   display: grid;
   padding: 1em;
   gap: 1.5em;
-` 
+`
 
 const ProductTitle = styled.p``
 
@@ -57,7 +57,7 @@ const RowWrapper = styled.div`
 `
 
 function ProductCard({ product, isNew }) {
-  const rating = Math.round(product.rating);
+  const rating = Math.round(product.rating)
 
   return (
     <ProductContainer>
@@ -70,11 +70,31 @@ function ProductCard({ product, isNew }) {
         <RowWrapper>
           <ProductPrice> {product.price} </ProductPrice>
           <ProductRating>
-            <Star size={16} color={'orange'} fill={rating >= 1 ? "orange" : 'white'} />
-            <Star size={16} color={'orange'} fill={rating >= 2 ? "orange" : 'white'} />
-            <Star size={16} color={'orange'} fill={rating >= 3 ? "orange" : 'white'} />
-            <Star size={16} color={'orange'} fill={rating >= 4 ? "orange" : 'white'} />
-            <Star size={16} color={'orange'} fill={rating === 5 ? "orange" : 'white'}/>
+            <Star
+              size={16}
+              color={'orange'}
+              fill={rating >= 1 ? 'orange' : 'white'}
+            />
+            <Star
+              size={16}
+              color={'orange'}
+              fill={rating >= 2 ? 'orange' : 'white'}
+            />
+            <Star
+              size={16}
+              color={'orange'}
+              fill={rating >= 3 ? 'orange' : 'white'}
+            />
+            <Star
+              size={16}
+              color={'orange'}
+              fill={rating >= 4 ? 'orange' : 'white'}
+            />
+            <Star
+              size={16}
+              color={'orange'}
+              fill={rating === 5 ? 'orange' : 'white'}
+            />
           </ProductRating>
         </RowWrapper>
         <ProductForm />
@@ -84,8 +104,8 @@ function ProductCard({ product, isNew }) {
 }
 
 ProductCard.propTypes = {
-  products: PropTypes.object,
-  isNew: PropTypes.bool
+  product: PropTypes.object,
+  isNew: PropTypes.bool,
 }
 
 export default ProductCard

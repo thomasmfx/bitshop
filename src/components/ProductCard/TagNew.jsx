@@ -1,7 +1,4 @@
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import { Star, ShoppingCart, Minus, Plus } from 'react-feather'
-import { useState } from 'react'
 
 const StyledTagNew = styled.div`
   display: flex;

@@ -18,18 +18,18 @@ const Input = styled.input`
   height: 100%;
   outline: none;
   text-align: center;
-  font-size: .8rem;
+  font-size: 0.8rem;
 
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-  
-  &[type=number] {
+
+  &[type='number'] {
     -moz-appearance: textfield;
   }
-`;
+`
 
 const Button = styled.button`
   display: flex;
@@ -38,39 +38,41 @@ const Button = styled.button`
   background: none;
   border: 1px solid #ced4da;
   height: 100%;
-  border-radius: ${props => props.$roundRight ? '0 5px 5px 0' : '5px 0 0 5px'};
-  padding: .1em .3em;
+  border-radius: ${(props) =>
+    props.$roundRight ? '0 5px 5px 0' : '5px 0 0 5px'};
+  padding: 0.1em 0.3em;
   cursor: pointer;
 `
-
 
 function ProductQuantity({
   onDecreaseQuantity,
   onIncreaseQuantity,
   onChange,
-  productQuantity
+  productQuantity,
 }) {
   return (
     <StyledProductQuantity>
-      <Button 
-        onClick={(e) => onDecreaseQuantity(e)}
-      > 
+      <Button onClick={(e) => onDecreaseQuantity(e)}>
         <Minus size={15} />
       </Button>
       <Input
-        name='quantity' 
-        type='number' 
+        name="quantity"
+        type="number"
         onChange={(e) => onChange(e)}
-        value={productQuantity} 
+        value={productQuantity}
       />
-      <Button 
-        $roundRight={true} 
-        onClick={(e) => onIncreaseQuantity(e)}
-      > 
+      <Button $roundRight={true} onClick={(e) => onIncreaseQuantity(e)}>
         <Plus size={15} />
       </Button>
     </StyledProductQuantity>
   )
+}
+
+ProductQuantity.propTypes = {
+  onDecreaseQuantity: PropTypes.func.isRequired,
+  onIncreaseQuantity: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+  productQuantity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 }
 
 export default ProductQuantity
