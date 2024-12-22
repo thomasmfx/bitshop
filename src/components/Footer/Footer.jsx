@@ -7,6 +7,7 @@ import googlePayBadge from '../../assets/badges/google-pay.png'
 import masterCardBadge from '../../assets/badges/mastercard.png'
 import payPalBadge from '../../assets/badges/paypal.png'
 import visaBadge from '../../assets/badges/visa.png'
+import { useState } from 'react'
 
 const StyledFooter = styled.footer`
   display: grid;
@@ -97,6 +98,11 @@ const Input = styled.input`
   padding-left: 0.3em;
   padding-right: 0.3em;
   height: 35px;
+
+  &:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -2px;
+  }
 `
 
 const Button = styled.button`
@@ -122,10 +128,23 @@ const Form = styled.form`
 `
 
 function NewsletterForm() {
+  const [email, setEmail] = useState('');
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setEmail('')
+  }
+
   return (
     <Form onSubmit={(e) => e.preventDefault()}>
-      <Input name="email" autoComplete="on" />
-      <Button type="submit">Sing up</Button>
+      <Input 
+        name="email"
+        type="email"
+        autoComplete="on"
+        onChange={(e) => setEmail(e.target.value)}
+        value={email}
+      />
+      <Button type="submit" onClick={handleSubmit}>Sing up</Button>
     </Form>
   )
 }
