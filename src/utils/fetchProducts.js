@@ -1,7 +1,7 @@
 const urls = [
   'https://dummyjson.com/products/category/laptops',
-  'https://dummyjson.com/products/category/smartphones',
   'https://dummyjson.com/products/category/tablets',
+  'https://dummyjson.com/products/category/mobile-accessories',
 ]
 
 async function fetchProducts() {
