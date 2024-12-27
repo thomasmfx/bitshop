@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Home, ShoppingBag, ShoppingCart, User } from 'react-feather'
 import Logo from '../Logo/Logo'
 
@@ -90,7 +90,9 @@ function CartButton({ itemsCount, selected }) {
   )
 }
 
-function Header({ currentRoute = '/', cartProductsCount }) {
+function Header({ cartProductsCount }) {
+  const currentRoute = useLocation().pathname
+
   return (
     <StyledHeader>
       <StyledLink to={'/'}>
@@ -118,7 +120,7 @@ function Header({ currentRoute = '/', cartProductsCount }) {
       </Nav>
       <Link to={'/cart'}>
         <CartButton
-          itemsCount={cartProductsCount < 10 ? cartProductsCount : '9+'}
+          itemsCount={cartProductsCount}
           selected={currentRoute === '/cart'}
         />
       </Link>
@@ -127,15 +129,11 @@ function Header({ currentRoute = '/', cartProductsCount }) {
 }
 
 CartButton.propTypes = {
-  itemsCount: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string, // only for 9+ items
-  ]),
+  itemsCount: PropTypes.number,
   selected: PropTypes.bool,
 }
 
 Header.propTypes = {
-  currentRoute: PropTypes.string,
   cartProductsCount: PropTypes.number,
 }
 

@@ -1,11 +1,10 @@
-import { Outlet, useLocation } from 'react-router-dom'
+import { Outlet } from 'react-router-dom'
 import { useState } from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 
 function App() {
   const [cartProducts, setCartProducts] = useState([])
-  const currentRoute = useLocation().pathname
 
   function handleAddProduct(product, quantity) {
     if (quantity <= 0) return
@@ -19,10 +18,7 @@ function App() {
 
   return (
     <>
-      <Header
-        currentRoute={currentRoute}
-        cartProductsCount={cartProducts.length}
-      />
+      <Header cartProductsCount={cartProducts.length} />
       <Outlet context={cartContext} />
       <Footer />
     </>
