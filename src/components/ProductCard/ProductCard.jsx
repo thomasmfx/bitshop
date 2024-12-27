@@ -56,7 +56,7 @@ const RowWrapper = styled.div`
   justify-content: space-between;
 `
 
-function ProductCard({ product, isNew }) {
+function ProductCard({ product, isNew, onAddProduct }) {
   const rating = Math.round(product.rating)
 
   return (
@@ -97,7 +97,7 @@ function ProductCard({ product, isNew }) {
             />
           </ProductRating>
         </RowWrapper>
-        <ProductForm />
+        <ProductForm product={product} onAddProduct={onAddProduct} />
       </ProductInfo>
     </ProductContainer>
   )
@@ -106,6 +106,7 @@ function ProductCard({ product, isNew }) {
 ProductCard.propTypes = {
   product: PropTypes.object,
   isNew: PropTypes.bool,
+  onAddProduct: PropTypes.func,
 }
 
 export default ProductCard

@@ -6,13 +6,21 @@ import Logo from '../Logo/Logo'
 
 const iconSize = 21
 
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`
+
 const StyledHeader = styled.header`
+  position: fixed;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   justify-items: center;
   align-items: center;
   padding: 1em;
   gap: 1em;
+  background-color: white;
+  z-index: 1;
 `
 
 const Nav = styled.nav`
@@ -82,46 +90,53 @@ function CartButton({ itemsCount, selected }) {
   )
 }
 
-function Header({ currentRoute = '/' }) {
+function Header({ currentRoute = '/', cartProductsCount }) {
   return (
     <StyledHeader>
-      <Link to={'/'} style={{ textDecoration: 'none' }}>
+      <StyledLink to={'/'}>
         <Logo size={'1.8rem'} />
-      </Link>
+      </StyledLink>
       <Nav>
-        <Link to={'/'} style={{ textDecoration: 'none' }}>
+        <StyledLink to={'/'}>
           <Button selected={currentRoute === '/'}>
             <Home size={iconSize} />
             <p>Home</p>
           </Button>
-        </Link>
-        <Link to={'/about-us'} style={{ textDecoration: 'none' }}>
-          <Button selected={currentRoute === 'about-us'}>
+        </StyledLink>
+        <StyledLink to={'/about-us'}>
+          <Button selected={currentRoute === '/about-us'}>
             <User size={iconSize} />
             <p>About Us</p>
           </Button>
-        </Link>
-        <Link to={'/shop'} style={{ textDecoration: 'none' }}>
-          <Button selected={currentRoute === 'shop'}>
+        </StyledLink>
+        <StyledLink to={'/shop'}>
+          <Button selected={currentRoute === '/shop'}>
             <ShoppingBag size={iconSize} />
             <p>Shop</p>
           </Button>
-        </Link>
+        </StyledLink>
       </Nav>
-      <Link to={'/cart'} style={{ textDecoration: 'none' }}>
-        <CartButton itemsCount="0" selected={currentRoute === 'cart'} />
+      <Link to={'/cart'}>
+        <CartButton
+          itemsCount={cartProductsCount < 10 ? cartProductsCount : '9+'}
+          selected={currentRoute === '/cart'}
+        />
       </Link>
     </StyledHeader>
   )
 }
 
 CartButton.propTypes = {
-  itemsCount: PropTypes.string,
+  itemsCount: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string, // only for 9+ items
+  ]),
   selected: PropTypes.bool,
 }
 
 Header.propTypes = {
   currentRoute: PropTypes.string,
+  cartProductsCount: PropTypes.number,
 }
 
 export default Header

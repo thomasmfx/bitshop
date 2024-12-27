@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 import ProductQuantityInput from './ProductQuantity'
 import ButtonAddToCart from './ButtonAddToCart'
+import PropTypes from 'prop-types'
 
 const StyledForm = styled.form`
   align-self: end;
@@ -11,7 +12,7 @@ const StyledForm = styled.form`
   gap: 2em;
 `
 
-function ProductForm() {
+function ProductForm({ product, onAddProduct }) {
   const [quantity, setQuantity] = useState('')
 
   function handleDecreaseQuantity(e) {
@@ -40,6 +41,7 @@ function ProductForm() {
 
   function handleSubmit(e) {
     e.preventDefault()
+    onAddProduct(product, quantity)
     setQuantity('')
   }
 
@@ -54,6 +56,11 @@ function ProductForm() {
       <ButtonAddToCart onAddProductToCart={handleSubmit} />
     </StyledForm>
   )
+}
+
+ProductForm.propTypes = {
+  product: PropTypes.object,
+  onAddProduct: PropTypes.func,
 }
 
 export default ProductForm

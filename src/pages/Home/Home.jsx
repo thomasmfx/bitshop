@@ -1,10 +1,7 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 import { ShoppingBag } from 'react-feather'
 import svgUrl from '../../assets/lazy-man.svg'
-
-import { Link } from 'react-router-dom'
-import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
 
 const Main = styled.main`
   min-height: 100vh;
@@ -13,7 +10,6 @@ const Main = styled.main`
   align-items: center;
   gap: 5em;
   padding: 6em;
-  padding-top: 0;
 `
 
 const Column = styled.div`
@@ -58,7 +54,6 @@ const ShopButton = styled.button`
 export default function Home() {
   return (
     <>
-      <Header currentRoute="/" />
       <Main>
         <Column>
           <Heading>
@@ -75,7 +70,6 @@ export default function Home() {
           <Image src={svgUrl} />
         </Column>
       </Main>
-      <Footer />
     </>
   )
 }

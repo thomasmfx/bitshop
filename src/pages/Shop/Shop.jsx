@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
 import ProductCard from '../../components/ProductCard/ProductCard'
 import fetchProducts from '../../utils/fetchProducts'
+import { useOutletContext } from 'react-router-dom'
 
 const Main = styled.main`
   min-height: 100vh;
@@ -12,7 +11,8 @@ const Main = styled.main`
   align-items: center;
   gap: 5em;
   padding: 6em;
-  padding-bottom: 8em;
+  padding-bottom: 10em;
+  padding-top: 10em;
 `
 
 const ProductsContainer = styled.div`
@@ -25,6 +25,7 @@ const ProductsContainer = styled.div`
 
 export default function Shop() {
   const [products, setProducts] = useState([])
+  const { addProduct } = useOutletContext()
 
   useEffect(() => {
     fetchProducts().then((data) => setProducts(data))
@@ -32,7 +33,6 @@ export default function Shop() {
 
   return (
     <>
-      <Header currentRoute="shop" />
       <Main>
         <ProductsContainer>
           {products.map((product) => (
@@ -40,11 +40,11 @@ export default function Shop() {
               key={product.id}
               product={product}
               isNew={product.id % 5 === 0}
+              onAddProduct={addProduct}
             />
           ))}
         </ProductsContainer>
       </Main>
-      <Footer />
     </>
   )
 }

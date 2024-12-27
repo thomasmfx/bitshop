@@ -2,8 +2,6 @@ import styled from 'styled-components'
 import imageOneUrl from '../../assets/computer-man.svg'
 import imageTwoUrl from '../../assets/lifestyle.svg'
 import imageThreeUrl from '../../assets/team.svg'
-import Header from '../../components/Header/Header'
-import Footer from '../../components/Footer/Footer'
 
 const Main = styled.main`
   justify-self: center;
@@ -15,6 +13,7 @@ const Main = styled.main`
   gap: 2em;
   padding: 5em;
   padding-bottom: 10em;
+  padding-top: 10em;
 `
 
 const Slogan = styled.h1`
@@ -52,7 +51,6 @@ const ListItem = styled.li`
 export default function AboutUs() {
   return (
     <>
-      <Header currentRoute="about-us" />
       <Main>
         <Slogan>Every bit makes difference.</Slogan>
         <Row>
@@ -115,7 +113,6 @@ export default function AboutUs() {
           <Image src={imageThreeUrl} />
         </Row>
       </Main>
-      <Footer />
     </>
   )
 }
