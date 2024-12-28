@@ -54,7 +54,7 @@ const Button = styled.button`
 
   &:disabled {
     cursor: not-allowed;
-    
+
     svg {
       color: var(--color-default);
     }
@@ -66,12 +66,14 @@ function QuantityControl({
   onPlusClick,
   onChange,
   value,
+  minusDisabledValue = '',
+  plusDisabledValue = 99,
 }) {
   return (
     <StyledQuantityControl>
       <Button
         onClick={onMinusClick}
-        disabled={value === ''}
+        disabled={value === minusDisabledValue}
         aria-label="Decrease quantity"
       >
         <Minus size={15} />
@@ -86,7 +88,7 @@ function QuantityControl({
       <Button
         $roundRight={true}
         onClick={onPlusClick}
-        disabled={value === 99}
+        disabled={value === plusDisabledValue}
         aria-label="Increase quantity"
       >
         <Plus size={15} />
@@ -100,6 +102,8 @@ QuantityControl.propTypes = {
   onPlusClick: PropTypes.func,
   onChange: PropTypes.func,
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  minusDisabledValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  plusDisabledValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 }
 
 export default QuantityControl

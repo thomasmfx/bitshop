@@ -4,59 +4,89 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 
 function App() {
-  const [cartProducts, setCartProducts] = useState([])
+  const CART_LIMIT = 99
+  const [cart, setCart] = useState([])
 
-  console.log(cartProducts)
+  function getTotalItems() {
+    return cart.reduce((count, item) => count + item.quantity, 0)
+  }
 
-  function handleAddProduct(newProduct, quantity) {
-    if (quantity <= 0 || quantity === '') return
-    if (!cartProducts.length) {
-      newProduct.quantity = quantity
-      setCartProducts([newProduct])
+  function addToCart(product, quantity) {
+    if (!product?.id || quantity <= 0 || quantity === '') return
+
+    if (!cart.length) {
+      if (quantity > CART_LIMIT) {
+        alert(
+          'This action exceeds the cart limit of 99 items. Please adjust the quantity or complete your current purchase.',
+        )
+        return
+      }
+      setCart([{ ...product, quantity }])
       return
     }
-    if (cartProducts.length === 99) {
+
+    if (getTotalItems() === CART_LIMIT) {
       alert(
         'Cart limit of 99 items reached. Please complete your current purchase to add more items.',
       )
       return
     }
 
-    if (cartProducts.length + quantity > 99) {
+    if (getTotalItems() + quantity > CART_LIMIT) {
       alert(
         'This action exceeds the cart limit of 99 items. Please adjust the quantity or complete your current purchase.',
       )
       return
     }
 
-    const newCart = [];
-
-    cartProducts.map((product) => {
-      if (product.id === newProduct.id) {
-        newProduct.quantity = product.quantity + quantity;
-        newCart.push(newProduct)
-      } else {
-        newCart.push(product)
+    let productExists = false
+    const updatedCart = cart.map((item) => {
+      if (item.id === product.id) {
+        productExists = true
+        return {
+          ...item,
+          quantity: item.quantity + quantity,
+        }
       }
+      return item
     })
-    
-    setCartProducts([...newCart])
+
+    if (!productExists) {
+      updatedCart.push({
+        ...product,
+        quantity,
+      })
+    }
+
+    setCart(updatedCart)
   }
 
-  function getCartProductsCount() {
-    let count = 0;
-    cartProducts.map((product) => count += product.quantity)
-    return count;
+  function decreaseQuantity(product, amount) {
+    if (amount > product.quantity || product.quantity - amount <= 0) return
+
+    const updatedCart = cart.map((item) =>
+      item.id === product.id
+        ? { ...item, quantity: item.quantity - amount }
+        : item,
+    )
+
+    setCart(updatedCart)
+  }
+
+  function removeFromCart(product) {
+    setCart(cart.filter((item) => item.id !== product.id))
   }
 
   const cartContext = {
-    cartProducts,
-    addProduct: handleAddProduct,
+    items: cart,
+    addItem: addToCart,
+    removeItem: removeFromCart,
+    decreaseQuantity,
   }
 
   return (
     <>
-      <Header cartProductsCount={getCartProductsCount()} />
+      <Header cartProductsCount={getTotalItems()} />
       <Outlet context={cartContext} />
       <Footer />
     </>
