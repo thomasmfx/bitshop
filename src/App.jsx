@@ -6,7 +6,15 @@ import Footer from './components/Footer/Footer'
 function App() {
   const [cartProducts, setCartProducts] = useState([])
 
-  function handleAddProduct(product, quantity) {
+  console.log(cartProducts)
+
+  function handleAddProduct(newProduct, quantity) {
+    if (quantity <= 0 || quantity === '') return
+    if (!cartProducts.length) {
+      newProduct.quantity = quantity
+      setCartProducts([newProduct])
+      return
+    }
     if (cartProducts.length === 99) {
       alert(
         'Cart limit of 99 items reached. Please complete your current purchase to add more items.',
@@ -21,8 +29,24 @@ function App() {
       return
     }
 
-    if (quantity <= 0) return
-    setCartProducts((prev) => [...prev, ...Array(quantity).fill(product)])
+    const newCart = [];
+
+    cartProducts.map((product) => {
+      if (product.id === newProduct.id) {
+        newProduct.quantity = product.quantity + quantity;
+        newCart.push(newProduct)
+      } else {
+        newCart.push(product)
+      }
+    })
+    
+    setCartProducts([...newCart])
+  }
+
+  function getCartProductsCount() {
+    let count = 0;
+    cartProducts.map((product) => count += product.quantity)
+    return count;
   }
 
   const cartContext = {
@@ -32,7 +56,7 @@ function App() {
 
   return (
     <>
-      <Header cartProductsCount={cartProducts.length} />
+      <Header cartProductsCount={getCartProductsCount()} />
       <Outlet context={cartContext} />
       <Footer />
     </>
