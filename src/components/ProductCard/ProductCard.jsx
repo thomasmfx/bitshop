@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Star } from 'react-feather'
-import TagNew from './TagNew'
-import ProductForm from './ProductForm/ProductForm'
+import TagNew from '../TagNew/TagNew'
+import ProductForm from '../ProductForm/ProductForm'
 
 const ProductContainer = styled.div`
   width: 256px;

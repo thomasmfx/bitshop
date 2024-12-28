@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 import { useState } from 'react'
-
-import ProductQuantityInput from './ProductQuantity'
-import ButtonAddToCart from './ButtonAddToCart'
+import { ShoppingCart } from 'react-feather'
+import QuantityControl from '../QuantityControl/QuantityControl'
+import ButtonPrimary from '../ButtonPrimary/ButtonPrimary'
 import PropTypes from 'prop-types'
 
 const StyledForm = styled.form`
@@ -21,9 +21,7 @@ function ProductForm({ product, onAddProduct }) {
       setQuantity('')
       return
     }
-    if (quantity === '') {
-      return
-    }
+    if (quantity === '') return
     setQuantity(Number(quantity - 1))
   }
 
@@ -36,7 +34,6 @@ function ProductForm({ product, onAddProduct }) {
   function handleInputChange(e) {
     e.preventDefault()
     setQuantity(Number(e.target.value))
-    console.log(e.target.value)
   }
 
   function handleSubmit(e) {
@@ -47,13 +44,15 @@ function ProductForm({ product, onAddProduct }) {
 
   return (
     <StyledForm>
-      <ProductQuantityInput
-        onDecreaseQuantity={handleDecreaseQuantity}
-        onIncreaseQuantity={handleIncreaseQuantity}
+      <QuantityControl
+        onMinusClick={handleDecreaseQuantity}
+        onPlusClick={handleIncreaseQuantity}
         onChange={handleInputChange}
-        productQuantity={quantity}
+        value={quantity}
       />
-      <ButtonAddToCart onAddProductToCart={handleSubmit} />
+      <ButtonPrimary onClick={handleSubmit} text="Add" type="submit">
+        <ShoppingCart size={20} />
+      </ButtonPrimary>
     </StyledForm>
   )
 }

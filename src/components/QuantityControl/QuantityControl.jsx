@@ -2,11 +2,10 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { Minus, Plus } from 'react-feather'
 
-const StyledProductQuantity = styled.div`
+const StyledQuantityControl = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
   height: 32px;
 `
 
@@ -37,6 +36,7 @@ const Button = styled.button`
   align-items: center;
   background: none;
   border: 1px solid #ced4da;
+  min-width: 28px;
   height: 100%;
   border-radius: ${(props) =>
     props.$roundRight ? '0 5px 5px 0' : '5px 0 0 5px'};
@@ -44,35 +44,42 @@ const Button = styled.button`
   cursor: pointer;
 `
 
-function ProductQuantity({
-  onDecreaseQuantity,
-  onIncreaseQuantity,
+function QuantityControl({
+  onMinusClick,
+  onPlusClick,
   onChange,
-  productQuantity,
+  value,
 }) {
   return (
-    <StyledProductQuantity>
-      <Button onClick={(e) => onDecreaseQuantity(e)}>
-        <Minus size={15} />
+    <StyledQuantityControl>
+      <Button
+        onClick={(e) => onMinusClick(e)}
+        aria-label="Decrease quantity"
+      >
+        <Minus size={15} style={{ opacity: '0.6' }} />
       </Button>
       <Input
         name="quantity"
         type="number"
         onChange={(e) => onChange(e)}
-        value={productQuantity}
+        value={value}
       />
-      <Button $roundRight={true} onClick={(e) => onIncreaseQuantity(e)}>
-        <Plus size={15} />
+      <Button
+        $roundRight={true}
+        onClick={(e) => onPlusClick(e)}
+        aria-label="Increase quantity"
+      >
+        <Plus size={15} style={{ opacity: '0.6' }} />
       </Button>
-    </StyledProductQuantity>
+    </StyledQuantityControl>
   )
 }
 
-ProductQuantity.propTypes = {
-  onDecreaseQuantity: PropTypes.func.isRequired,
-  onIncreaseQuantity: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  productQuantity: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+QuantityControl.propTypes = {
+  onMinusClick: PropTypes.func,
+  onPlusClick: PropTypes.func,
+  onChange: PropTypes.func,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 }
 
-export default ProductQuantity
+export default QuantityControl
