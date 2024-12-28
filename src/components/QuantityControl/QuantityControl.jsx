@@ -19,6 +19,11 @@ const Input = styled.input`
   text-align: center;
   font-size: 0.8rem;
 
+  &:disabled {
+    cursor: not-allowed;
+    background-color: inherit;
+  }
+
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -42,6 +47,18 @@ const Button = styled.button`
     props.$roundRight ? '0 5px 5px 0' : '5px 0 0 5px'};
   padding: 0.1em 0.3em;
   cursor: pointer;
+
+  svg {
+    opacity: 0.6 !important; // override opacity when button is disabled
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    
+    svg {
+      color: var(--color-default);
+    }
+  }
 `
 
 function QuantityControl({
@@ -53,23 +70,26 @@ function QuantityControl({
   return (
     <StyledQuantityControl>
       <Button
-        onClick={(e) => onMinusClick(e)}
+        onClick={onMinusClick}
+        disabled={value === ''}
         aria-label="Decrease quantity"
       >
-        <Minus size={15} style={{ opacity: '0.6' }} />
+        <Minus size={15} />
       </Button>
       <Input
         name="quantity"
         type="number"
-        onChange={(e) => onChange(e)}
+        disabled={!onChange}
+        onChange={onChange}
         value={value}
       />
       <Button
         $roundRight={true}
-        onClick={(e) => onPlusClick(e)}
+        onClick={onPlusClick}
+        disabled={value === 99}
         aria-label="Increase quantity"
       >
-        <Plus size={15} style={{ opacity: '0.6' }} />
+        <Plus size={15} />
       </Button>
     </StyledQuantityControl>
   )
