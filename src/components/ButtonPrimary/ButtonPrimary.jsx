@@ -23,23 +23,4 @@ const Button = styled.button`
   }
 `
 
-const Span = styled.span``
-
-function ButtonPrimary({ text, type, size, children, onClick }) {
-  return (
-    <Button type={type} onClick={onClick} size={size}>
-      {children}
-      <Span>{text}</Span>
-    </Button>
-  )
-}
-
-ButtonPrimary.propTypes = {
-  text: PropTypes.string,
-  type: PropTypes.string,
-  size: PropTypes.string,
-  children: PropTypes.element,
-  onClick: PropTypes.func,
-}
-
-export default ButtonPrimary
+export default Button

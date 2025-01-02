@@ -12,6 +12,8 @@ const StyledForm = styled.form`
   gap: 2em;
 `
 
+const Text = styled.p``
+
 function ProductForm({ product, onAddProduct }) {
   const [quantity, setQuantity] = useState('')
 
@@ -50,8 +52,9 @@ function ProductForm({ product, onAddProduct }) {
         onChange={handleInputChange}
         value={quantity}
       />
-      <ButtonPrimary onClick={handleSubmit} text="Add" type="submit">
+      <ButtonPrimary onClick={handleSubmit} type="submit">
         <ShoppingCart size={20} />
+        <Text> Add </Text>
       </ButtonPrimary>
     </StyledForm>
   )

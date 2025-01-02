@@ -31,6 +31,8 @@ const Heading = styled.h1`
   color: #212529;
 `
 
+const Text = styled.p``
+
 export default function Home() {
   return (
     <>
@@ -40,7 +42,8 @@ export default function Home() {
             Modern life requires smart solutions. We help you find them.
           </Heading>
           <Link to={'/shop'} style={{ textDecoration: 'none' }}>
-            <ButtonPrimary text={'Shop now'} size={'l'}>
+            <ButtonPrimary size={'l'}>
+              <Text> Shop Now </Text>
               <ShoppingBag />
             </ButtonPrimary>
           </Link>
