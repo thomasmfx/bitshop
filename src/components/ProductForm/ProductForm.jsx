@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { useState } from 'react'
 import { ShoppingCart } from 'react-feather'
 import QuantityControl from '../QuantityControl/QuantityControl'
-import ButtonPrimary from '../ButtonPrimary/ButtonPrimary'
+import Button from '../Button/Button'
 import PropTypes from 'prop-types'
 
 const StyledForm = styled.form`
@@ -52,10 +52,10 @@ function ProductForm({ product, onAddProduct }) {
         onChange={handleInputChange}
         value={quantity}
       />
-      <ButtonPrimary onClick={handleSubmit} type="submit">
+      <Button onClick={handleSubmit} type="submit">
         <ShoppingCart size={20} />
         <Text> Add </Text>
-      </ButtonPrimary>
+      </Button>
     </StyledForm>
   )
 }

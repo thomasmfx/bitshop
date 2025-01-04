@@ -12,7 +12,7 @@ const StyledTagNew = styled.div`
   right: 0;
 
   border-radius: 40px;
-  background-color: #188efe;
+  background-color: ${({ theme }) => theme.colors.brandPrimary};
   font-size: 0.7rem;
   font-weight: 600;
   color: white;

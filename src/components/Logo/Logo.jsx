@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const StyledLogo = styled.p`
   font-size: ${(props) => (props.fontSize ? props.fontSize : '2rem')};
   font-weight: bold;
-  color: ${'var(--color-primary)'};
+  color: ${({ theme }) => theme.colors.brandPrimary};
 `
 
 function Logo({ size, removeDot }) {

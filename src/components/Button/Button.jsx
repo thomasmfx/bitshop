@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import PropTypes from 'prop-types'
 
 const Button = styled.button`
   padding: ${(props) => (props.size === 'l' ? '0.5em 1em' : '0.3em 0.5em')};
@@ -10,7 +9,7 @@ const Button = styled.button`
   gap: 0.5em;
   width: 100%;
 
-  background-color: var(--color-primary);
+  background-color: ${({ theme }) => theme.colors.brandPrimary};
   border: none;
   border-radius: 5px;
   color: white;
@@ -19,7 +18,7 @@ const Button = styled.button`
   transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: var(--color-quaternary);
+    background-color: ${({ theme }) => theme.colors.brandSecondary};
   }
 `
 
