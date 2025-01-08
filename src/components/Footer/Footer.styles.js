@@ -1,45 +1,76 @@
 import styled from 'styled-components'
 
 export const Footer = styled.footer`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  justify-items: center;
-  padding: 1.5em 0;
-  gap: 2em;
-  background-color: ${({ theme }) => theme.colors.neutralLight};
-`
-
-export const Row = styled.div`
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: ${(props) => (props.columns ? props.columns : '1fr')};
-  grid-template-rows: 1fr;
-  align-items: center;
-  justify-items: ${(props) => (props.align ? props.align : 'start')};
-  gap: 5em;
-`
-
-export const Column = styled.div`
-  align-self: start;
-  display: grid;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5em;
+  padding: 1.5em 0;
+  background-color: ${({ theme }) => theme.colors.neutralLight};
+  font-size: 1.1rem;
+
+  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
+    font-size: 0.9rem;
+  }
+`
+
+export const SectionsWrapper = styled.div`
+  width: 80%;
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: ${(props) => (props.align ? props.align : 'space-between')};
+  gap: 5em;
+
+  @media (max-width: ${({ theme }) => theme.device.laptop}) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3em;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.tablet}) {
+    column-gap: 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.laptopL}) {
+    column-gap: 1.5em;
+  }
+
+  @media (max-width: 642px) {
+    grid-template-columns: none;
+    grid-template-rows: none;
+    justify-content: center;
+  }
+`
+
+export const Section = styled.section`
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   height: 100%;
 `
 
-export const Title = styled.h2`
+export const ContactSection = styled(Section)``
+export const HelpSection = styled(Section)`
+  @media (min-width: 643px) and (max-width: ${({ theme }) =>
+      theme.device.laptop}) {
+    justify-self: end;
+  }
+`
+export const NewsletterSection = styled(Section)``
+
+export const SectionHeading = styled.h2`
   font-size: 0.9rem;
   font-weight: bold;
+  margin-bottom: 1em;
 `
 
-export const Image = styled.img`
+export const Badge = styled.img`
   width: 64px;
 `
 
 export const Text = styled.p`
-  font-size: ${(props) => (props.$size ? props.$size : '.9rem;')};
+  font-size: 0.9rem;
   max-width: 40ch;
 `
 
@@ -57,9 +88,15 @@ export const Link = styled.a`
 
 export const List = styled.div`
   display: flex;
-  flex-direction: ${(props) => (props.row ? 'row' : 'column')};
+  flex-direction: column;
   align-items: flex-start;
   gap: 0.5em;
+`
+
+export const ListRow = styled(List)`
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 1em;
 `
 
 export const Contact = styled.div`
@@ -78,4 +115,12 @@ export const SocialLink = styled.a`
   &:hover {
     color: ${({ theme }) => theme.colors.brandPrimary};
   }
+`
+
+export const Copyright = styled(Text)`
+  grid-column: 1 / -1;
+  margin-top: 3em;
+  font-size: 0.8rem;
+  width: 100%;
+  text-align: center;
 `
