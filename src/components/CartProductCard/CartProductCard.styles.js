@@ -1,34 +1,60 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const Product = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: min-content 1fr 20px;
+  grid-template-rows: 1fr 1fr;
   gap: 0.5em;
   border: 1px solid lightgray;
   padding: 1em;
   border-radius: 10px;
+  position: relative;
+  width: 100%;
+
+  @media (min-width: ${({ theme }) => theme.device.laptop}) {
+    min-width: 367.906px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileXXL}) {
+    grid-template-rows: min-content min-content min-content;
+  }
 `
 
-export const ProductColumn = styled.div`
+export const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  align-self: ${(props) => props.alignSelf};
+  align-items: ${(props) => props.alignItems};
   justify-content: space-between;
-  flex-basis: 100%;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-`
+  grid-row: -2 / -1;
+  grid-column: 2 / -1;
 
-export const ProductRow = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1em;
+  @media (min-width: ${({ theme }) => theme.device.tablet}) and (max-width: ${({
+      theme,
+    }) => theme.device.laptop}) {
+    justify-content: start;
+    gap: 2em;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
+    margin-top: 2em;
+    grid-row: 3 / -1;
+    grid-column: 1 / -1;
+  }
 `
 
 export const ProductImage = styled.img`
-  width: 124px;
-`
+  min-width: 124px;
+  display: flex;
+  justify-self: center;
+  grid-row: 1 / -1;
+  grid-column: 1 / 2;
 
-export const Text = styled.p``
+  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
+    max-width: 200px;
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+  }
+`
 
 export const ProductPrice = styled.p`
   height: 20px;
@@ -39,6 +65,9 @@ export const ProductPrice = styled.p`
 `
 
 export const RemoveProductButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 5px;
   min-width: 20px;
   align-self: start;
   cursor: pointer;
@@ -46,4 +75,15 @@ export const RemoveProductButton = styled.button`
   background: none;
   border: none;
   opacity: 0.7;
+`
+
+export const ProductName = styled.p`
+  width: 100%;
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+
+  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
+    grid-row: 2 / 3;
+    grid-column: 1 / -1;
+  }
 `
