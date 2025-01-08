@@ -11,7 +11,7 @@ export const Header = styled.header`
   padding: 0.8em;
   gap: 1em;
   background-color: white;
-  z-index: 1;
+  z-index: 2;
   transition: all 0.5s ease-in-out;
 `
 
