@@ -11,12 +11,42 @@ export const StyledCart = styled.main`
   padding-top: 10em;
   width: 70%;
   justify-self: center;
+
+  @media (max-width: ${({ theme }) => theme.device.laptop}) {
+    width: 80%;
+    padding-left: 0;
+    padding-right: 0;
+    grid-template-rows: min-content min-content;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.tablet}) {
+    padding-top: 8em;
+    padding-bottom: 8em;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
+    width: 90%;
+  }
 `
 
 export const Section = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2em;
+`
+
+export const SectionCart = styled(Section)`
+  @media (max-width: ${({ theme }) => theme.device.laptop}) {
+    grid-row: 1 / 2;
+    grid-column: 1 / -1;
+  }
+`
+
+export const SectionResume = styled(Section)`
+  @media (max-width: ${({ theme }) => theme.device.laptop}) {
+    grid-row: 2 / -1;
+    grid-column: 1 / -1;
+  }
 `
 
 export const SectionHeading = styled.h2`

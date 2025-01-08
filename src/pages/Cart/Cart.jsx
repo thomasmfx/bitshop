@@ -17,16 +17,28 @@ export default function Cart() {
 
   return (
     <S.StyledCart>
-      <S.Section>
+      <S.SectionCart>
         <S.SectionHeading>Cart</S.SectionHeading>
-        {items.map((product) => (
-          <CartProductCard product={product}/>
-        ))}
-      </S.Section>
-      <S.Section>
+        {items.length === 0 ? (
+          // TODOOOOOOOOOOOOOO
+          <S.SectionHeading>Empty cart... Shop now {'->'}</S.SectionHeading>
+        ) : (
+          <>
+            {items.map((product) => (
+              <CartProductCard key={product.id} product={product} />
+            ))}
+          </>
+        )}
+      </S.SectionCart>
+      <S.SectionResume>
         <S.SectionHeading>Resume</S.SectionHeading>
-        <CartResume subtotal={subtotal} shipping={shipping} tax={tax} total={total}/>
-      </S.Section>
+        <CartResume
+          subtotal={subtotal}
+          shipping={shipping}
+          tax={tax}
+          total={total}
+        />
+      </S.SectionResume>
     </S.StyledCart>
   )
 }
