@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const ProductContainer = styled.div`
-  width: 256px;
+  min-width: 256px;
   display: grid;
   grid-template-rows: min-content 1fr;
   position: relative;
