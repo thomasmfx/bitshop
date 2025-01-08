@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Form = styled.form`
   display: flex;
   align-self: start;
+  width: 100%;
 `
 
 export const Input = styled.input`
@@ -21,6 +22,9 @@ export const Input = styled.input`
 `
 
 export const Button = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
@@ -35,4 +39,23 @@ export const Button = styled.button`
   &:active {
     filter: brightness(110%);
   }
+
+  // "Send" icon
+  :nth-child(2) {
+    display: none;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
+    width: 40px;
+
+    :nth-child(1) {
+      display: none;
+    }
+
+    :nth-child(2) {
+      display: block;
+    }
+  }
 `
+
+export const Text = styled.p``

@@ -1,3 +1,4 @@
+import { Send } from 'react-feather'
 import { useState } from 'react'
 import * as S from './NewsletterForm.styles'
 
@@ -19,7 +20,8 @@ function NewsletterForm() {
         value={email}
       />
       <S.Button type="submit" onClick={handleSubmit}>
-        Sing up
+        <S.Text>Sing up</S.Text>
+        <Send /> {/* Hide unless its viewed on mobileM */}
       </S.Button>
     </S.Form>
   )
