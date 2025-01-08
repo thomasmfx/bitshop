@@ -8,6 +8,15 @@ const theme = {
     neutralDark: '#4B5563',
     neutralLight: '#e9ecef',
   },
+  device: {
+    mobileS: '320px',
+    mobileM: '375px',
+    mobileL: '425px',
+    tablet: '768px',
+    laptop: '1024px',
+    laptopL: '1440px',
+    desktop: '1500px'
+  }
 }
 
 export default theme
