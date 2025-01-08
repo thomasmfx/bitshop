@@ -14,7 +14,7 @@ export const Main = styled.main`
     gap: 1em;
   }
 
-  @media (max-width: ${({theme}) => theme.device.mobileXXL}) {
+  @media (max-width: ${({ theme }) => theme.device.mobileXXL}) {
     padding-left: 1em;
     padding-right: 1em;
   }
@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   width: 500px;
 
-  @media (max-width: ${({theme}) => theme.device.laptop}) {
+  @media (max-width: ${({ theme }) => theme.device.laptop}) {
     width: 100%;
     align-items: center;
   }
@@ -40,7 +40,7 @@ export const Image = styled.img`
     width: 400px;
   }
 
-  @media (max-width: ${({theme}) => theme.device.laptop}) {
+  @media (max-width: ${({ theme }) => theme.device.laptop}) {
     display: none;
   }
 `
@@ -54,12 +54,12 @@ export const Heading = styled.h1`
     font-size: 2.5rem;
   }
 
-  @media (max-width: ${({theme}) => theme.device.laptop}) {
+  @media (max-width: ${({ theme }) => theme.device.laptop}) {
     text-align: center;
     font-size: 2.5rem;
   }
 
-  @media (max-width: ${({theme}) => theme.device.mobileL}) {
+  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
     font-size: 2rem;
   }
 `
