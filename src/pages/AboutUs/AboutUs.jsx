@@ -7,7 +7,7 @@ export default function AboutUs() {
   return (
     <S.Main>
       <S.Slogan>Every bit makes difference.</S.Slogan>
-      <S.Row>
+      <S.Block>
         <S.Column>
           <S.Paragraph>
             At bitShop, we understand that technology isn&apos;t just about
@@ -23,8 +23,8 @@ export default function AboutUs() {
           </S.Paragraph>
         </S.Column>
         <S.Image src={imageOneUrl} />
-      </S.Row>
-      <S.Row>
+      </S.Block>
+      <S.Block>
         <S.Image src={imageTwoUrl} />
         <S.Column>
           <S.Paragraph style={{ alignSelf: 'flex-start' }}>
@@ -45,8 +45,8 @@ export default function AboutUs() {
             </S.ListItem>
           </S.List>
         </S.Column>
-      </S.Row>
-      <S.Row>
+      </S.Block>
+      <S.Block>
         <S.Column>
           <S.Paragraph>
             Our team is here to help you navigate the world of technology,
@@ -65,7 +65,7 @@ export default function AboutUs() {
           </S.Paragraph>
         </S.Column>
         <S.Image src={imageThreeUrl} />
-      </S.Row>
+      </S.Block>
     </S.Main>
   )
 }
