@@ -12,11 +12,14 @@ const theme = {
     mobileS: '320px',
     mobileM: '375px',
     mobileL: '425px',
+    mobileXL: '500px',
+    mobileXXL: '580px',
     tablet: '768px',
+    tabletL: '800px',
     laptop: '1024px',
     laptopL: '1440px',
-    desktop: '1500px'
-  }
+    desktop: '1500px',
+  },
 }
 
 export default theme
