@@ -1,10 +1,13 @@
-import styled from "styled-components"
+import styled from 'styled-components'
+import Button from '../Button/Button'
 
-export const Column = styled.div`
+export const CartResumeContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2em;
 `
+
+export const Column = styled(CartResumeContainer)``
 
 export const PriceBreakdown = styled.div`
   display: flex;
@@ -31,7 +34,7 @@ export const TextLight = styled(Text)`
 
 export const TotalPrice = styled(PriceWrapper)`
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: 600;
 `
 
 export const Divider = styled.div`
@@ -40,15 +43,17 @@ export const Divider = styled.div`
   background-color: #e5e7eb;
 `
 
+export const SectionBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+`
+
 export const DiscountCouponWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr min-content;
-  grid-template-rows: 1fr 1fr;
-  column-gap: 0.5em;
-
-  & > :first-child {
-    grid-column: 1 / -1;
-  }
+  gap: 1em;
+  width: 100%;
 `
 
 export const CouponInput = styled.input`
@@ -60,9 +65,25 @@ export const CouponInput = styled.input`
   &::placeholder {
     color: #9ca3af;
   }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
+    &::placeholder {
+      color: white;
+    }
+  }
+
+  @media (max-width: 530px) {
+    min-width: 0;
+  }
 `
 
-export const PaymentMethodsWrapper = styled(DiscountCouponWrapper)`
+export const ApplyCouponButton = styled(Button)`
+  max-width: min-content;
+`
+
+export const PaymentMethods = styled.div`
+  display: flex;
+  align-items: center;
   gap: 1em;
 `
 
