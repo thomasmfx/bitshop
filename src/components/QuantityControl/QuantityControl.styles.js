@@ -5,6 +5,12 @@ export const QuantityControl = styled.div`
   justify-content: center;
   align-items: center;
   height: 32px;
+
+  @media (min-width: ${({ theme }) =>
+      theme.device.mobileL}) and (max-width: ${({ theme }) =>
+      theme.device.mobileXL}) {
+    height: 28px;
+  }
 `
 
 export const Input = styled.input`
@@ -30,6 +36,12 @@ export const Input = styled.input`
 
   &[type='number'] {
     -moz-appearance: textfield;
+  }
+
+  @media (min-width: ${({ theme }) =>
+      theme.device.mobileL}) and (max-width: ${({ theme }) =>
+      theme.device.mobileXL}) {
+    width: 28px;
   }
 `
 
