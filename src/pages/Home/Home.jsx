@@ -5,7 +5,7 @@ import * as S from './Home.styles'
 export default function Home() {
   return (
     <S.Main>
-      <S.Column>
+      <S.Wrapper>
         <S.Heading>
           Modern life requires smart solutions. We help you find them.
         </S.Heading>
@@ -15,10 +15,8 @@ export default function Home() {
             <ShoppingBag />
           </S.StyledButton>
         </S.StyledLink>
-      </S.Column>
-      <S.Column>
-        <S.Image src={svgUrl} />
-      </S.Column>
+      </S.Wrapper>
+      <S.Image src={svgUrl} />
     </S.Main>
   )
 }
