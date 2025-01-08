@@ -8,10 +8,11 @@ export const Header = styled.header`
   grid-template-columns: 1fr 2fr 1fr;
   justify-items: center;
   align-items: center;
-  padding: 1em;
+  padding: 0.8em;
   gap: 1em;
   background-color: white;
   z-index: 1;
+  transition: all 0.5s ease-in-out;
 `
 
 export const Nav = styled.nav`
@@ -43,9 +44,20 @@ export const Button = styled.button`
   &:hover {
     color: ${({ theme }) => theme.colors.brandPrimary};
   }
+
+  @media (max-width: ${({ theme }) => theme.device.tabletL}) {
+    border-radius: 50%;
+    padding: 0.7em;
+    width: 46.5px;
+    position: relative;
+
+    > p {
+      display: none;
+    }
+  }
 `
 
-export const CartButton = styled(Button)`
+export const RoundButton = styled(Button)`
   border-radius: 50%;
   padding: 0.7em;
   width: 46.5px;
@@ -73,3 +85,5 @@ export const ItemsCount = styled.div`
 export const Link = styled(RouterLink)`
   text-decoration: none;
 `
+
+export const Text = styled.p``

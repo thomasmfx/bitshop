@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import { Home, ShoppingBag, ShoppingCart, User } from 'react-feather'
 import Logo from '../Logo/Logo'
 import * as S from './Header.styles'
@@ -8,20 +9,33 @@ const iconSize = 21
 
 function CartButton({ itemsCount, selected }) {
   return (
-    <S.CartButton selected={selected}>
+    <S.RoundButton selected={selected}>
       <ShoppingCart
         size={iconSize}
         style={{ transform: 'translate(-7%, 10%)' }}
       />
       <S.ItemsCount>
-        <p>{itemsCount}</p>
+        <S.Text>{itemsCount}</S.Text>
       </S.ItemsCount>
-    </S.CartButton>
+    </S.RoundButton>
   )
 }
 
 function Header({ cartProductsCount }) {
   const currentRoute = useLocation().pathname
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-scroll', '0')
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      document.documentElement.setAttribute('data-scroll', scrollY.toString())
+    }
+
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <S.Header>
@@ -32,19 +46,19 @@ function Header({ cartProductsCount }) {
         <S.Link to={'/'}>
           <S.Button selected={currentRoute === '/'}>
             <Home size={iconSize} />
-            <p>Home</p>
+            <S.Text>Home</S.Text>
           </S.Button>
         </S.Link>
         <S.Link to={'/about-us'}>
           <S.Button selected={currentRoute === '/about-us'}>
             <User size={iconSize} />
-            <p>About Us</p>
+            <S.Text>About Us</S.Text>
           </S.Button>
         </S.Link>
         <S.Link to={'/shop'}>
           <S.Button selected={currentRoute === '/shop'}>
             <ShoppingBag size={iconSize} />
-            <p>Shop</p>
+            <S.Text>Shop</S.Text>
           </S.Button>
         </S.Link>
       </S.Nav>
