@@ -68,8 +68,8 @@ export const ItemsCount = styled.div`
   width: 16.5px;
   height: 16.5px;
   position: absolute;
-  top: 13%;
-  right: 13%;
+  top: 6px;
+  right: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
