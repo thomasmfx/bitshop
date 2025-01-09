@@ -21,16 +21,15 @@ export const Main = styled.main`
     padding-top: 8em;
     padding-bottom: 8em;
   }
-
-  @media (max-width: ${({ theme }) => theme.device.mobileXXL}) {
-    padding-top: 6em;
-    padding-bottom: 6em;
-  }
 `
 
 export const Slogan = styled.h1`
   text-align: center;
   color: ${({ theme }) => theme.colors.brandPrimary};
+
+  @media (max-width: ${({ theme }) => theme.device.laptop}) {
+    padding-bottom: 1em;
+  }
 
   @media (max-width: ${({ theme }) => theme.device.mobileS}) {
     font-size: 1.3rem;
