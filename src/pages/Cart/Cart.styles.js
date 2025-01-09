@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import ButtonPrimary from '../../components/Button/Button'
+import { Link as RouterLink } from 'react-router-dom'
 
 export const StyledCart = styled.main`
   min-height: 100vh;
@@ -57,4 +59,30 @@ export const Column = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2em;
+`
+
+export const EmptyCartDisclaimer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5em;
+`
+
+export const Text = styled.p``
+
+export const TextLight = styled(Text)`
+  color: #4b5563;
+`
+
+export const Link = styled(RouterLink)`
+  text-decoration: none;
+`
+
+export const Button = styled(ButtonPrimary)`
+  background: none;
+  color: ${({theme}) => theme.colors.brandPrimary};
+
+  &:hover {
+    background: none;
+  }
 `

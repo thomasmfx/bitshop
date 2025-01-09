@@ -2,6 +2,7 @@ import { useOutletContext } from 'react-router-dom'
 import CartResume from '../../components/CartResume/CartResume'
 import CartProductCard from '../../components/CartProductCard/CartProductCard'
 import * as S from './Cart.styles'
+import { ArrowRight } from 'react-feather'
 
 export default function Cart() {
   const { items } = useOutletContext()
@@ -20,8 +21,19 @@ export default function Cart() {
       <S.SectionCart>
         <S.SectionHeading>Cart</S.SectionHeading>
         {items.length === 0 ? (
-          // TODOOOOOOOOOOOOOO
-          <S.SectionHeading>Empty cart... Shop now {'->'}</S.SectionHeading>
+          <S.EmptyCartDisclaimer>
+            <S.TextLight>
+              Empty cart
+            </S.TextLight>
+            <S.Link to='/shop'>
+              <S.Button>
+                <S.Text>
+                  Continue shopping
+                </S.Text>
+                <ArrowRight size={20}/>
+              </S.Button>
+            </S.Link>
+          </S.EmptyCartDisclaimer>
         ) : (
           <>
             {items.map((product) => (
