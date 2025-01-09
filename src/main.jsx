@@ -10,6 +10,7 @@ import Home from './pages/Home/Home'
 import AboutUs from './pages/AboutUs/AboutUs'
 import Shop from './pages/Shop/Shop'
 import Cart from './pages/Cart/Cart'
+import ErrorPage from './pages/ErrorPage/ErrorPage'
 
 const routes = [
   {
@@ -21,6 +22,7 @@ const routes = [
       { path: 'shop', element: <Shop /> },
       { path: 'cart', element: <Cart /> },
     ],
+    errorElement: <ErrorPage />
   },
 ]
 
