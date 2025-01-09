@@ -1,8 +1,8 @@
-import { CreditCard, Check } from 'react-feather'
 import PropTypes from 'prop-types'
+import { CreditCard } from 'react-feather'
+import circleCheck from '../../assets/circle-check.svg'
 import Button from '../Button/Button'
 import * as S from './CartResume.styles'
-import circleCheck from '../../assets/circle-check.svg'
 
 function CartResume({ subtotal, shipping, tax, total }) {
   return (
@@ -29,7 +29,7 @@ function CartResume({ subtotal, shipping, tax, total }) {
       <S.SectionBlock>
         <S.Text>Discount Coupon</S.Text>
         <S.DiscountCouponWrapper>
-          <S.CouponInput placeholder="Enter coupon code" name='coupon'/>
+          <S.CouponInput placeholder="Enter coupon code" name="coupon" />
           <S.ApplyCouponButton>Apply</S.ApplyCouponButton>
         </S.DiscountCouponWrapper>
       </S.SectionBlock>

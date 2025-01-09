@@ -23,7 +23,7 @@ const routes = [
       { path: 'shop', element: <Shop /> },
       { path: 'cart', element: <Cart /> },
     ],
-    errorElement: <ErrorPage />
+    errorElement: <ErrorPage />,
   },
 ]
 

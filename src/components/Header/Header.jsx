@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import { useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import { Home, ShoppingBag, ShoppingCart, User } from 'react-feather'
 import Logo from '../Logo/Logo'
 import * as S from './Header.styles'

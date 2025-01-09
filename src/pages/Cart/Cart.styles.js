@@ -65,7 +65,7 @@ export const EmptyCartDisclaimer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: .5em;
+  gap: 0.5em;
 `
 
 export const Text = styled.p``
@@ -80,7 +80,7 @@ export const Link = styled(RouterLink)`
 
 export const Button = styled(ButtonPrimary)`
   background: none;
-  color: ${({theme}) => theme.colors.brandPrimary};
+  color: ${({ theme }) => theme.colors.brandPrimary};
 
   &:hover {
     background: none;

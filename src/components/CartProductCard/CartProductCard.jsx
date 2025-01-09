@@ -1,6 +1,6 @@
-import { X } from 'react-feather'
-import PropTypes from 'prop-types'
 import { useOutletContext } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import { X } from 'react-feather'
 import QuantityControl from '../QuantityControl/QuantityControl'
 import * as S from './CartProductCard.styles'
 

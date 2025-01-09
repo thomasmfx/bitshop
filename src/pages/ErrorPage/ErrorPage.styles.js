@@ -1,6 +1,6 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 import ButtonPrimary from '../../components/Button/Button'
-import { Link as RouterLink }  from "react-router-dom"
+import { Link as RouterLink } from 'react-router-dom'
 
 export const Main = styled.main`
   min-height: 100vh;
@@ -34,13 +34,13 @@ export const Link = styled(RouterLink)`
 
 export const Button = styled(ButtonPrimary)`
   background: none;
-  color: ${({theme}) => theme.colors.brandPrimary};
+  color: ${({ theme }) => theme.colors.brandPrimary};
   padding: 1em 1.5em;
   width: min-content;
   font-size: 2rem;
 
   &:hover {
     background: none;
-    color: ${({theme}) => theme.colors.brandSecondary};
+    color: ${({ theme }) => theme.colors.brandSecondary};
   }
 `

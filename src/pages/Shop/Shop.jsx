@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
-import ProductCard from '../../components/ProductCard/ProductCard'
-import fetchProducts from '../../utils/fetchProducts'
 import { useOutletContext } from 'react-router-dom'
+import fetchProducts from '../../utils/fetchProducts'
+import ProductCard from '../../components/ProductCard/ProductCard'
 import * as S from './Shop.styles'
 
 export default function Shop() {

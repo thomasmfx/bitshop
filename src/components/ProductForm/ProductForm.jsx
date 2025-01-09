@@ -1,9 +1,9 @@
 import styled from 'styled-components'
+import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { ShoppingCart } from 'react-feather'
 import QuantityControl from '../QuantityControl/QuantityControl'
 import Button from '../Button/Button'
-import PropTypes from 'prop-types'
 
 const StyledForm = styled.form`
   align-self: end;

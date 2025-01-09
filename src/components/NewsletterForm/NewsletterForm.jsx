@@ -1,7 +1,6 @@
-import { Send } from 'react-feather'
 import { useState } from 'react'
-import * as S from './NewsletterForm.styles'
 import send from '../../assets/send.svg'
+import * as S from './NewsletterForm.styles'
 
 function NewsletterForm() {
   const [email, setEmail] = useState('')
@@ -22,7 +21,7 @@ function NewsletterForm() {
       />
       <S.Button type="submit" onClick={handleSubmit}>
         <S.Text>Sing up</S.Text>
-        <S.Icon src={send}/> {/* Hide unless its viewed on mobileM */}
+        <S.Icon src={send} /> {/* Hide unless its viewed on mobileM */}
       </S.Button>
     </S.Form>
   )
