@@ -59,3 +59,7 @@ export const Button = styled.button`
 `
 
 export const Text = styled.p``
+
+export const Icon = styled.img`
+  width: 20px;
+`

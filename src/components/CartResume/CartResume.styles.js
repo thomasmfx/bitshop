@@ -92,3 +92,7 @@ export const WrapperFlexRow = styled.div`
   align-items: center;
   gap: 0.5em;
 `
+
+export const Icon = styled.img`
+  width: 22px;
+`

@@ -1,7 +1,8 @@
-import { CreditCard, ArrowRight } from 'react-feather'
+import { CreditCard, Check } from 'react-feather'
 import PropTypes from 'prop-types'
 import Button from '../Button/Button'
 import * as S from './CartResume.styles'
+import circleCheck from '../../assets/circle-check.svg'
 
 function CartResume({ subtotal, shipping, tax, total }) {
   return (
@@ -41,7 +42,7 @@ function CartResume({ subtotal, shipping, tax, total }) {
       </S.SectionBlock>
       <Button size={'l'}>
         <S.Text>Checkout</S.Text>
-        <ArrowRight />
+        <S.Icon src={circleCheck} />
       </Button>
     </S.CartResumeContainer>
   )
