@@ -29,7 +29,7 @@ function CartResume({ subtotal, shipping, tax, total }) {
       <S.SectionBlock>
         <S.Text>Discount Coupon</S.Text>
         <S.DiscountCouponWrapper>
-          <S.CouponInput placeholder="Enter coupon code" />
+          <S.CouponInput placeholder="Enter coupon code" name='coupon'/>
           <S.ApplyCouponButton>Apply</S.ApplyCouponButton>
         </S.DiscountCouponWrapper>
       </S.SectionBlock>
