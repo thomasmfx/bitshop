@@ -86,13 +86,13 @@ function App() {
   }
 
   return (
-    <>
-      <ScrollToTop>
+    <ScrollToTop>
+      <>
         <Header cartProductsCount={getTotalItems()} />
         <Outlet context={cartContext} />
         <Footer />
-      </ScrollToTop>
-    </>
+      </>
+    </ScrollToTop>
   )
 }
 
