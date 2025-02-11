@@ -46,7 +46,7 @@ function ProductForm({ product, onAddProduct }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    onAddProduct(product, quantity)
+    quantity !== '' ? onAddProduct(product, quantity) : onAddProduct(product, 1)
     setQuantity('')
   }
 
