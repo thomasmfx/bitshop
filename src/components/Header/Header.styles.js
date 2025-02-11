@@ -28,6 +28,7 @@ export const Button = styled.button`
   width: 140px;
   padding: 0.4em 0.8em;
   gap: 0.5em;
+  font-weight: 400;
 
   background: ${(props) =>
     props.selected ? ({ theme }) => theme.colors.brandLight : 'none'};
@@ -86,4 +87,7 @@ export const Link = styled(RouterLink)`
   text-decoration: none;
 `
 
-export const Text = styled.p``
+export const Text = styled.p`
+  font-family: Inter;
+  font-weight: 400;
+`
