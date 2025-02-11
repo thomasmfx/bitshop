@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { Star } from 'react-feather'
 import TagNew from '../TagNew/TagNew'
-import ProductForm from '../ProductForm/ProductForm'
+import ProductForm from '../ProductCardForm/ProductCardForm'
 import * as S from './ProductCard.styles'
 
 function ProductCard({ product, isNew, onAddProduct }) {
