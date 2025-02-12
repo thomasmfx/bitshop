@@ -61,24 +61,37 @@ export const CouponInput = styled.input`
   border-radius: 5px;
   height: 40px;
   padding: 0 0.8em;
+  min-width: 0;
 
   &::placeholder {
     color: #9ca3af;
   }
 
-  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
-    &::placeholder {
-      color: white;
-    }
+  &:focus {
+    outline: 2px solid ${({ theme }) => theme.colors.brandPrimary};
+    outline-offset: -2px;
   }
+`
 
-  @media (max-width: 530px) {
-    min-width: 0;
+export const CouponDiscount = styled(Text)`
+  &::after {
+    content: '%';
   }
 `
 
 export const ApplyCouponButton = styled(Button)`
   max-width: min-content;
+`
+
+export const ValidCoupon = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.8rem;
+  color: green;
+`
+export const InvalidCoupon = styled(ValidCoupon)`
+  color: #ef233c;
 `
 
 export const PaymentMethods = styled.div`

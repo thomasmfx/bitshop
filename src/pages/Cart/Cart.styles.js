@@ -14,6 +14,11 @@ export const StyledCart = styled.main`
   width: 70%;
   justify-self: center;
 
+  @media (max-width: ${({ theme }) => theme.device.desktop}) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   @media (max-width: ${({ theme }) => theme.device.laptop}) {
     width: 80%;
     padding-left: 0;
@@ -35,6 +40,7 @@ export const Section = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2em;
+  min-width: 100%;
 `
 
 export const SectionCart = styled(Section)`
