@@ -14,9 +14,7 @@ function CartButton({ itemsCount, selected }) {
         size={iconSize}
         style={{ transform: 'translate(-7%, 10%)' }}
       />
-      <S.ItemsCount>
-        {itemsCount}
-      </S.ItemsCount>
+      <S.ItemsCount>{itemsCount}</S.ItemsCount>
     </S.RoundButton>
   )
 }
