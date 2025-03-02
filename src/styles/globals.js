@@ -1,7 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
-
+  
 const GlobalStyles = createGlobalStyle`
   @charset "UTF-8";
+
+  // Reset
 
   *, *::before, *::after {
     box-sizing: border-box;
@@ -30,8 +32,13 @@ const GlobalStyles = createGlobalStyle`
     font: inherit;
   }
 
-  body {
+  // Styles
+
+  * {
     font-family: Inter;
+  }
+
+  body {
     min-height: 100vh;
     width: 100%;
     display: grid;
