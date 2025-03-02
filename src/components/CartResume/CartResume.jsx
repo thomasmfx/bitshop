@@ -14,7 +14,7 @@ function CartResume({ subtotal, shipping, tax, total }) {
   function handleCouponSubmit() {
     setIsCouponTried(true)
 
-    if (coupon.toLocaleUpperCase() === 'VAICORINTHIANS') {
+    if (coupon.toLocaleUpperCase() === '15OFF') {
       setCouponDiscount(15)
       setIsCouponValid(true)
     } else {
