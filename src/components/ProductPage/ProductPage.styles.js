@@ -18,6 +18,14 @@ export const ProductContainer = styled.div`
   align-items: center;
 `
 
+export const ProductHeader = styled.div`
+  display: grid;
+  grid-template-columns: 5px 1fr;
+  grid-template-rows: 30px;
+  align-items: center;
+  gap: .5em;
+`
+
 export const ProductImage = styled.img`
   grid-row: 1 / -1;
   height: 350px;
@@ -33,7 +41,7 @@ export const ProductInfo = styled.div`
 `
 
 export const ProductTitle = styled.p`
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 500;
 `
 
@@ -158,7 +166,7 @@ export const ReviewerComment = styled(TextLight)`
 `
 
 export const Line = styled.div`
-  height: 30px;
+  min-height: 100%;
   width: 5px;
   background-color: ${({theme}) => theme.colors.neutral};
   margin-right: 10px;

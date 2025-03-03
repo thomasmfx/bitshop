@@ -21,11 +21,13 @@ export default function ProductPage() {
       <S.ProductContainer>
         <S.ProductImage src={product.images[0]} />
         <S.ProductInfo>
-          <S.Wrapper>
+          <S.ProductHeader>
             <S.Line />
-            <S.ProductTitle>{product.title}</S.ProductTitle>
-            {product.id % 5 === 0 && <S.TagNew>New</S.TagNew>}
-          </S.Wrapper>
+            <S.Wrapper>
+              <S.ProductTitle>{product.title}</S.ProductTitle>
+              {product.id % 5 === 0 && <S.TagNew>New</S.TagNew>}
+            </S.Wrapper>
+          </S.ProductHeader>
           <S.ProductDescription>{product.description}</S.ProductDescription>
           <S.ProductPrice> {product.price} </S.ProductPrice>
           <ProductForm product={product} onAddProduct={addItem} size={'L'} defaultQuantity={1}/>
