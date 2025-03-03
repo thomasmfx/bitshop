@@ -24,8 +24,8 @@ const Text = styled.p`
   font-size: ${(props) => (props.size === 'L' ? '1rem' : '')};
 `
 
-function ProductForm({ product, onAddProduct, size}) {
-  const [quantity, setQuantity] = useState('')
+function ProductForm({ product, onAddProduct, defaultQuantity, size}) {
+  const [quantity, setQuantity] = useState(defaultQuantity || '')
 
   function handleDecreaseQuantity(e) {
     e.preventDefault()
@@ -51,7 +51,7 @@ function ProductForm({ product, onAddProduct, size}) {
   function handleSubmit(e) {
     e.preventDefault()
     quantity !== '' ? onAddProduct(product, quantity) : onAddProduct(product, 1)
-    setQuantity('')
+    setQuantity(defaultQuantity || '')
   }
 
   return (
