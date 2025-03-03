@@ -1,29 +1,13 @@
-import { useState, useEffect } from 'react'
-import { useOutletContext } from 'react-router-dom'
-import fetchProducts from '../../utils/fetchProducts'
-import ProductCard from '../../components/ProductCard/ProductCard'
 import * as S from './Shop.styles'
+import { Outlet } from 'react-router-dom'
+import { useOutletContext } from 'react-router-dom'
 
 export default function Shop() {
-  const [products, setProducts] = useState([])
-  const { addItem } = useOutletContext()
-
-  useEffect(() => {
-    fetchProducts().then((data) => setProducts(data))
-  }, [])
+  const context = useOutletContext()
 
   return (
     <S.Main>
-      <S.ProductsContainer>
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            isNew={product.id % 5 === 0}
-            onAddProduct={addItem}
-          />
-        ))}
-      </S.ProductsContainer>
+      <Outlet context={context} />
     </S.Main>
   )
 }

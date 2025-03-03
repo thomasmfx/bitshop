@@ -12,6 +12,7 @@ import AboutUs from './pages/AboutUs/AboutUs'
 import Shop from './pages/Shop/Shop'
 import Cart from './pages/Cart/Cart'
 import ErrorPage from './pages/ErrorPage/ErrorPage'
+import ProductList from './components/ProductList/ProductList'
 
 const routes = [
   {
@@ -20,7 +21,13 @@ const routes = [
     children: [
       { index: true, element: <Home /> },
       { path: 'about-us', element: <AboutUs /> },
-      { path: 'shop', element: <Shop /> },
+      {
+        path: 'shop',
+        element: <Shop />,
+        children: [
+          { index: true, element: <ProductList /> },
+        ],
+      },
       { path: 'cart', element: <Cart /> },
     ],
     errorElement: <ErrorPage />,
