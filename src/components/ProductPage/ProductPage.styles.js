@@ -18,25 +18,26 @@ export const ProductContainer = styled.div`
   align-items: center;
 `
 
+export const ProductImage = styled.img`
+  grid-row: 1 / -1;
+  height: 350px;
+`
+
 export const ProductInfo = styled.div`
   grid-row: 1 / -1;
+  max-width: 40ch;
   display: grid;
-  grid-template-rows: 4fr 1fr 1fr;
+  grid-template-rows: 1fr 3fr 1fr 1fr;
   align-items: center;
   gap: 1em;
 `
 
-export const ImageContainer = styled.div`
-  grid-row: 1 / -1;
-  position: relative;
-`
-
-export const ProductImage = styled.img`
-  height: 350px;
+export const ProductTitle = styled.p`
+  font-size: 1.3rem;
+  font-weight: 500;
 `
 
 export const ProductDescription = styled.p`
-  max-width: 40ch;
   align-self: start;
 `
 
@@ -55,6 +56,7 @@ export const TextLight = styled(Text)`
 
 export const ProductPrice = styled(Text)`
   font-size: 1.2rem;
+  font-weight: 500;
 
   &::before {
     content: '$ '
@@ -85,7 +87,6 @@ export const ReviewsHeader = styled.div`
   display: flex;
   flex-direction: column; 
   width: 100%;
-  padding-left: 2em;
   gap: .5em;
   margin-top: 4em;
 `
@@ -94,6 +95,10 @@ export const ProductRating = styled.div`
   display: flex;
   align-items: center;
   gap: 1em;
+`
+
+export const ProductRatingCaption = styled(TextLight)`
+  font-weight: 600;
 `
 
 export const RatingStars = styled.div`
@@ -128,7 +133,7 @@ export const ReviewerPicture = styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%; 
-  border: 2px solid black;
+  border: 2px solid ${({theme}) => theme.colors.default};
 `
 
 export const ReviewerName = styled(TextBold)`
@@ -144,9 +149,18 @@ export const ReviewerRating = styled.div`
 export const ReviewDate = styled(TextLight)`
   grid-column: 2 / -1;
   font-size: .7rem;
+  font-weight: 500;
 `
 
 export const ReviewerComment = styled(TextLight)`
   grid-column: 2 / -1;
   margin-top: 2em;
+`
+
+export const Line = styled.div`
+  height: 30px;
+  width: 5px;
+  background-color: ${({theme}) => theme.colors.neutral};
+  margin-right: 10px;
+  border-radius: 2px;
 `

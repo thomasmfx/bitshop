@@ -3,7 +3,6 @@ import { Star, User } from 'react-feather'
 import { useOutletContext, useParams } from 'react-router-dom'
 import fetchProduct from '../../utils/fetchProduct'
 import { useState, useEffect } from 'react'
-import TagNew from '../TagNew/TagNew'
 import * as S from './ProductPage.styles'
 
 export default function ProductPage() {
@@ -20,11 +19,13 @@ export default function ProductPage() {
   return (
     <S.Page>
       <S.ProductContainer>
-        <S.ImageContainer>
-          {product.id % 5 === 0 && <TagNew />}
-          <S.ProductImage src={product.images[0]} />
-        </S.ImageContainer>
+        <S.ProductImage src={product.images[0]} />
         <S.ProductInfo>
+          <S.Wrapper>
+            <S.Line />
+            <S.ProductTitle>{product.title}</S.ProductTitle>
+            {product.id % 5 === 0 && <S.TagNew>New</S.TagNew>}
+          </S.Wrapper>
           <S.ProductDescription>{product.description}</S.ProductDescription>
           <S.ProductPrice> {product.price} </S.ProductPrice>
           <ProductForm product={product} onAddProduct={addItem} size={'L'} defaultQuantity={1}/>
@@ -43,7 +44,7 @@ export default function ProductPage() {
               />
             ))}
           </S.RatingStars>
-          <S.TextLight>{product.rating.toFixed(1)}/5</S.TextLight>
+          <S.ProductRatingCaption>{product.rating.toFixed(1)}/5</S.ProductRatingCaption>
         </S.ProductRating>
         <S.TextLight>{product.reviews.length} reviews</S.TextLight>
       </S.ReviewsHeader>
@@ -51,7 +52,7 @@ export default function ProductPage() {
         {product.reviews.map((review, index) => (
           <S.Review key={product.id + index}>
             <S.ReviewerPicture>
-              <User />
+              <User color='#212529'/>
             </S.ReviewerPicture>
             <S.ReviewerName>{review.reviewerName}</S.ReviewerName>
             <S.ReviewerRating>
