@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const ProductContainer = styled.div`
   min-width: 256px;
@@ -50,4 +51,9 @@ export const RowWrapper = styled.div`
   align-self: end;
   display: flex;
   justify-content: space-between;
+`
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `

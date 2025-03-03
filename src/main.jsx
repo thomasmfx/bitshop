@@ -13,6 +13,7 @@ import Shop from './pages/Shop/Shop'
 import Cart from './pages/Cart/Cart'
 import ErrorPage from './pages/ErrorPage/ErrorPage'
 import ProductList from './components/ProductList/ProductList'
+import ProductPage from './components/ProductPage/ProductPage'
 
 const routes = [
   {
@@ -26,6 +27,7 @@ const routes = [
         element: <Shop />,
         children: [
           { index: true, element: <ProductList /> },
+          { path: ':productId', element: <ProductPage /> },
         ],
       },
       { path: 'cart', element: <Cart /> },

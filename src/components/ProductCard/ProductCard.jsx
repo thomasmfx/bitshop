@@ -8,29 +8,31 @@ function ProductCard({ product, isNew, onAddProduct }) {
   const rating = Math.round(product.rating)
 
   return (
-    <S.ProductContainer>
-      {isNew && <TagNew />}
-      <S.ProductImageContainer>
-        <S.Image src={product.images[0]} />
-      </S.ProductImageContainer>
-      <S.ProductInfo>
-        <S.ProductTitle>{product.title}</S.ProductTitle>
-        <S.RowWrapper>
-          <S.ProductPrice>{product.price}</S.ProductPrice>
-          <S.ProductRating>
-            {[1, 2, 3, 4, 5].map((star) => (
-              <Star
-                key={star}
-                size={16}
-                color={'orange'}
-                fill={rating >= star ? 'orange' : 'white'}
-              />
-            ))}
-          </S.ProductRating>
-        </S.RowWrapper>
-        <ProductForm product={product} onAddProduct={onAddProduct} />
-      </S.ProductInfo>
-    </S.ProductContainer>
+    <S.StyledLink to={`/shop/${product.id}`}>
+      <S.ProductContainer>
+        {isNew && <TagNew />}
+        <S.ProductImageContainer>
+          <S.Image src={product.images[0]} />
+        </S.ProductImageContainer>
+        <S.ProductInfo>
+          <S.ProductTitle>{product.title}</S.ProductTitle>
+          <S.RowWrapper>
+            <S.ProductPrice>{product.price}</S.ProductPrice>
+            <S.ProductRating>
+              {[1, 2, 3, 4, 5].map((star) => (
+                <Star
+                  key={star}
+                  size={16}
+                  color={'orange'}
+                  fill={rating >= star ? 'orange' : 'white'}
+                />
+              ))}
+            </S.ProductRating>
+          </S.RowWrapper>
+          <ProductForm product={product} onAddProduct={onAddProduct} />
+        </S.ProductInfo>
+      </S.ProductContainer>
+    </S.StyledLink>
   )
 }
 

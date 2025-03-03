@@ -22,6 +22,8 @@ function CartButton({ itemsCount, selected }) {
 function Header({ cartProductsCount }) {
   const currentRoute = useLocation().pathname
 
+  // Scroll to top on route change
+
   useEffect(() => {
     document.documentElement.setAttribute('data-scroll', '0')
 
@@ -54,7 +56,11 @@ function Header({ cartProductsCount }) {
           </S.Button>
         </S.Link>
         <S.Link to={'/shop'}>
-          <S.Button selected={currentRoute === '/shop'}>
+          {/* Method to work with dynamic segments, i.e. when opening a product page.
+          I'm only checking for '/shop' in the route, excluding the productId */}
+          <S.Button
+            selected={currentRoute.split('').slice(0, 5).join('') === '/shop'}
+          >
             <ShoppingBag size={iconSize} />
             <S.Text>Shop</S.Text>
           </S.Button>
