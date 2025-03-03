@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
 export const QuantityControl = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 32px;
+  display: grid;
+  grid-template-columns: ${(props) => props.size === 'L' ? '40px 70px 40px' : '28px 36px 28px'};
+  grid-template-rows: ${(props) => props.size === 'L' ? '45px' : '32px'};
+  max-width: fit-content;
 
   @media (min-width: ${({ theme }) =>
       theme.device.mobileL}) and (max-width: ${({ theme }) =>
@@ -17,11 +17,10 @@ export const Input = styled.input`
   border: none;
   border-top: 1px solid #ced4da;
   border-bottom: 1px solid #ced4da;
-  width: 36px;
-  height: 100%;
   outline: none;
   text-align: center;
   font-size: 0.8rem;
+  grid-column: 2 / 3;
 
   &:disabled {
     cursor: not-allowed;
@@ -51,8 +50,6 @@ export const Button = styled.button`
   align-items: center;
   background: none;
   border: 1px solid #ced4da;
-  min-width: 28px;
-  height: 100%;
   border-radius: ${(props) =>
     props.$roundRight ? '0 5px 5px 0' : '5px 0 0 5px'};
   padding: 0.1em 0.3em;

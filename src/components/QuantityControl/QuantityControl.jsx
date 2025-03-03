@@ -9,9 +9,10 @@ function QuantityControl({
   value,
   minusDisabledValue = '',
   plusDisabledValue = 99,
+  size
 }) {
   return (
-    <S.QuantityControl>
+    <S.QuantityControl size={size}>
       <S.Button
         onClick={onMinusClick}
         disabled={value === minusDisabledValue}

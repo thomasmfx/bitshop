@@ -7,20 +7,24 @@ import Button from '../Button/Button'
 
 const StyledForm = styled.form`
   align-self: end;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
   gap: 2em;
 `
 
 const StyledButton = styled(Button)`
+  width: ${(props) => (props.size === 'L' ? '150px' : '')};
+  height: 100%;
   align-items: center;
 `
 
 const Text = styled.p`
-  height: 22px;
+  height: ${(props) => (props.size === 'L' ? '' : '22px')};
+  font-size: ${(props) => (props.size === 'L' ? '1rem' : '')};
 `
 
-function ProductForm({ product, onAddProduct }) {
+function ProductForm({ product, onAddProduct, size}) {
   const [quantity, setQuantity] = useState('')
 
   function handleDecreaseQuantity(e) {
@@ -57,10 +61,11 @@ function ProductForm({ product, onAddProduct }) {
         onPlusClick={handleIncreaseQuantity}
         onChange={handleInputChange}
         value={quantity}
+        size={size}
       />
-      <StyledButton onClick={handleSubmit} type="submit">
-        <ShoppingCart size={20} />
-        <Text> Add </Text>
+      <StyledButton onClick={handleSubmit} type="submit" size={size}>
+        {!size && <ShoppingCart size={20} />}
+        <Text size={size}> {size === 'L' ? 'Add to cart' : 'Add'}</Text>
       </StyledButton>
     </StyledForm>
   )
