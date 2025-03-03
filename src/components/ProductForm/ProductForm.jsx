@@ -8,9 +8,9 @@ import Button from '../Button/Button'
 const StyledForm = styled.form`
   align-self: end;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: ${(props) => (props.size === 'L' ? 'min-content min-content' : '1fr 1fr')};
   grid-template-rows: 1fr;
-  gap: 2em;
+  gap: ${(props) => (props.size === 'L' ? '3em' : '2em')};
 `
 
 const StyledButton = styled(Button)`
@@ -55,11 +55,12 @@ function ProductForm({ product, onAddProduct, defaultQuantity, size}) {
   }
 
   return (
-    <StyledForm>
+    <StyledForm size={size}>
       <QuantityControl
         onMinusClick={handleDecreaseQuantity}
         onPlusClick={handleIncreaseQuantity}
         onChange={handleInputChange}
+        minusDisabledValue={defaultQuantity}
         value={quantity}
         size={size}
       />

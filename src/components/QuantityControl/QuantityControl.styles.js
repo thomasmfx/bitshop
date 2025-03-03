@@ -19,7 +19,7 @@ export const Input = styled.input`
   border-bottom: 1px solid #ced4da;
   outline: none;
   text-align: center;
-  font-size: 0.8rem;
+  font-size: ${(props) => props.size === 'L' ? '1rem' : '.8rem'};
   grid-column: 2 / 3;
 
   &:disabled {

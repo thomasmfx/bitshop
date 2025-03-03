@@ -27,6 +27,7 @@ function QuantityControl({
         onChange={onChange}
         value={value}
         onClick={(e) => e.preventDefault()}
+        size={size}
       />
       <S.Button
         $roundRight={true}
