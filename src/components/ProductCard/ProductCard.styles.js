@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const ProductContainer = styled.div`
   min-width: 256px;
+  height: 435px;
   display: grid;
   grid-template-rows: min-content 1fr;
   position: relative;
@@ -30,6 +31,7 @@ export const Image = styled.img`
 
 export const ProductInfo = styled.div`
   display: grid;
+  grid-template-rows: 1fr min-content min-content;
   padding: 1em;
   gap: 1.5em;
 `
