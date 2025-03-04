@@ -4,6 +4,7 @@ import { useOutletContext, useParams } from 'react-router-dom'
 import fetchProduct from '../../utils/fetchProduct'
 import { useState, useEffect } from 'react'
 import ProductTag from '../ProductTag/ProductTag'
+import DotsLoader from '../Loaders/DotsLoader'
 import * as S from './ProductPage.styles'
 
 export default function ProductPage() {
@@ -15,7 +16,7 @@ export default function ProductPage() {
     fetchProduct(productId).then(setProduct)
   }, [productId])
 
-  if (!product) return <p>Loading...</p>
+  if (!product) return <DotsLoader />
 
   return (
     <S.Page>

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useOutletContext } from 'react-router-dom'
 import fetchProducts from '../../utils/fetchProducts'
 import ProductCard from '../ProductCard/ProductCard'
+import ProductCardLoader from '../Loaders/ProductCardLoader'
 import * as S from './ProductList.styles'
 
 export default function ProductList() {
@@ -11,6 +12,17 @@ export default function ProductList() {
   useEffect(() => {
     fetchProducts().then(setProducts)
   }, [])
+
+  if (!products.length) return (
+    <S.ProductsContainer>
+      <ProductCardLoader />
+      <ProductCardLoader />
+      <ProductCardLoader />
+      <ProductCardLoader />
+      <ProductCardLoader />
+      <ProductCardLoader />
+    </S.ProductsContainer>
+  )
 
   return (
     <S.ProductsContainer>
