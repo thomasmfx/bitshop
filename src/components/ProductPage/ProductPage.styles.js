@@ -1,5 +1,30 @@
 import styled from 'styled-components'
 
+export const Main = styled.main`
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5em;
+  padding: 6em;
+  padding-bottom: 10em;
+  padding-top: 10em;
+
+  @media (max-width: ${({ theme }) => theme.device.laptop}) {
+    padding-top: 5em;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.tabletL}) {
+    padding-left: 2em;
+    padding-right: 2em;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+`
+
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -19,12 +44,23 @@ export const Page = styled.div`
   gap: 2em;
   align-self: start;
   padding-top: 2em;
+
+  @media (max-width: ${({ theme }) => theme.device.laptop}) {
+    padding-top: 0;
+  }
 `
 
 export const ProductContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: 3em;
+
+  @media (max-width: ${({ theme }) => theme.device.laptop}) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5em;
+  }
 `
 
 export const ProductHeader = styled.div`
@@ -87,6 +123,10 @@ export const ProductPrice = styled(Text)`
 
   &::before {
     content: '$ ';
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.laptop}) {
+    padding-top: 2em;
   }
 `
 

@@ -22,7 +22,7 @@ function ProductTag({ tagName }) {
 }
 
 ProductTag.propTypes = {
-  tagName: PropTypes.string
+  tagName: PropTypes.string,
 }
 
 export default ProductTag

@@ -15,26 +15,30 @@ export default function ProductList() {
 
   if (!products.length)
     return (
-      <S.ProductsContainer>
-        <ProductCardLoader />
-        <ProductCardLoader />
-        <ProductCardLoader />
-        <ProductCardLoader />
-        <ProductCardLoader />
-        <ProductCardLoader />
-      </S.ProductsContainer>
+      <S.Main>
+        <S.ProductsContainer>
+          <ProductCardLoader />
+          <ProductCardLoader />
+          <ProductCardLoader />
+          <ProductCardLoader />
+          <ProductCardLoader />
+          <ProductCardLoader />
+        </S.ProductsContainer>
+      </S.Main>
     )
 
   return (
-    <S.ProductsContainer>
-      {products.map((product) => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          isNew={product.id % 5 === 0}
-          onAddProduct={addItem}
-        />
-      ))}
-    </S.ProductsContainer>
+    <S.Main>
+      <S.ProductsContainer>
+        {products.map((product) => (
+          <ProductCard
+            key={product.id}
+            product={product}
+            isNew={product.id % 5 === 0}
+            onAddProduct={addItem}
+          />
+        ))}
+      </S.ProductsContainer>
+    </S.Main>
   )
 }

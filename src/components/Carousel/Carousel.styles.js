@@ -5,6 +5,20 @@ export const CarouselContainer = styled.div`
   width: 400px;
   flex-direction: column;
   grid-row: -1 / 1;
+
+  @media (max-width: ${({ theme }) => theme.device.mobileXL}) {
+    width: 300px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.device.mobileL}) {
+    width: 350px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.device.tablet}) and (max-width: ${({
+      theme,
+    }) => theme.device.laptop}) {
+    min-width: 500px;
+  }
 `
 
 export const CarouselWrapper = styled.div`
@@ -28,9 +42,23 @@ export const CarouselContent = styled.div`
   }
 
   & > * {
-    min-height: 400px;
+    height: 300px;
     flex-shrink: 0;
     flex-grow: 1;
+
+    @media (min-width: ${({ theme }) => theme.device.mobileXL}) {
+      min-height: 400px;
+    }
+
+    @media (min-width: ${({ theme }) => theme.device.mobileL}) {
+      min-height: 350px;
+    }
+
+    @media (max-width: ${({ theme }) =>
+        theme.device.laptop}) and (min-width: ${({ theme }) =>
+        theme.device.tablet}) {
+      min-height: 500px;
+    }
   }
 `
 
@@ -74,6 +102,10 @@ export const DotsWrapper = styled.div`
   display: flex;
   justify-content: center;
   gap: 1em;
+
+  @media (max-width: ${({ theme }) => theme.device.mobileXL}) {
+    bottom: 0;
+  }
 `
 
 export const Dot = styled.div`

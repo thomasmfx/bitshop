@@ -65,5 +65,5 @@ export default function Carousel({ children }) {
 }
 
 Carousel.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 }

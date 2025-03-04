@@ -54,7 +54,7 @@ function ToastCardNotification({ text, children }) {
 
 ToastCardNotification.propTypes = {
   text: PropTypes.string,
-  children: PropTypes.node
+  children: PropTypes.node,
 }
 
 export default ToastCardNotification

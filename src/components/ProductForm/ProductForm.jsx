@@ -11,11 +11,24 @@ const StyledForm = styled.form`
     props.size === 'L' ? 'min-content min-content' : '1fr 1fr'};
   grid-template-rows: 1fr;
   gap: ${(props) => (props.size === 'L' ? '3em' : '2em')};
+
+  @media (max-width: ${({ theme }) => theme.device.laptop}) and (min-width: ${({
+      theme,
+    }) => theme.device.mobileL}) {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
 `
 
 const StyledButton = styled(Button)`
-  width: ${(props) => (props.size === 'L' ? '150px' : '')};
-  height: 100%;
+  width: ${(props) => (props.size === 'L' ? '150px' : '100%')};
+  height: 45px;
   align-items: center;
 `
 
@@ -79,7 +92,7 @@ ProductForm.propTypes = {
 
 ProductForm.propTypes = {
   defaultQuantity: PropTypes.number,
-  size: PropTypes.string
+  size: PropTypes.string,
 }
 
 export default ProductForm
