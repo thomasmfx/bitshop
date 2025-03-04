@@ -8,25 +8,34 @@ function CartProductCard({ product }) {
   const { addItem, decreaseQuantity, removeItem } = useOutletContext()
 
   return (
-    <S.Product key={product.id}>
-      <S.ProductImage src={product.images[0]} />
-      <S.ProductName>{product.title}</S.ProductName>
-      <S.Wrapper alignSelf="end" alignItems="center">
-        <QuantityControl
-          value={product.quantity}
-          onMinusClick={() =>
-            product.quantity === 1
+    <S.StyledLink to={`/shop/${product.id}`}>
+      <S.Product key={product.id}>
+        <S.ProductImage src={product.images[0]} />
+        <S.ProductName>{product.title}</S.ProductName>
+        <S.Wrapper alignSelf="end" alignItems="center">
+          <QuantityControl
+            value={product.quantity}
+            onMinusClick={(e) => {
+              product.quantity === 1
               ? removeItem(product)
               : decreaseQuantity(product, 1)
-          }
-          onPlusClick={() => addItem(product, 1)}
-        />
-        <S.ProductPrice>{product.price}</S.ProductPrice>
-      </S.Wrapper>
-      <S.RemoveProductButton onClick={() => removeItem(product)}>
-        <X size={15} color="#A5AAB5" />
-      </S.RemoveProductButton>
-    </S.Product>
+              e.preventDefault()
+            }}
+              onPlusClick={(e) => {
+                addItem(product, 1)
+                e.preventDefault()
+              }}
+              />
+          <S.ProductPrice>{product.price}</S.ProductPrice>
+        </S.Wrapper>
+        <S.RemoveProductButton onClick={(e) => {
+          removeItem(product) 
+          e.preventDefault()
+        }}>
+          <X size={15} color="#A5AAB5" />
+        </S.RemoveProductButton>
+      </S.Product>
+    </S.StyledLink>
   )
 }
 

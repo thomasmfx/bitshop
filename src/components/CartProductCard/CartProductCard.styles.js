@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 export const Product = styled.div`
   display: grid;
@@ -86,4 +87,9 @@ export const ProductName = styled.p`
     grid-row: 2 / 3;
     grid-column: 1 / -1;
   }
+`
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
 `
