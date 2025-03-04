@@ -4,16 +4,15 @@ export const CarouselContainer = styled.div`
   display: flex;
   width: 400px;
   flex-direction: column;
+  grid-row: -1 / 1;
 `
 
 export const CarouselWrapper = styled.div`
-  width: 400px;
   display: flex;
   position: relative;
 `
 
 export const CarouselContentWrapper = styled.div`
-  width: 400px;
   overflow: hidden;
   height: 100%;
 `
@@ -29,8 +28,7 @@ export const CarouselContent = styled.div`
   }
 
   & > * {
-    width: 100%;
-    height: 400px;
+    min-height: 400px;
     flex-shrink: 0;
     flex-grow: 1;
   }

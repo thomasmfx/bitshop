@@ -34,10 +34,6 @@ export const ProductHeader = styled.div`
   gap: 0.5em;
 `
 
-export const ProductImages = styled.div`
-  grid-row: 1 / -1;
-`
-
 export const ProductImage = styled.img`
   height: 350px;
 `

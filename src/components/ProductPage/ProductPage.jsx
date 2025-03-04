@@ -22,13 +22,11 @@ export default function ProductPage() {
   return (
     <S.Page>
       <S.ProductContainer>
-        <S.ProductImages>
-          <Carousel>
-            {product.images.map((image, i) => (
-              <S.ProductImage key={product.id + i} src={image} />
-            ))}
-          </Carousel>
-        </S.ProductImages>
+        <Carousel>
+          {product.images.map((image, i) => (
+            <S.ProductImage key={product.id + i} src={image} />
+          ))}
+        </Carousel>
         <S.ProductInfo>
           <S.ProductHeader>
             <S.Line />
