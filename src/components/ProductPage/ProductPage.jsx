@@ -3,6 +3,7 @@ import { Star, User } from 'react-feather'
 import { useOutletContext, useParams } from 'react-router-dom'
 import fetchProduct from '../../utils/fetchProduct'
 import { useState, useEffect } from 'react'
+import ProductTag from '../ProductTag/ProductTag'
 import * as S from './ProductPage.styles'
 
 export default function ProductPage() {
@@ -28,7 +29,14 @@ export default function ProductPage() {
               {product.id % 5 === 0 && <S.TagNew>New</S.TagNew>}
             </S.Wrapper>
           </S.ProductHeader>
-          <S.ProductDescription>{product.description}</S.ProductDescription>
+          <S.DescriptionContainer direction={'column'}>
+            <S.ProductDescription>{product.description}</S.ProductDescription>
+            <S.TagsWrapper>
+              {product.tags.map((tag) => (
+                <ProductTag key={tag} tagName={tag}/>
+              ))}
+            </S.TagsWrapper>
+          </S.DescriptionContainer>
           <S.ProductPrice> {product.price} </S.ProductPrice>
           <ProductForm product={product} onAddProduct={addItem} size={'L'} defaultQuantity={1}/>
         </S.ProductInfo>

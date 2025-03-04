@@ -1,5 +1,10 @@
 import styled from 'styled-components'
 
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 export const Page = styled.div`
   display: flex;
   flex-direction: column;
@@ -7,7 +12,7 @@ export const Page = styled.div`
   align-items: center;
   gap: 4em;
   align-self: start;
-  padding-top: 4em;
+  padding-top: 2em;
 `
 
 export const ProductContainer = styled.div`
@@ -45,8 +50,19 @@ export const ProductTitle = styled.p`
   font-weight: 500;
 `
 
+export const DescriptionContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: .5em;
+  margin-bottom: 1em;
+`
+
 export const ProductDescription = styled.p`
   align-self: start;
+`
+
+export const TagsWrapper = styled(Wrapper)`
+  gap: .5em;
 `
 
 export const Text = styled.p`
@@ -69,11 +85,6 @@ export const ProductPrice = styled(Text)`
   &::before {
     content: '$ '
   }
-`
-
-export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
 `
 
 export const TagNew = styled.div`
