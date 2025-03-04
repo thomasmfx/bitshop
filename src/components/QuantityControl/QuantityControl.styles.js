@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 export const QuantityControl = styled.div`
   display: grid;
-  grid-template-columns: ${(props) => props.size === 'L' ? '40px 70px 40px' : '28px 36px 28px'};
-  grid-template-rows: ${(props) => props.size === 'L' ? '45px' : '32px'};
+  grid-template-columns: ${(props) =>
+    props.size === 'L' ? '40px 70px 40px' : '28px 36px 28px'};
+  grid-template-rows: ${(props) => (props.size === 'L' ? '45px' : '32px')};
   max-width: fit-content;
 
   @media (min-width: ${({ theme }) =>
@@ -19,7 +20,7 @@ export const Input = styled.input`
   border-bottom: 1px solid #ced4da;
   outline: none;
   text-align: center;
-  font-size: ${(props) => props.size === 'L' ? '1rem' : '.8rem'};
+  font-size: ${(props) => (props.size === 'L' ? '1rem' : '.8rem')};
   grid-column: 2 / 3;
 
   &:disabled {

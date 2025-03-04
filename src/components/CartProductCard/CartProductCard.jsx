@@ -17,21 +17,23 @@ function CartProductCard({ product }) {
             value={product.quantity}
             onMinusClick={(e) => {
               product.quantity === 1
-              ? removeItem(product)
-              : decreaseQuantity(product, 1)
+                ? removeItem(product)
+                : decreaseQuantity(product, 1)
               e.preventDefault()
             }}
-              onPlusClick={(e) => {
-                addItem(product, 1)
-                e.preventDefault()
-              }}
-              />
+            onPlusClick={(e) => {
+              addItem(product, 1)
+              e.preventDefault()
+            }}
+          />
           <S.ProductPrice>{product.price}</S.ProductPrice>
         </S.Wrapper>
-        <S.RemoveProductButton onClick={(e) => {
-          removeItem(product) 
-          e.preventDefault()
-        }}>
+        <S.RemoveProductButton
+          onClick={(e) => {
+            removeItem(product)
+            e.preventDefault()
+          }}
+        >
           <X size={15} color="#A5AAB5" />
         </S.RemoveProductButton>
       </S.Product>

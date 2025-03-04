@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
-  
+
 const GlobalStyles = createGlobalStyle`
   @charset "UTF-8";
 

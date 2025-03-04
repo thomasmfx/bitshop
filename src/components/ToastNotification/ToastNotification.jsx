@@ -1,10 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components'
+import PropTypes from 'prop-types'
 
 const ToastCard = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .5em;
+  gap: 0.5em;
   width: fit-content;
   height: 60px;
   padding-inline: 1em;
@@ -13,9 +14,9 @@ const ToastCard = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  margin-inline: auto; 
+  margin-inline: auto;
   border-radius: 10px;
-  background-color: #FFF;
+  background-color: #fff;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   z-index: 2;
   animation: 3500ms dropdown;
@@ -39,16 +40,21 @@ const ToastCard = styled.div`
 `
 
 const Text = styled.p`
-  color: ${({theme}) => theme.colors.default};
+  color: ${({ theme }) => theme.colors.default};
 `
 
-function ToastCardNotification({text, children}) {
+function ToastCardNotification({ text, children }) {
   return (
     <ToastCard>
       {children}
       <Text>{text}</Text>
     </ToastCard>
   )
+}
+
+ToastCardNotification.propTypes = {
+  text: PropTypes.string,
+  children: PropTypes.node
 }
 
 export default ToastCardNotification

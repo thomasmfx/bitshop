@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'react-feather'
+import PropTypes from 'prop-types'
 import * as S from './Carousel.styles'
 
 const ARROW_SIZE = 32
@@ -61,4 +62,8 @@ export default function Carousel({ children }) {
       </S.CarouselWrapper>
     </S.CarouselContainer>
   )
+}
+
+Carousel.propTypes = {
+  children: PropTypes.node
 }

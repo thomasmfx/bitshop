@@ -16,7 +16,7 @@ function App() {
     if (wasItemAdded) {
       setTimeout(() => {
         setWasItemAdded(false)
-      }, 3501) // animation duration + 1ms delay 
+      }, 3501) // animation duration + 1ms delay
     }
   }, [wasItemAdded])
 
@@ -24,7 +24,7 @@ function App() {
     if (wasItemRemoved) {
       setTimeout(() => {
         setWasItemRemoved(false)
-      }, 3501) // animation duration + 1ms delay 
+      }, 3501) // animation duration + 1ms delay
     }
   }, [wasItemRemoved])
 
@@ -113,12 +113,12 @@ function App() {
         <Header cartProductsCount={getTotalItems()} />
         {wasItemAdded && (
           <ToastNotification text={'Added to cart'}>
-            <Check color='#38b000'/>
+            <Check color="#38b000" />
           </ToastNotification>
         )}
         {wasItemRemoved && (
           <ToastNotification text={'Removed from cart'}>
-            <X color='#ef233c'/>
+            <X color="#ef233c" />
           </ToastNotification>
         )}
         <Outlet context={cartContext} />

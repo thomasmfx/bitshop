@@ -6,9 +6,9 @@ import QuantityControl from '../QuantityControl/QuantityControl'
 import Button from '../Button/Button'
 
 const StyledForm = styled.form`
-  align-self: end;
   display: grid;
-  grid-template-columns: ${(props) => (props.size === 'L' ? 'min-content min-content' : '1fr 1fr')};
+  grid-template-columns: ${(props) =>
+    props.size === 'L' ? 'min-content min-content' : '1fr 1fr'};
   grid-template-rows: 1fr;
   gap: ${(props) => (props.size === 'L' ? '3em' : '2em')};
 `
@@ -24,7 +24,7 @@ const Text = styled.p`
   font-size: ${(props) => (props.size === 'L' ? '1rem' : '')};
 `
 
-function ProductForm({ product, onAddProduct, defaultQuantity, size}) {
+function ProductForm({ product, onAddProduct, defaultQuantity, size }) {
   const [quantity, setQuantity] = useState(defaultQuantity || '')
 
   function handleDecreaseQuantity(e) {
@@ -75,6 +75,11 @@ function ProductForm({ product, onAddProduct, defaultQuantity, size}) {
 ProductForm.propTypes = {
   product: PropTypes.object,
   onAddProduct: PropTypes.func,
+}
+
+ProductForm.propTypes = {
+  defaultQuantity: PropTypes.number,
+  size: PropTypes.string
 }
 
 export default ProductForm

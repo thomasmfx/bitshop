@@ -9,7 +9,7 @@ function QuantityControl({
   value,
   minusDisabledValue = '',
   plusDisabledValue = 99,
-  size
+  size,
 }) {
   return (
     <S.QuantityControl size={size}>
@@ -48,6 +48,7 @@ QuantityControl.propTypes = {
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   minusDisabledValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   plusDisabledValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  size: PropTypes.string
 }
 
 export default QuantityControl

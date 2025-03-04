@@ -13,16 +13,17 @@ export default function ProductList() {
     fetchProducts().then(setProducts)
   }, [])
 
-  if (!products.length) return (
-    <S.ProductsContainer>
-      <ProductCardLoader />
-      <ProductCardLoader />
-      <ProductCardLoader />
-      <ProductCardLoader />
-      <ProductCardLoader />
-      <ProductCardLoader />
-    </S.ProductsContainer>
-  )
+  if (!products.length)
+    return (
+      <S.ProductsContainer>
+        <ProductCardLoader />
+        <ProductCardLoader />
+        <ProductCardLoader />
+        <ProductCardLoader />
+        <ProductCardLoader />
+        <ProductCardLoader />
+      </S.ProductsContainer>
+    )
 
   return (
     <S.ProductsContainer>
