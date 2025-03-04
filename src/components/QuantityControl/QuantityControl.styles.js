@@ -37,12 +37,6 @@ export const Input = styled.input`
   &[type='number'] {
     -moz-appearance: textfield;
   }
-
-  @media (min-width: ${({ theme }) =>
-      theme.device.mobileL}) and (max-width: ${({ theme }) =>
-      theme.device.mobileXL}) {
-    width: 28px;
-  }
 `
 
 export const Button = styled.button`
