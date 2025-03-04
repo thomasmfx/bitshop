@@ -5,12 +5,13 @@ import fetchProduct from '../../utils/fetchProduct'
 import { useState, useEffect } from 'react'
 import ProductTag from '../ProductTag/ProductTag'
 import DotsLoader from '../Loaders/DotsLoader'
+import Carousel from '../Carousel/Carousel'
 import * as S from './ProductPage.styles'
 
 export default function ProductPage() {
   const { productId } = useParams()
   const [product, setProduct] = useState(null)
-  const { addItem } = useOutletContext();
+  const { addItem } = useOutletContext()
 
   useEffect(() => {
     fetchProduct(productId).then(setProduct)
@@ -21,7 +22,13 @@ export default function ProductPage() {
   return (
     <S.Page>
       <S.ProductContainer>
-        <S.ProductImage src={product.images[0]} />
+        <S.ProductImages>
+          <Carousel>
+            {product.images.map((image, i) => (
+              <S.ProductImage key={product.id + i} src={image} />
+            ))}
+          </Carousel>
+        </S.ProductImages>
         <S.ProductInfo>
           <S.ProductHeader>
             <S.Line />
@@ -34,12 +41,19 @@ export default function ProductPage() {
             <S.ProductDescription>{product.description}</S.ProductDescription>
             <S.TagsWrapper>
               {product.tags.map((tag) => (
-                <ProductTag key={tag} tagName={tag}/>
+                <ProductTag key={tag} tagName={tag} />
               ))}
             </S.TagsWrapper>
           </S.DescriptionContainer>
-          <S.ProductPrice> {product.price} </S.ProductPrice>
-          <ProductForm product={product} onAddProduct={addItem} size={'L'} defaultQuantity={1}/>
+          <S.WrapperColumn>
+            <S.ProductPrice> {product.price} </S.ProductPrice>
+            <ProductForm
+              product={product}
+              onAddProduct={addItem}
+              size={'L'}
+              defaultQuantity={1}
+            />
+          </S.WrapperColumn>
         </S.ProductInfo>
       </S.ProductContainer>
       <S.ReviewsHeader>
@@ -48,14 +62,16 @@ export default function ProductPage() {
           <S.RatingStars>
             {[1, 2, 3, 4, 5].map((star) => (
               <Star
-              key={star}
-              size={20}
-              color={'orange'}
-              fill={product.rating >= star ? 'orange' : 'white'}
+                key={star}
+                size={20}
+                color={'orange'}
+                fill={product.rating >= star ? 'orange' : 'white'}
               />
             ))}
           </S.RatingStars>
-          <S.ProductRatingCaption>{product.rating.toFixed(1)}/5</S.ProductRatingCaption>
+          <S.ProductRatingCaption>
+            {product.rating.toFixed(1)}/5
+          </S.ProductRatingCaption>
         </S.ProductRating>
         <S.TextLight>{product.reviews.length} reviews</S.TextLight>
       </S.ReviewsHeader>
@@ -63,16 +79,16 @@ export default function ProductPage() {
         {product.reviews.map((review, index) => (
           <S.Review key={product.id + index}>
             <S.ReviewerPicture>
-              <User color='#212529'/>
+              <User color="#212529" />
             </S.ReviewerPicture>
             <S.ReviewerName>{review.reviewerName}</S.ReviewerName>
             <S.ReviewerRating>
               {[1, 2, 3, 4, 5].map((star) => (
                 <Star
-                key={star}
-                size={14}
-                color={'orange'}
-                fill={review.rating >= star ? 'orange' : 'white'}
+                  key={star}
+                  size={14}
+                  color={'orange'}
+                  fill={review.rating >= star ? 'orange' : 'white'}
                 />
               ))}
             </S.ReviewerRating>
