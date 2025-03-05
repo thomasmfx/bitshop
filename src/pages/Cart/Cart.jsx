@@ -23,12 +23,12 @@ export default function Cart() {
         {items.length === 0 ? (
           <S.EmptyCartDisclaimer>
             <S.TextLight>Empty cart</S.TextLight>
-            <S.Link to="/shop">
+            <S.StyledLink to="/shop">
               <S.Button>
                 <S.Text>Continue shopping</S.Text>
                 <ArrowRight size={20} />
               </S.Button>
-            </S.Link>
+            </S.StyledLink>
           </S.EmptyCartDisclaimer>
         ) : (
           <>

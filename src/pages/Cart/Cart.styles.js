@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import ButtonPrimary from '../../components/Button/Button'
-import { Link as RouterLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export const StyledCart = styled.main`
   min-height: 100vh;
@@ -80,7 +80,7 @@ export const TextLight = styled(Text)`
   color: #4b5563;
 `
 
-export const Link = styled(RouterLink)`
+export const StyledLink = styled(Link)`
   text-decoration: none;
 `
 
