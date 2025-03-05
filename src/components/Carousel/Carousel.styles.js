@@ -2,22 +2,37 @@ import styled from 'styled-components'
 
 export const CarouselContainer = styled.div`
   display: flex;
-  width: 400px;
+  width: 450px;
+  height: 450px
+  aspect-ratio: 1 / 1;
   flex-direction: column;
   grid-row: -1 / 1;
 
-  @media (max-width: ${({ theme }) => theme.device.mobileXL}) {
-    width: 300px;
-  }
-
-  @media (min-width: ${({ theme }) => theme.device.mobileL}) {
-    width: 350px;
-  }
-
+    
   @media (min-width: ${({ theme }) => theme.device.tablet}) and (max-width: ${({
-      theme,
+      theme
     }) => theme.device.laptop}) {
     min-width: 500px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileXXL}) {
+    width: 400px;
+    height: 400px
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileXL}) {
+    width: 350px;
+    height: 350px
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
+    width: 320px;
+    height: 320px
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
+    width: 280px;
+    height: 280px;
   }
 `
 
@@ -42,23 +57,8 @@ export const CarouselContent = styled.div`
   }
 
   & > * {
-    height: 300px;
     flex-shrink: 0;
     flex-grow: 1;
-
-    @media (min-width: ${({ theme }) => theme.device.mobileXL}) {
-      min-height: 400px;
-    }
-
-    @media (min-width: ${({ theme }) => theme.device.mobileL}) {
-      min-height: 350px;
-    }
-
-    @media (max-width: ${({ theme }) =>
-        theme.device.laptop}) and (min-width: ${({ theme }) =>
-        theme.device.tablet}) {
-      min-height: 500px;
-    }
   }
 `
 

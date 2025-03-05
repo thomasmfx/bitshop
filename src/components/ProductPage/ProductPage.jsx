@@ -36,10 +36,9 @@ export default function ProductPage() {
           <S.ProductInfo>
             <S.ProductHeader>
               <S.Line />
-              <S.Wrapper>
-                <S.ProductTitle>{product.title}</S.ProductTitle>
-                {product.id % 5 === 0 && <S.TagNew>New</S.TagNew>}
-              </S.Wrapper>
+              <S.ProductTitle>
+                {`${product.title}   `}
+              </S.ProductTitle>
             </S.ProductHeader>
             <S.DescriptionContainer direction={'column'}>
               <S.ProductDescription>{product.description}</S.ProductDescription>

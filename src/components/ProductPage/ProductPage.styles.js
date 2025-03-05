@@ -64,15 +64,51 @@ export const ProductContainer = styled.div`
 `
 
 export const ProductHeader = styled.div`
-  display: grid;
-  grid-template-columns: 5px 1fr;
-  grid-template-rows: 30px;
+  display: flex;
   gap: 0.5em;
 `
 
-export const ProductImage = styled.img`
-  height: 350px;
+export const Line = styled.div`
+  min-height: 100%;
+  min-width: 5px;
+  background-color: ${({ theme }) => theme.colors.neutral};
+  margin-right: 5px;
+  border-radius: 2px;
 `
+
+export const ProductTitle = styled.p`
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 500;
+  white-space: pre-wrap;
+
+  &::after {
+    content: 'New';
+    display: inline-block;
+    padding: .1em .7em;
+    transform: translateY(-10%);
+
+    border-radius: 40px;
+    background-color: ${({ theme }) => theme.colors.brandPrimary};
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: white;
+  }
+`
+
+export const TagNew = styled.div`
+  display: inline-block;
+  padding: .1em .7em;
+  transform: translateY(-10%);
+
+  border-radius: 40px;
+  background-color: ${({ theme }) => theme.colors.brandPrimary};
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: white;
+`
+
+export const ProductImage = styled.img``
 
 export const ProductInfo = styled.div`
   grid-row: 1 / -1;
@@ -82,12 +118,6 @@ export const ProductInfo = styled.div`
   gap: 1em;
   align-items: center;
   height: 100%;
-`
-
-export const ProductTitle = styled.p`
-  font-size: 1.2rem;
-  font-weight: 500;
-  align-self: start;
 `
 
 export const DescriptionContainer = styled.div`
@@ -128,21 +158,6 @@ export const ProductPrice = styled(Text)`
   @media (max-width: ${({ theme }) => theme.device.laptop}) {
     padding-top: 2em;
   }
-`
-
-export const TagNew = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 1em;
-  width: 40px;
-  height: 20px;
-
-  border-radius: 40px;
-  background-color: ${({ theme }) => theme.colors.brandPrimary};
-  font-size: 0.7rem;
-  font-weight: bold;
-  color: white;
 `
 
 export const ReviewsHeader = styled.div`
@@ -218,12 +233,4 @@ export const ReviewDate = styled(TextLight)`
 export const ReviewerComment = styled(TextLight)`
   grid-column: 2 / -1;
   margin-top: 2em;
-`
-
-export const Line = styled.div`
-  min-height: 100%;
-  width: 5px;
-  background-color: ${({ theme }) => theme.colors.neutral};
-  margin-right: 10px;
-  border-radius: 2px;
 `
