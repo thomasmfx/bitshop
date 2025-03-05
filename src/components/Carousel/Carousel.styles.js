@@ -10,8 +10,8 @@ export const CarouselContainer = styled.div`
 
     
   @media (min-width: ${({ theme }) => theme.device.tablet}) and (max-width: ${({
-      theme
-    }) => theme.device.laptop}) {
+    theme,
+  }) => theme.device.laptop}) {
     min-width: 500px;
   }
 

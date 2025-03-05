@@ -12,8 +12,8 @@ export const QuantityControl = styled.div`
       theme.device.mobileXL}) {
     height: 28px;
   }
-    
-  @media (max-width: ${({theme}) => theme.device.mobileM}) {
+
+  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
     grid-template-columns: 35px 50px 35px;
     grid-template-rows: 45px;
   }

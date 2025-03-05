@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Main = styled.main`
   min-height: 100vh;
@@ -76,18 +76,13 @@ export const Line = styled.div`
   border-radius: 2px;
 `
 
-export const ProductTitle = styled.p`
-  display: inline-block;
-  font-size: 1.2rem;
-  font-weight: 500;
-  white-space: pre-wrap;
-
+const TagNew = css`
   &::after {
     content: 'New';
     display: inline-block;
-    padding: .1em .7em;
+    padding: 0.1em 0.7em;
     transform: translateY(-10%);
-
+    
     border-radius: 40px;
     background-color: ${({ theme }) => theme.colors.brandPrimary};
     font-size: 0.7rem;
@@ -96,16 +91,12 @@ export const ProductTitle = styled.p`
   }
 `
 
-export const TagNew = styled.div`
+export const ProductTitle = styled.p`
   display: inline-block;
-  padding: .1em .7em;
-  transform: translateY(-10%);
-
-  border-radius: 40px;
-  background-color: ${({ theme }) => theme.colors.brandPrimary};
-  font-size: 0.7rem;
-  font-weight: bold;
-  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  white-space: pre-wrap;
+  ${(props) => props.isNew && TagNew};
 `
 
 export const ProductImage = styled.img``

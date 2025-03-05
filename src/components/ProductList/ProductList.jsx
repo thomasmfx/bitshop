@@ -3,6 +3,7 @@ import { useOutletContext } from 'react-router-dom'
 import fetchProducts from '../../utils/fetchProducts'
 import ProductCard from '../ProductCard/ProductCard'
 import ProductCardLoader from '../Loaders/ProductCardLoader'
+import isProductNew from '../../utils/isProductNew'
 import * as S from './ProductList.styles'
 
 export default function ProductList() {
@@ -34,7 +35,7 @@ export default function ProductList() {
           <ProductCard
             key={product.id}
             product={product}
-            isNew={product.id % 5 === 0}
+            isNew={isProductNew(product)}
             onAddProduct={addItem}
           />
         ))}

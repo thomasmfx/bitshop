@@ -6,6 +6,7 @@ import { useState, useEffect } from 'react'
 import ProductTag from '../ProductTag/ProductTag'
 import DotsLoader from '../Loaders/DotsLoader'
 import Carousel from '../Carousel/Carousel'
+import isProductNew from '../../utils/isProductNew'
 import * as S from './ProductPage.styles'
 
 export default function ProductPage() {
@@ -36,9 +37,7 @@ export default function ProductPage() {
           <S.ProductInfo>
             <S.ProductHeader>
               <S.Line />
-              <S.ProductTitle>
-                {`${product.title}   `}
-              </S.ProductTitle>
+              <S.ProductTitle isNew={isProductNew(product)}>{`${product.title}   `}</S.ProductTitle>
             </S.ProductHeader>
             <S.DescriptionContainer direction={'column'}>
               <S.ProductDescription>{product.description}</S.ProductDescription>

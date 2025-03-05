@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { ShoppingCart } from 'react-feather'
 import QuantityControl from '../QuantityControl/QuantityControl'
 import Button from '../Button/Button'
@@ -31,7 +31,7 @@ const StyledButton = styled(Button)`
   height: ${(props) => (props.size === 'L' ? '45px' : '')};
   align-items: center;
 
-  @media (max-width: ${({theme}) => theme.device.mobileM}) {
+  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
     width: 120px;
     height: auto;
   }
