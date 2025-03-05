@@ -1,5 +1,4 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
 const burstAnimation = keyframes`
   0%, 100% {
@@ -21,14 +20,14 @@ const burstAnimation = keyframes`
     opacity: 0;
     height: 0;
   }
-`;
+`
 
 const BurstContainer = styled.div`
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-`;
+`
 
 const BurstCircle = styled.ul`
   position: absolute;
@@ -41,7 +40,7 @@ const BurstCircle = styled.ul`
   list-style-type: none;
   margin: 0;
   padding: 0;
-`;
+`
 
 const BurstItem = styled.li`
   position: absolute;
@@ -51,7 +50,7 @@ const BurstItem = styled.li`
   left: 50%;
   border-radius: 30px;
   transform-origin: 50% 100%;
-  transform: translateX(-50%) rotate(${props => props.rotation}deg);
+  transform: translateX(-50%) rotate(${(props) => props.rotation}deg);
 
   &::before {
     content: '';
@@ -65,30 +64,23 @@ const BurstItem = styled.li`
     animation-fill-mode: backwards;
     animation-delay: 0s;
   }
-`;
+`
 
 const BurstEffect = () => {
-  const burstItems = [];
-  let rotation = 0;
+  const burstItems = []
+  let rotation = 0
 
   for (let i = 0; i < 8; i++) {
-    rotation += 45;
+    rotation += 45
 
-    burstItems.push(
-      <BurstItem 
-        key={i} 
-        rotation={rotation}
-      />
-    );
+    burstItems.push(<BurstItem key={i} rotation={rotation} />)
   }
 
   return (
     <BurstContainer>
-      <BurstCircle>
-        {burstItems}
-      </BurstCircle>
+      <BurstCircle>{burstItems}</BurstCircle>
     </BurstContainer>
-  );
-};
+  )
+}
 
-export default BurstEffect;
+export default BurstEffect

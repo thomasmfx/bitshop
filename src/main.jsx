@@ -32,7 +32,7 @@ const routes = [
         ],
       },
       { path: 'cart', element: <Cart /> },
-      { path: 'checkout', element: <Checkout /> }
+      { path: 'checkout', element: <Checkout /> },
     ],
     errorElement: <ErrorPage />,
   },

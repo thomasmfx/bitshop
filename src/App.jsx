@@ -119,7 +119,7 @@ function App() {
     removeItem: removeFromCart,
     decreaseQuantity,
     clearCart,
-    setDisplayEmptyCartWarning
+    setDisplayEmptyCartWarning,
   }
 
   return (

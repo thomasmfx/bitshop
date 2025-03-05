@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 import * as S from './CartResume.styles'
 
 function CartResume({ subtotal, shipping, tax, total }) {
-  const input = useRef(null);
+  const input = useRef(null)
   const [coupon, setCoupon] = useState('')
   const [couponDiscount, setCouponDiscount] = useState(0)
   const [isCouponTried, setIsCouponTried] = useState(false) // Prevent "invalid coupon" feedback before user tries to enter a coupon
@@ -24,19 +24,19 @@ function CartResume({ subtotal, shipping, tax, total }) {
       case 'VAICORINTHIANS':
         setCouponDiscount(50)
         setIsCouponValid(true)
-        break;
+        break
       case '15OFF':
         setCouponDiscount(15)
         setIsCouponValid(true)
-        break;
+        break
       case '10OFF':
         setCouponDiscount(10)
         setIsCouponValid(true)
-        break;
+        break
       case '5OFF':
         setCouponDiscount(5)
         setIsCouponValid(true)
-        break;
+        break
       default:
         setCouponDiscount(0)
         setIsCouponValid(false)
@@ -46,11 +46,14 @@ function CartResume({ subtotal, shipping, tax, total }) {
   function handleCheckout() {
     if (!items.length) {
       setDisplayEmptyCartWarning(true)
-      return;
+      return
     }
 
-    navigate('/checkout');
-    clearCart()
+    navigate('/checkout')
+    // A little delay to not show the items getting cleared during the transition to checkout
+    setTimeout(() => {
+      clearCart()
+    }, 100)
   }
 
   return (

@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from "styled-components";
+import styled, { keyframes, css } from 'styled-components'
 
 const fadeOut = keyframes`
   0% {
@@ -29,11 +29,11 @@ export const Container = styled.div`
 `
 
 export const Video = styled.video`
-  ${(props) => props.endAnimation && (
+  ${(props) =>
+    props.endAnimation &&
     css`
       animation: 2s ${fadeOut};
-    `
-  )}
+    `}
 `
 
 export const VideoSource = styled.source``
@@ -45,17 +45,17 @@ export const Message = styled.div`
   text-align: center;
   animation: 2s ${fadeIn};
 
-  @media (max-width: ${({theme}) => theme.device.tablet}) {
+  @media (max-width: ${({ theme }) => theme.device.tablet}) {
     font-size: 3.5rem;
   }
 
-  @media (max-width: ${({theme}) => theme.device.mobileM}) {
+  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
     font-size: 2.5rem;
   }
 `
 
 export const Logo = styled.span`
-  color: ${({theme}) => theme.colors.brandPrimary};
+  color: ${({ theme }) => theme.colors.brandPrimary};
   display: inline;
 `
 
@@ -66,10 +66,10 @@ export const Dot = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: ${({theme}) => theme.colors.brandPrimary};
-  opacity: ${(props) => props.show ? 1 : 0};
+  background-color: ${({ theme }) => theme.colors.brandPrimary};
+  opacity: ${(props) => (props.show ? 1 : 0)};
 
-  @media (max-width: ${({theme}) => theme.device.mobileM}) {
+  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
     width: 15px;
     height: 15px;
   }

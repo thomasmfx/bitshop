@@ -1,19 +1,19 @@
-import { useRef, useEffect, useState } from "react"
+import { useRef, useEffect, useState } from 'react'
 import successAnimation from '../../assets/success-animation.webm'
-import BurstEffect from "../../components/BurstEffect/BurstEffect"
-import { useNavigate } from "react-router-dom"
+import BurstEffect from '../../components/BurstEffect/BurstEffect'
+import { useNavigate } from 'react-router-dom'
 import * as S from './Checkout.styles'
 
 function SuccessAnimation() {
   const [endAnimation, setEndAnimation] = useState(false)
-  const videoRef= useRef();
+  const videoRef = useRef()
 
   function playVideo() {
-    videoRef.current.play();
+    videoRef.current.play()
   }
 
   function setPlayback() {
-    videoRef.current.playbackRate = 0.3;
+    videoRef.current.playbackRate = 0.3
   }
 
   useEffect(() => {
@@ -27,7 +27,11 @@ function SuccessAnimation() {
   }, [])
 
   return (
-    <S.Video ref={videoRef} endAnimation={endAnimation} onCanPlay={() => setPlayback()}>
+    <S.Video
+      ref={videoRef}
+      endAnimation={endAnimation}
+      onCanPlay={() => setPlayback()}
+    >
       <S.VideoSource src={successAnimation} type="video/webm" />
     </S.Video>
   )
@@ -38,28 +42,28 @@ function CheckoutPage() {
   const [displayDot, setDisplayDot] = useState(false)
   const [hideDotBling, setHideDotBling] = useState(false)
   const [canRedirect, setCanredirect] = useState(false)
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
   useEffect(() => {
     setTimeout(() => {
       setHideAnimation(true)
-    }, 4000);
+    }, 4000)
 
     setTimeout(() => {
       setDisplayDot(true)
-    }, 6500);
+    }, 6500)
 
     setTimeout(() => {
       setHideDotBling(true)
-    }, 7350);
+    }, 7350)
 
     setTimeout(() => {
       setCanredirect(true)
-    }, 11000);
+    }, 11000)
   }, [])
 
   useEffect(() => {
-    if (canRedirect) navigate("/");
+    if (canRedirect) navigate('/')
   }, [canRedirect])
 
   return (
@@ -70,9 +74,7 @@ function CheckoutPage() {
           Thanks for trusting in {''}
           <S.Logo>
             bitShop {''}
-            <S.Dot show={displayDot}>
-              {!hideDotBling && <BurstEffect />}
-            </S.Dot>
+            <S.Dot show={displayDot}>{!hideDotBling && <BurstEffect />}</S.Dot>
           </S.Logo>
         </S.Message>
       )}
