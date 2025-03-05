@@ -9,7 +9,7 @@ const ToastCard = styled.div`
   width: fit-content;
   height: 60px;
   padding-inline: 1em;
-  margin: 4.5em;
+  margin: 5em;
   position: fixed;
   top: 0;
   left: 0;
