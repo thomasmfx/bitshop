@@ -1,4 +1,16 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const mediaQuantityControl = css`
+  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
+    grid-template-columns: 35px 50px 35px;
+    grid-template-rows: 45px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
+    grid-template-columns: 35px 50px 35px;
+    grid-template-rows: 45px;
+  }
+`
 
 export const QuantityControl = styled.div`
   display: grid;
@@ -6,17 +18,7 @@ export const QuantityControl = styled.div`
     props.size === 'L' ? '40px 70px 40px' : '28px 36px 28px'};
   grid-template-rows: ${(props) => (props.size === 'L' ? '45px' : '32px')};
   max-width: fit-content;
-
-  @media (min-width: ${({ theme }) =>
-      theme.device.mobileL}) and (max-width: ${({ theme }) =>
-      theme.device.mobileXL}) {
-    height: 28px;
-  }
-
-  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
-    grid-template-columns: 35px 50px 35px;
-    grid-template-rows: 45px;
-  }
+  ${(props) => props.size && mediaQuantityControl};
 `
 
 export const Input = styled.input`

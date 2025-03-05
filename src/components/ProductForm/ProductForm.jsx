@@ -1,9 +1,32 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { ShoppingCart } from 'react-feather'
 import QuantityControl from '../QuantityControl/QuantityControl'
 import Button from '../Button/Button'
+
+const mediaStyledForm = css`
+  @media (max-width: ${({ theme }) => theme.device.laptop}) and (min-width: ${({
+      theme,
+    }) => theme.device.mobileL}) {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    width: 100%;
+    justify-content: space-between;
+  }
+`
+
+const mediaStyledButton = css`
+  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
+    width: 120px;
+  }
+`
 
 const StyledForm = styled.form`
   display: grid;
@@ -11,30 +34,14 @@ const StyledForm = styled.form`
     props.size === 'L' ? 'min-content min-content' : '1fr 1fr'};
   grid-template-rows: 1fr;
   gap: ${(props) => (props.size === 'L' ? '3em' : '2em')};
-
-  @media (max-width: ${({ theme }) => theme.device.laptop}) and (min-width: ${({
-      theme,
-    }) => theme.device.mobileL}) {
-    display: flex;
-    width: 95%;
-    justify-content: space-between;
-  }
-
-  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
-    grid-template-columns: 1fr 1fr;
-    gap: 1em;
-  }
+  ${(props) => props.size && mediaStyledForm};
 `
 
 const StyledButton = styled(Button)`
   width: ${(props) => (props.size === 'L' ? '150px' : '100%')};
   height: ${(props) => (props.size === 'L' ? '45px' : '')};
   align-items: center;
-
-  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
-    width: 120px;
-    height: auto;
-  }
+  ${(props) => props.size && mediaStyledButton};
 `
 
 const Text = styled.p`
