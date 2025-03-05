@@ -100,11 +100,16 @@ function App() {
     if (!wasItemRemoved) setWasItemRemoved(true)
   }
 
+  function clearCart() {
+    setCart([])
+  }
+
   const cartContext = {
     items: cart,
     addItem: addToCart,
     removeItem: removeFromCart,
     decreaseQuantity,
+    clearCart
   }
 
   return (
