@@ -28,7 +28,7 @@ const StyledForm = styled.form`
 
 const StyledButton = styled(Button)`
   width: ${(props) => (props.size === 'L' ? '150px' : '100%')};
-  height: 45px;
+  height: ${(props) => (props.size === 'L' ? '45px' : '')};
   align-items: center;
 `
 
