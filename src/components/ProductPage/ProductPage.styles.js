@@ -82,7 +82,7 @@ const TagNew = css`
     display: inline-block;
     padding: 0.1em 0.7em;
     transform: translateY(-10%);
-    
+
     border-radius: 40px;
     background-color: ${({ theme }) => theme.colors.brandPrimary};
     font-size: 0.7rem;

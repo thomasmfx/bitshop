@@ -37,7 +37,9 @@ export default function ProductPage() {
           <S.ProductInfo>
             <S.ProductHeader>
               <S.Line />
-              <S.ProductTitle isNew={isProductNew(product)}>{`${product.title}   `}</S.ProductTitle>
+              <S.ProductTitle
+                isNew={isProductNew(product)}
+              >{`${product.title}   `}</S.ProductTitle>
             </S.ProductHeader>
             <S.DescriptionContainer direction={'column'}>
               <S.ProductDescription>{product.description}</S.ProductDescription>
