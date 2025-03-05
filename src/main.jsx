@@ -14,6 +14,7 @@ import Cart from './pages/Cart/Cart'
 import ErrorPage from './pages/ErrorPage/ErrorPage'
 import ProductList from './components/ProductList/ProductList'
 import ProductPage from './components/ProductPage/ProductPage'
+import Checkout from './pages/Checkout/Checkout'
 
 const routes = [
   {
@@ -31,6 +32,7 @@ const routes = [
         ],
       },
       { path: 'cart', element: <Cart /> },
+      { path: 'checkout', element: <Checkout /> }
     ],
     errorElement: <ErrorPage />,
   },
