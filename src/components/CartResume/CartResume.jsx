@@ -1,25 +1,43 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { CreditCard, X, Check } from 'react-feather'
 import circleCheck from '../../assets/circle-check.svg'
 import Button from '../Button/Button'
+import { useOutletContext } from 'react-router-dom'
 import * as S from './CartResume.styles'
 
 function CartResume({ subtotal, shipping, tax, total }) {
+  const input = useRef(null);
   const [coupon, setCoupon] = useState('')
   const [couponDiscount, setCouponDiscount] = useState(0)
   const [isCouponTried, setIsCouponTried] = useState(false) // Prevent "invalid coupon" feedback before user tries to enter a coupon
   const [isCouponValid, setIsCouponValid] = useState(false)
+  const { clearCart } = useOutletContext()
 
   function handleCouponSubmit() {
     setIsCouponTried(true)
+    input.current.blur()
 
-    if (coupon.toLocaleUpperCase() === '15OFF') {
-      setCouponDiscount(15)
-      setIsCouponValid(true)
-    } else {
-      setCouponDiscount(0)
-      setIsCouponValid(false)
+    switch (coupon.toLocaleUpperCase()) {
+      case 'VAICORINTHIANS':
+        setCouponDiscount(50)
+        setIsCouponValid(true)
+        break;
+      case '15OFF':
+        setCouponDiscount(15)
+        setIsCouponValid(true)
+        break;
+      case '10OFF':
+        setCouponDiscount(10)
+        setIsCouponValid(true)
+        break;
+      case '5OFF':
+        setCouponDiscount(5)
+        setIsCouponValid(true)
+        break;
+      default:
+        setCouponDiscount(0)
+        setIsCouponValid(false)
     }
   }
 
@@ -54,6 +72,7 @@ function CartResume({ subtotal, shipping, tax, total }) {
         <S.Text>Discount Coupon</S.Text>
         <S.DiscountCouponWrapper>
           <S.CouponInput
+            ref={input}
             placeholder="Enter coupon code"
             name="coupon"
             value={coupon}
@@ -87,10 +106,12 @@ function CartResume({ subtotal, shipping, tax, total }) {
           <S.TextLight>All major credit cards accepted</S.TextLight>
         </S.PaymentMethods>
       </S.SectionBlock>
-      <Button size={'l'}>
-        <S.Text>Checkout</S.Text>
-        <S.Icon src={circleCheck} />
-      </Button>
+      <S.StyledLink to={'/checkout'} onClick={clearCart}>
+        <Button size={'l'}>
+          <S.Text>Checkout</S.Text>
+          <S.Icon src={circleCheck} />
+        </Button>
+      </S.StyledLink>
     </S.CartResumeContainer>
   )
 }
