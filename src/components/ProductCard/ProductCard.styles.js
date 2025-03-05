@@ -12,9 +12,11 @@ export const ProductContainer = styled.div`
   cursor: pointer;
   transition: all 0.3s ease;
 
-  &:hover {
-    transform: scale(1.01);
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 50px 0px;
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.01);
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 0px 50px 0px;
+    }
   }
 `
 

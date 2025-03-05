@@ -9,6 +9,7 @@ const Button = styled.button`
   gap: 0.5em;
   width: 100%;
 
+  
   background-color: ${({ theme }) => theme.colors.brandPrimary};
   border: none;
   border-radius: 5px;
@@ -16,9 +17,11 @@ const Button = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.brandSecondary};
+  
+  @media (hover: hover) {
+    &:hover {
+      background-color: ${({ theme }) => theme.colors.brandSecondary};
+    }
   }
 `
 
