@@ -20,6 +20,10 @@ const mediaStyledForm = css`
     width: 100%;
     justify-content: space-between;
   }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
+    display: flex;
+  }
 `
 
 const mediaStyledButton = css`

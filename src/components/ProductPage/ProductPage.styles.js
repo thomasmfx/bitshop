@@ -80,7 +80,11 @@ const TagNew = css`
   &::after {
     content: 'New';
     display: inline-block;
-    padding: 0.1em 0.7em;
+    width: 40px;
+    height: 20px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 20px;
     transform: translateY(-10%);
 
     border-radius: 40px;
@@ -148,6 +152,11 @@ export const ProductPrice = styled(Text)`
 
   @media (max-width: ${({ theme }) => theme.device.laptop}) {
     padding-top: 2em;
+  }
+
+  @media (min-width: ${({ theme }) =>
+      theme.device.mobileL}) and (max-width: 470px) {
+    padding-top: 1em;
   }
 `
 
