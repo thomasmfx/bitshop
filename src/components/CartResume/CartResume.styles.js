@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import Button from '../Button/Button'
-import { Link } from 'react-router-dom'
 
 export const CartResumeContainer = styled.div`
   display: flex;
@@ -109,8 +108,4 @@ export const WrapperFlexRow = styled.div`
 
 export const Icon = styled.img`
   width: 22px;
-`
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
 `

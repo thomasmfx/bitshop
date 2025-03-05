@@ -4,13 +4,14 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import ScrollToTop from './utils/scrollToTop'
 import ToastNotification from './components/ToastNotification/ToastNotification'
-import { Check, X } from 'react-feather'
+import { Check, X, AlertTriangle } from 'react-feather'
 
 function App() {
   const CART_LIMIT = 99
   const [cart, setCart] = useState([])
   const [wasItemAdded, setWasItemAdded] = useState(false)
   const [wasItemRemoved, setWasItemRemoved] = useState(false)
+  const [displayEmptyCartWarning, setDisplayEmptyCartWarning] = useState(false)
 
   useEffect(() => {
     if (wasItemAdded) {
@@ -27,6 +28,14 @@ function App() {
       }, 3501) // animation duration + 1ms delay
     }
   }, [wasItemRemoved])
+
+  useEffect(() => {
+    if (displayEmptyCartWarning) {
+      setTimeout(() => {
+        setDisplayEmptyCartWarning(false)
+      }, 3501) // animation duration + 1ms delay
+    }
+  }, [displayEmptyCartWarning])
 
   function getTotalItems() {
     return cart.reduce((count, item) => count + item.quantity, 0)
@@ -109,7 +118,8 @@ function App() {
     addItem: addToCart,
     removeItem: removeFromCart,
     decreaseQuantity,
-    clearCart
+    clearCart,
+    setDisplayEmptyCartWarning
   }
 
   return (
@@ -124,6 +134,11 @@ function App() {
         {wasItemRemoved && (
           <ToastNotification text={'Removed from cart'}>
             <X color="#ef233c" />
+          </ToastNotification>
+        )}
+        {displayEmptyCartWarning && (
+          <ToastNotification text={'Empty cart'}>
+            <AlertTriangle color="#ff8800" />
           </ToastNotification>
         )}
         <Outlet context={cartContext} />

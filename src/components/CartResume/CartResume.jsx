@@ -4,6 +4,7 @@ import { CreditCard, X, Check } from 'react-feather'
 import circleCheck from '../../assets/circle-check.svg'
 import Button from '../Button/Button'
 import { useOutletContext } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import * as S from './CartResume.styles'
 
 function CartResume({ subtotal, shipping, tax, total }) {
@@ -12,7 +13,8 @@ function CartResume({ subtotal, shipping, tax, total }) {
   const [couponDiscount, setCouponDiscount] = useState(0)
   const [isCouponTried, setIsCouponTried] = useState(false) // Prevent "invalid coupon" feedback before user tries to enter a coupon
   const [isCouponValid, setIsCouponValid] = useState(false)
-  const { clearCart } = useOutletContext()
+  const { clearCart, items, setDisplayEmptyCartWarning } = useOutletContext()
+  let navigate = useNavigate()
 
   function handleCouponSubmit() {
     setIsCouponTried(true)
@@ -39,6 +41,16 @@ function CartResume({ subtotal, shipping, tax, total }) {
         setCouponDiscount(0)
         setIsCouponValid(false)
     }
+  }
+
+  function handleCheckout() {
+    if (!items.length) {
+      setDisplayEmptyCartWarning(true)
+      return;
+    }
+
+    navigate('/checkout');
+    clearCart()
   }
 
   return (
@@ -106,12 +118,10 @@ function CartResume({ subtotal, shipping, tax, total }) {
           <S.TextLight>All major credit cards accepted</S.TextLight>
         </S.PaymentMethods>
       </S.SectionBlock>
-      <S.StyledLink to={'/checkout'} onClick={clearCart}>
-        <Button size={'l'}>
-          <S.Text>Checkout</S.Text>
-          <S.Icon src={circleCheck} />
-        </Button>
-      </S.StyledLink>
+      <Button size={'l'} onClick={handleCheckout}>
+        <S.Text>Checkout</S.Text>
+        <S.Icon src={circleCheck} />
+      </Button>
     </S.CartResumeContainer>
   )
 }
