@@ -23,8 +23,8 @@ export const QuantityControl = styled.div`
 
 export const Input = styled.input`
   border: none;
-  border-top: 1px solid #ced4da;
-  border-bottom: 1px solid #ced4da;
+  border-top: 1px solid ${({theme}) => theme.colors.neutralLight};
+  border-bottom: 1px solid ${({theme}) => theme.colors.neutralLight};
   outline: none;
   text-align: center;
   font-size: ${(props) => (props.size === 'L' ? '1rem' : '.8rem')};
@@ -51,7 +51,7 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   background: none;
-  border: 1px solid #ced4da;
+  border: 1px solid ${({theme}) => theme.colors.neutralLight};
   border-radius: ${(props) =>
     props.$roundRight ? '0 5px 5px 0' : '5px 0 0 5px'};
   padding: 0.1em 0.3em;

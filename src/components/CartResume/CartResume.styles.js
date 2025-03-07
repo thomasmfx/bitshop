@@ -29,7 +29,7 @@ export const Price = styled.p`
 export const Text = styled.p``
 
 export const TextLight = styled(Text)`
-  color: #4b5563;
+  color: ${({theme}) => theme.colors.neutralDark};
 `
 
 export const TotalPrice = styled(PriceWrapper)`
@@ -57,14 +57,15 @@ export const DiscountCouponWrapper = styled.div`
 `
 
 export const CouponInput = styled.input`
-  border: 2px solid #e5e7eb;
+  border: 2px solid ${({theme}) => theme.colors.neutralLight};
   border-radius: 5px;
   height: 40px;
   padding: 0 0.8em;
   min-width: 0;
 
   &::placeholder {
-    color: #9ca3af;
+    color: ${({theme}) => theme.colors.neutral};
+    opacity: 0.7;
   }
 
   &:focus {

@@ -31,7 +31,7 @@ export const Button = styled.button`
   font-weight: 400;
 
   background: ${(props) =>
-    props.selected ? ({ theme }) => theme.colors.brandLight : 'none'};
+    props.selected ? '#dff0ff' : 'none'};
   color: ${(props) =>
     props.selected
       ? ({ theme }) => theme.colors.brandPrimary

@@ -3,10 +3,9 @@ const theme = {
     default: '#212529',
     brandPrimary: '#188efe',
     brandSecondary: '#0077e6',
-    brandLight: '#dff0ff',
-    neutral: '#ced4da',
+    neutral: '#6c757d',
     neutralDark: '#4B5563',
-    neutralLight: '#e9ecef',
+    neutralLight: '#ced4da',
   },
   device: {
     mobileS: '320px',

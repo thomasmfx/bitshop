@@ -71,7 +71,7 @@ export const ProductHeader = styled.div`
 export const Line = styled.div`
   min-height: 100%;
   min-width: 5px;
-  background-color: ${({ theme }) => theme.colors.neutral};
+  background-color: ${({ theme }) => theme.colors.neutralLight};
   margin-right: 5px;
   border-radius: 2px;
 `

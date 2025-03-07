@@ -77,7 +77,7 @@ export const EmptyCartDisclaimer = styled.div`
 export const Text = styled.p``
 
 export const TextLight = styled(Text)`
-  color: #4b5563;
+  color: ${({theme}) => theme.colors.neutralDark};
 `
 
 export const StyledLink = styled(Link)`

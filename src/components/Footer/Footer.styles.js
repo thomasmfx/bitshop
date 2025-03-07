@@ -5,7 +5,7 @@ export const Footer = styled.footer`
   flex-direction: column;
   align-items: center;
   padding: 1.5em 0;
-  background-color: ${({ theme }) => theme.colors.neutralLight};
+  background-color: #e9ecef;
   font-size: 1.1rem;
 
   @media (max-width: ${({ theme }) => theme.device.mobileM}) {
