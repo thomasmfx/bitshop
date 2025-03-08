@@ -6,36 +6,38 @@ import ScrollToTop from './utils/scrollToTop'
 import ToastNotification from './components/ToastNotification/ToastNotification'
 import { Check, X, AlertTriangle } from 'react-feather'
 
+const NOTIFICATIONS = {
+  itemAdded: false,
+  itemRemoved: false,
+  emptyCart: false,
+}
+
 function App() {
   const CART_LIMIT = 99
   const [cart, setCart] = useState([])
-  const [wasItemAdded, setWasItemAdded] = useState(false)
-  const [wasItemRemoved, setWasItemRemoved] = useState(false)
-  const [displayEmptyCartWarning, setDisplayEmptyCartWarning] = useState(false)
+  const [notifications, setNotifications] = useState(NOTIFICATIONS)
+
+  function updateNotifications(notificationToUpdate, newState) {
+    setNotifications({ ...notifications, [notificationToUpdate]: newState })
+  }
 
   useEffect(() => {
-    if (wasItemAdded) {
+    if (notifications.itemAdded) {
       setTimeout(() => {
-        setWasItemAdded(false)
+        updateNotifications('itemAdded', false)
       }, 3501) // animation duration + 1ms delay
     }
-  }, [wasItemAdded])
-
-  useEffect(() => {
-    if (wasItemRemoved) {
+    if (notifications.itemRemoved) {
       setTimeout(() => {
-        setWasItemRemoved(false)
-      }, 3501) // animation duration + 1ms delay
+        updateNotifications('itemRemoved', false)
+      }, 3501)
     }
-  }, [wasItemRemoved])
-
-  useEffect(() => {
-    if (displayEmptyCartWarning) {
+    if (notifications.emptyCart) {
       setTimeout(() => {
-        setDisplayEmptyCartWarning(false)
-      }, 3501) // animation duration + 1ms delay
+        updateNotifications('emptyCart', false)
+      }, 3501)
     }
-  }, [displayEmptyCartWarning])
+  }, [notifications])
 
   function getTotalItems() {
     return cart.reduce((count, item) => count + item.quantity, 0)
@@ -43,7 +45,7 @@ function App() {
 
   function addToCart(product, quantity) {
     if (!product?.id || quantity <= 0 || quantity === '') return
-    if (!wasItemAdded) setWasItemAdded(true)
+    if (!notifications.itemAdded) updateNotifications('itemAdded', true)
 
     if (!cart.length) {
       if (quantity > CART_LIMIT) {
@@ -106,7 +108,7 @@ function App() {
 
   function removeFromCart(product) {
     setCart(cart.filter((item) => item.id !== product.id))
-    if (!wasItemRemoved) setWasItemRemoved(true)
+    if (!notifications.itemRemoved) updateNotifications('itemRemoved', true)
   }
 
   function clearCart() {
@@ -119,24 +121,24 @@ function App() {
     removeItem: removeFromCart,
     decreaseQuantity,
     clearCart,
-    setDisplayEmptyCartWarning,
+    notificateEmptyCart: () => updateNotifications('emptyCart', true),
   }
 
   return (
     <ScrollToTop>
       <>
         <Header cartProductsCount={getTotalItems()} />
-        {wasItemAdded && (
+        {notifications.itemAdded && (
           <ToastNotification text={'Added to cart'}>
             <Check color="#38b000" />
           </ToastNotification>
         )}
-        {wasItemRemoved && (
+        {notifications.itemRemoved && (
           <ToastNotification text={'Removed from cart'}>
             <X color="#ef233c" />
           </ToastNotification>
         )}
-        {displayEmptyCartWarning && (
+        {notifications.emptyCart && (
           <ToastNotification text={'Empty cart'}>
             <AlertTriangle color="#ff8800" />
           </ToastNotification>

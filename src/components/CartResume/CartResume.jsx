@@ -13,7 +13,7 @@ function CartResume({ subtotal, shipping, tax, total }) {
   const [couponDiscount, setCouponDiscount] = useState(0)
   const [isCouponTried, setIsCouponTried] = useState(false) // Prevent "invalid coupon" feedback before user tries to enter a coupon
   const [isCouponValid, setIsCouponValid] = useState(false)
-  const { clearCart, items, setDisplayEmptyCartWarning } = useOutletContext()
+  const { clearCart, items, notificateEmptyCart } = useOutletContext()
   let navigate = useNavigate()
 
   function handleCouponSubmit() {
@@ -45,7 +45,7 @@ function CartResume({ subtotal, shipping, tax, total }) {
 
   function handleCheckout() {
     if (!items.length) {
-      setDisplayEmptyCartWarning(true)
+      notificateEmptyCart()
       return
     }
 
