@@ -7,39 +7,48 @@ import { useOutletContext } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import * as S from './CartResume.styles'
 
+const initialCouponState = {
+  code: '',
+  discount: 0,
+  wasTried: false, // Prevent "invalid coupon" feedback before user tries to enter a coupon
+  isValid: false
+}
+
 function CartResume({ subtotal, shipping, tax, total }) {
-  const input = useRef(null)
-  const [coupon, setCoupon] = useState('')
-  const [couponDiscount, setCouponDiscount] = useState(0)
-  const [isCouponTried, setIsCouponTried] = useState(false) // Prevent "invalid coupon" feedback before user tries to enter a coupon
-  const [isCouponValid, setIsCouponValid] = useState(false)
+  const [couponState, setCouponState] = useState(initialCouponState);
   const { clearCart, items, notificateEmptyCart } = useOutletContext()
+  const input = useRef(null)
   let navigate = useNavigate()
 
-  function handleCouponSubmit() {
-    setIsCouponTried(true)
-    input.current.blur()
+  function updateCouponState(property, newValue) {
+    setCouponState(prevState => ({ ...prevState, [property]: newValue }))
+  }
 
-    switch (coupon.toLocaleUpperCase()) {
+  function handleCouponSubmit() {
+    input.current.blur()
+    const couponCode = couponState.code.toLocaleUpperCase()
+    updateCouponState('wasTried', true)
+
+    switch (couponCode) {
       case 'VAICORINTHIANS':
-        setCouponDiscount(50)
-        setIsCouponValid(true)
+        updateCouponState('discount', 50)
+        updateCouponState('isValid', true)
         break
       case '15OFF':
-        setCouponDiscount(15)
-        setIsCouponValid(true)
+        updateCouponState('discount', 15)
+        updateCouponState('isValid', true)
         break
       case '10OFF':
-        setCouponDiscount(10)
-        setIsCouponValid(true)
+        updateCouponState('discount', 10)
+        updateCouponState('isValid', true)
         break
       case '5OFF':
-        setCouponDiscount(5)
-        setIsCouponValid(true)
+        updateCouponState('discount', 5)
+        updateCouponState('isValid', true)
         break
       default:
-        setCouponDiscount(0)
-        setIsCouponValid(false)
+        updateCouponState('discount', 0)
+        updateCouponState('isValid', false)
     }
   }
 
@@ -73,13 +82,13 @@ function CartResume({ subtotal, shipping, tax, total }) {
         </S.PriceWrapper>
         <S.PriceWrapper>
           <S.TextLight>Discount</S.TextLight>
-          <S.CouponDiscount>{couponDiscount}</S.CouponDiscount>
+          <S.CouponDiscount>{couponState.discount}</S.CouponDiscount>
         </S.PriceWrapper>
         <S.Divider />
         <S.TotalPrice>
           <S.Text>Total</S.Text>
           <S.Price>
-            {(total - (total * couponDiscount) / 100).toFixed(2)}
+            {(total - (total * couponState.discount) / 100).toFixed(2)}
           </S.Price>
         </S.TotalPrice>
       </S.PriceBreakdown>
@@ -90,8 +99,8 @@ function CartResume({ subtotal, shipping, tax, total }) {
             ref={input}
             placeholder="Enter coupon code"
             name="coupon"
-            value={coupon}
-            onChange={(e) => setCoupon(e.target.value)}
+            value={couponState.code}
+            onChange={(e) => updateCouponState('code', e.target.value)}
             onKeyDown={(e) => {
               if (e.key === 'Enter') handleCouponSubmit()
             }}
@@ -100,8 +109,8 @@ function CartResume({ subtotal, shipping, tax, total }) {
             Apply
           </S.ApplyCouponButton>
         </S.DiscountCouponWrapper>
-        {isCouponTried ? (
-          isCouponValid ? (
+        {couponState.wasTried ? (
+          couponState.isValid ? (
             <S.ValidCoupon>
               Coupon applied succesfully
               <Check size={18} />
