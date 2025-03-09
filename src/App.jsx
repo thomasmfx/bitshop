@@ -1,43 +1,26 @@
 import { Outlet } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import ScrollToTop from './utils/scrollToTop'
-import ToastNotification from './components/ToastNotification/ToastNotification'
-import { Check, X, AlertTriangle } from 'react-feather'
+import NotificationsManager from './components/NotificationsManager/NotificationsManager'
 
-const NOTIFICATIONS = {
+const initialNotificationsState = {
   itemAdded: false,
   itemRemoved: false,
   emptyCart: false,
+  cartLimitReached: false,
+  actionExceedsCartLimit: false
 }
 
 function App() {
   const CART_LIMIT = 99
   const [cart, setCart] = useState([])
-  const [notifications, setNotifications] = useState(NOTIFICATIONS)
+  const [notifications, setNotifications] = useState(initialNotificationsState)
 
-  function updateNotifications(notificationToUpdate, newState) {
-    setNotifications({ ...notifications, [notificationToUpdate]: newState })
+  function updateNotifications(notification, newState) {
+    setNotifications(prevState => ({ ...prevState, [notification]: newState }))
   }
-
-  useEffect(() => {
-    if (notifications.itemAdded) {
-      setTimeout(() => {
-        updateNotifications('itemAdded', false)
-      }, 3501) // animation duration + 1ms delay
-    }
-    if (notifications.itemRemoved) {
-      setTimeout(() => {
-        updateNotifications('itemRemoved', false)
-      }, 3501)
-    }
-    if (notifications.emptyCart) {
-      setTimeout(() => {
-        updateNotifications('emptyCart', false)
-      }, 3501)
-    }
-  }, [notifications])
 
   function getTotalItems() {
     return cart.reduce((count, item) => count + item.quantity, 0)
@@ -45,13 +28,10 @@ function App() {
 
   function addToCart(product, quantity) {
     if (!product?.id || quantity <= 0 || quantity === '') return
-    if (!notifications.itemAdded) updateNotifications('itemAdded', true)
 
     if (!cart.length) {
       if (quantity > CART_LIMIT) {
-        alert(
-          'This action exceeds the cart limit of 99 items. Please adjust the quantity or complete your current purchase.',
-        )
+        updateNotifications('actionExceedsCartLimit', true)
         return
       }
       setCart([{ ...product, quantity }])
@@ -59,16 +39,13 @@ function App() {
     }
 
     if (getTotalItems() === CART_LIMIT) {
-      alert(
-        'Cart limit of 99 items reached. Please complete your current purchase to add more items.',
-      )
+      updateNotifications('cartLimitReached', true)
       return
     }
 
     if (getTotalItems() + quantity > CART_LIMIT) {
-      alert(
-        'This action exceeds the cart limit of 99 items. Please adjust the quantity or complete your current purchase.',
-      )
+      updateNotifications('actionExceedsCartLimit', true)
+
       return
     }
 
@@ -91,6 +68,7 @@ function App() {
       })
     }
 
+    if (!notifications.itemAdded) updateNotifications('itemAdded', true)
     setCart(updatedCart)
   }
 
@@ -128,21 +106,11 @@ function App() {
     <ScrollToTop>
       <>
         <Header cartProductsCount={getTotalItems()} />
-        {notifications.itemAdded && (
-          <ToastNotification text={'Added to cart'}>
-            <Check color="#38b000" />
-          </ToastNotification>
-        )}
-        {notifications.itemRemoved && (
-          <ToastNotification text={'Removed from cart'}>
-            <X color="#ef233c" />
-          </ToastNotification>
-        )}
-        {notifications.emptyCart && (
-          <ToastNotification text={'Empty cart'}>
-            <AlertTriangle color="#ff8800" />
-          </ToastNotification>
-        )}
+        <NotificationsManager 
+          notifications={notifications}
+          updater={updateNotifications}
+
+        />
         <Outlet context={cartContext} />
         <Footer />
       </>
