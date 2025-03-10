@@ -34,6 +34,8 @@ function App() {
         updateNotifications('actionExceedsCartLimit', true)
         return
       }
+      
+      if (!notifications.itemAdded) updateNotifications('itemAdded', true)
       setCart([{ ...product, quantity }])
       return
     }
