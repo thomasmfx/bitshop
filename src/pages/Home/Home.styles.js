@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 import Button from '../../components/Button/Button'
 
 export const Main = styled.main`
@@ -48,7 +47,6 @@ export const Image = styled.img`
 export const Heading = styled.h1`
   font-size: 3rem;
   padding-bottom: 1em;
-  color: ${({ theme }) => theme.colors.default};
 
   @media (max-width: 1290px) {
     font-size: 2.5rem;
@@ -64,14 +62,9 @@ export const Heading = styled.h1`
   }
 `
 
-export const Text = styled.p``
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
-`
-
 export const StyledButton = styled(Button)`
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 175px;
 `

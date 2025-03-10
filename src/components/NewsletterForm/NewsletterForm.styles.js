@@ -1,19 +1,17 @@
 import styled from 'styled-components'
 
 export const Form = styled.form`
-  display: flex;
-  align-self: start;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 80px;
 `
 
 export const Input = styled.input`
   border: none;
   outline: none;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  padding-left: 0.3em;
-  padding-right: 0.3em;
+  border-radius: 5px 0 0 5px;
+  padding: 0 0.3em;
   height: 35px;
+  width: 100%;
 
   &:focus {
     outline: 2px solid ${({ theme }) => theme.colors.brandPrimary};
@@ -26,11 +24,9 @@ export const Button = styled.button`
   align-items: center;
   justify-content: center;
   border: none;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-radius: 0 5px 5px 0;
   background-color: ${({ theme }) => theme.colors.brandPrimary};
   color: white;
-  width: 80px;
   height: 35px;
   font-weight: 600;
   cursor: pointer;
@@ -39,27 +35,4 @@ export const Button = styled.button`
   &:active {
     filter: brightness(110%);
   }
-
-  // "Send" icon
-  :nth-child(2) {
-    display: none;
-  }
-
-  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
-    width: 40px;
-
-    :nth-child(1) {
-      display: none;
-    }
-
-    :nth-child(2) {
-      display: block;
-    }
-  }
-`
-
-export const Text = styled.p``
-
-export const Icon = styled.img`
-  width: 20px;
 `

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import send from '../../assets/send.svg'
+import { Span } from '../shared/elements'
 import * as S from './NewsletterForm.styles'
 
 function NewsletterForm() {
@@ -20,8 +20,7 @@ function NewsletterForm() {
         value={email}
       />
       <S.Button type="submit" onClick={handleSubmit}>
-        <S.Text>Sing up</S.Text>
-        <S.Icon src={send} /> {/* Hide unless its viewed on mobileM */}
+        <Span>Sing up</Span>
       </S.Button>
     </S.Form>
   )

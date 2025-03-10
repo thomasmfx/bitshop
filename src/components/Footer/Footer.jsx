@@ -11,57 +11,62 @@ import * as S from './Footer.styles'
 function Footer() {
   return (
     <S.Footer>
-      <S.SectionsWrapper columns="1fr 1fr 1fr">
-        <S.ContactSection>
-          {/* <Logo size={'1.5rem'} /> */}
+        <S.Section>
           <S.SectionHeading>Contact</S.SectionHeading>
           <S.List>
-            <S.Contact>
+            <S.ListItem>
               <Phone size={18} />
-              <S.Text> +55 11 99999-9999 </S.Text>
-            </S.Contact>
-            <S.Contact>
+              <S.Paragraph> +55 11 99999-9999 </S.Paragraph>
+            </S.ListItem>
+            <S.ListItem>
               <Mail size={18} />
-              <S.Text> contact@bitshop.com.br </S.Text>
-            </S.Contact>
-            <S.Contact>
+              <S.Paragraph> contact@bitshop.com.br </S.Paragraph>
+            </S.ListItem>
+            <S.ListItem>
               <MapPin size={18} />
-              <S.Text> Oak Street, 901 </S.Text>
-            </S.Contact>
+              <S.Paragraph> Oak Street, 901 </S.Paragraph>
+            </S.ListItem>
           </S.List>
-          <S.ListRow>
+          <S.SpacedFlexRow>
             <S.SocialLink href="https://github.com/thomasmfx">
               <GitHub />
             </S.SocialLink>
             <S.SocialLink href="https://www.linkedin.com/in/thomas-moises-fernandes/">
               <Linkedin />
             </S.SocialLink>
-          </S.ListRow>
-        </S.ContactSection>
+          </S.SpacedFlexRow>
+        </S.Section>
         <S.HelpSection>
           <S.SectionHeading>Help & Info</S.SectionHeading>
           <S.List>
-            <S.Link>Terms and Conditions</S.Link>
-            <S.Link>Privacy Policy</S.Link>
-            <S.Link>Help Center</S.Link>
-            <S.Link>FAQs</S.Link>
+            <S.ListItem>
+              <S.Link>Terms and Conditions</S.Link>
+            </S.ListItem>
+            <S.ListItem>
+              <S.Link>Privacy Policy</S.Link>
+            </S.ListItem>
+            <S.ListItem>
+              <S.Link>Help Center</S.Link>
+            </S.ListItem>
+            <S.ListItem>
+              <S.Link>FAQs</S.Link>
+            </S.ListItem>
           </S.List>
         </S.HelpSection>
-        <S.NewsletterSection>
+        <S.Section>
           <S.SectionHeading>Newsletter</S.SectionHeading>
-          <S.Text>
+          <S.Paragraph>
             Stay ahead with our latest releases - subscribe to our newsletter:
-          </S.Text>
+          </S.Paragraph>
           <NewsletterForm />
-          <S.ListRow>
+          <S.SpacedFlexRow>
             <S.Badge src={applePayBadge} />
             <S.Badge src={googlePayBadge} />
             <S.Badge src={masterCardBadge} />
             <S.Badge src={payPalBadge} />
             <S.Badge src={visaBadge} />
-          </S.ListRow>
-        </S.NewsletterSection>
-      </S.SectionsWrapper>
+          </S.SpacedFlexRow>
+        </S.Section>
       <S.Copyright>Copyright © bitShop - All rights reserved</S.Copyright>
     </S.Footer>
   )

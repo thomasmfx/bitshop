@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { Home, ShoppingBag, ShoppingCart, User } from 'react-feather'
 import Logo from '../Logo/Logo'
+import { RouterLink, Span } from '../shared/elements'
 import * as S from './Header.styles'
 
 const iconSize = 21
@@ -14,7 +15,11 @@ function CartButton({ itemsCount, selected }) {
         size={iconSize}
         style={{ transform: 'translate(-7%, 10%)' }}
       />
-      <S.ItemsCount>{itemsCount}</S.ItemsCount>
+      <S.ItemsCount>
+        <Span>
+          {itemsCount}
+        </Span>
+      </S.ItemsCount>
     </S.RoundButton>
   )
 }
@@ -39,39 +44,39 @@ function Header({ cartProductsCount }) {
 
   return (
     <S.Header>
-      <S.Link to={'/'}>
+      <RouterLink to={'/'}>
         <Logo size={'1.8rem'} />
-      </S.Link>
+      </RouterLink>
       <S.Nav>
-        <S.Link to={'/'}>
+        <RouterLink to={'/'}>
           <S.Button selected={currentRoute === '/'}>
             <Home size={iconSize} />
-            <S.Text>Home</S.Text>
+            <Span>Home</Span>
           </S.Button>
-        </S.Link>
-        <S.Link to={'/about-us'}>
+        </RouterLink>
+        <RouterLink to={'/about-us'}>
           <S.Button selected={currentRoute === '/about-us'}>
             <User size={iconSize} />
-            <S.Text>About Us</S.Text>
+            <Span>About Us</Span>
           </S.Button>
-        </S.Link>
-        <S.Link to={'/shop'}>
+        </RouterLink>
+        <RouterLink to={'/shop'}>
           {/* Method to work with dynamic segments, i.e. when opening a product page.
           I'm only checking for '/shop' in the route, excluding the productId */}
           <S.Button
             selected={currentRoute.split('').slice(0, 5).join('') === '/shop'}
           >
             <ShoppingBag size={iconSize} />
-            <S.Text>Shop</S.Text>
+            <Span>Shop</Span>
           </S.Button>
-        </S.Link>
+        </RouterLink>
       </S.Nav>
-      <S.Link to={'/cart'}>
+      <RouterLink to={'/cart'}>
         <CartButton
           itemsCount={cartProductsCount}
           selected={currentRoute === '/cart'}
         />
-      </S.Link>
+      </RouterLink>
     </S.Header>
   )
 }

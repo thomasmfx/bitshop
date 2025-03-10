@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Link as RouterLink } from 'react-router-dom'
+import { bgColor, textColor } from '../shared/mixins'
 
 export const Header = styled.header`
   position: fixed;
@@ -29,21 +29,16 @@ export const Button = styled.button`
   padding: 0.4em 0.8em;
   gap: 0.5em;
   font-weight: 400;
-
-  background: ${(props) =>
-    props.selected ? '#dff0ff' : 'none'};
-  color: ${(props) =>
-    props.selected
-      ? ({ theme }) => theme.colors.brandPrimary
-      : ({ theme }) => theme.colors.default};
+  background: ${(props) => props.selected ? '#dff0ff' : 'none'};
+  ${(props) => props.selected && textColor('brandPrimary')};
   border: none;
   border-radius: 5px;
   font-family: Montserrat;
-  font-weight: 500;
+  font-weight: 400;
   cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.colors.brandPrimary};
+    ${textColor('brandPrimary')}
   }
 
   @media (max-width: ${({ theme }) => theme.device.tabletL}) {
@@ -52,7 +47,7 @@ export const Button = styled.button`
     width: 46.5px;
     position: relative;
 
-    > p {
+    > span {
       display: none;
     }
   }
@@ -75,19 +70,10 @@ export const ItemsCount = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: ${({ theme }) => theme.colors.brandPrimary};
+  ${bgColor('brandPrimary')}
   border-radius: 50%;
   color: white;
   font-size: 10px;
   font-weight: bold;
   transform: translate(-7%, 10%);
-`
-
-export const Link = styled(RouterLink)`
-  text-decoration: none;
-`
-
-export const Text = styled.p`
-  font-family: Inter;
-  font-weight: 400;
 `
