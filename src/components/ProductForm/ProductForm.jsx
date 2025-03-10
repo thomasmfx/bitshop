@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 import { ShoppingCart } from 'react-feather'
+import { Span } from '../shared/elements'
 import QuantityControl from '../QuantityControl/QuantityControl'
 import Button from '../Button/Button'
 
@@ -48,7 +49,7 @@ const StyledButton = styled(Button)`
   ${(props) => props.size && mediaStyledButton};
 `
 
-const Text = styled.p`
+const Text = styled(Span)`
   height: ${(props) => (props.size === 'L' ? '' : '22px')};
   font-size: ${(props) => (props.size === 'L' ? '1rem' : '')};
 `

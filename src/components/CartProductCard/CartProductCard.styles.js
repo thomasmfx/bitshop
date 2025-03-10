@@ -88,8 +88,3 @@ export const ProductName = styled.p`
     grid-column: 1 / -1;
   }
 `
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
-`

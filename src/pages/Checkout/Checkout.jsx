@@ -55,7 +55,7 @@ function CheckoutPage() {
 
     setTimeout(() => {
       setHideDotBling(true)
-    }, 7350)
+    }, 7000)
 
     setTimeout(() => {
       setCanredirect(true)

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { P } from '../shared/elements'
 
 export const ProductContainer = styled.div`
   min-width: 256px;
@@ -38,7 +38,7 @@ export const ProductInfo = styled.div`
   gap: 1.5em;
 `
 
-export const ProductTitle = styled.p``
+export const ProductTitle = styled(P)``
 
 export const ProductPrice = styled.p`
   &::before {
@@ -55,9 +55,4 @@ export const RowWrapper = styled.div`
   align-self: end;
   display: flex;
   justify-content: space-between;
-`
-
-export const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: inherit;
 `

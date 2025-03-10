@@ -67,4 +67,5 @@ export const StyledButton = styled(Button)`
   align-items: center;
   justify-content: center;
   width: 175px;
+  color: white;
 `

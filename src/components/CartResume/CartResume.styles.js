@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Button from '../Button/Button'
+import { P } from '../shared/elements'
 
 export const CartResumeContainer = styled.div`
   display: flex;
@@ -26,9 +27,7 @@ export const Price = styled.p`
   }
 `
 
-export const Text = styled.p``
-
-export const TextLight = styled(Text)`
+export const TextLight = styled(P)`
   color: ${({ theme }) => theme.colors.neutralDark};
 `
 
@@ -74,7 +73,7 @@ export const CouponInput = styled.input`
   }
 `
 
-export const CouponDiscount = styled(Text)`
+export const CouponDiscount = styled(P)`
   &::after {
     content: '%';
   }

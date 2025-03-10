@@ -1,7 +1,20 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-export const Main = styled.main``
+export const Main = styled.main`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5em;
+  padding: 6em;
+
+  @media (max-width: ${({ theme }) => theme.device.mobileXXL}) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+`
 
 export const FlexRow = styled.div`
   display: flex;
@@ -18,10 +31,9 @@ export const FlexCol = styled(FlexRow)`
 `
 
 export const P = styled.p`
-  color: ${({theme}) => theme.colors.default};
-  font-size: 1rem;
-  font-family: Inter;
-  font-weight: 400;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
 `
 
 export const H1 = styled.h1``
@@ -33,4 +45,11 @@ export const H6 = styled.h6``
 
 export const RouterLink = styled(Link)`
   text-decoration: none;
+  color: inherit;
+`
+
+export const Span = styled.span`
+  display: block;
+  font-weight: inherit;
+  color: inherit;
 `

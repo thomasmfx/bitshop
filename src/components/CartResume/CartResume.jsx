@@ -5,6 +5,7 @@ import circleCheck from '../../assets/circle-check.svg'
 import Button from '../Button/Button'
 import { useOutletContext } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+import { P } from '../shared/elements'
 import * as S from './CartResume.styles'
 
 const initialCouponState = {
@@ -86,14 +87,14 @@ function CartResume({ subtotal, shipping, tax, total }) {
         </S.PriceWrapper>
         <S.Divider />
         <S.TotalPrice>
-          <S.Text>Total</S.Text>
+          <P>Total</P>
           <S.Price>
             {(total - (total * couponState.discount) / 100).toFixed(2)}
           </S.Price>
         </S.TotalPrice>
       </S.PriceBreakdown>
       <S.SectionBlock>
-        <S.Text>Discount Coupon</S.Text>
+        <P>Discount Coupon</P>
         <S.DiscountCouponWrapper>
           <S.CouponInput
             ref={input}
@@ -124,14 +125,14 @@ function CartResume({ subtotal, shipping, tax, total }) {
         ) : null}
       </S.SectionBlock>
       <S.SectionBlock>
-        <S.Text>Payment methods</S.Text>
+        <P>Payment methods</P>
         <S.PaymentMethods>
           <CreditCard size={24} color="#9CA3AF" />
           <S.TextLight>All major credit cards accepted</S.TextLight>
         </S.PaymentMethods>
       </S.SectionBlock>
       <Button size={'l'} onClick={handleCheckout}>
-        <S.Text>Checkout</S.Text>
+        <P>Checkout</P>
         <S.Icon src={circleCheck} />
       </Button>
     </S.CartResumeContainer>
