@@ -10,11 +10,7 @@ export default function Home() {
         <S.Heading>
           Modern life requires smart solutions. We help you find them.
         </S.Heading>
-        <S.StyledButton 
-          as={RouterLink}
-          to={'/shop'}
-          size={'l'}  
-        >
+        <S.StyledButton as={RouterLink} to={'/shop'} size={'l'}>
           <Span>Shop Now</Span>
           <ShoppingBag />
         </S.StyledButton>

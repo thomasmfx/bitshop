@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { bgColor } from '../shared/mixins'
 
 const Container = styled.div`
   width: 100%;
@@ -19,7 +20,7 @@ const Dot = styled.div`
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.brandPrimary};
+  ${bgColor('brandPrimary')};
   animation: bounce 1.5s infinite;
 
   &:nth-child(1) {

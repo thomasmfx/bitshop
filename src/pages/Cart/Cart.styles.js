@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import ButtonPrimary from '../../components/Button/Button'
 import { Link } from 'react-router-dom'
+import { textColor } from '../../components/shared/mixins'
 
 export const StyledCart = styled.main`
   min-height: 100vh;
@@ -77,7 +78,7 @@ export const EmptyCartDisclaimer = styled.div`
 export const Text = styled.p``
 
 export const TextLight = styled(Text)`
-  color: ${({ theme }) => theme.colors.neutralDark};
+  ${textColor('neutralDark')};
 `
 
 export const StyledLink = styled(Link)`
@@ -86,7 +87,7 @@ export const StyledLink = styled(Link)`
 
 export const Button = styled(ButtonPrimary)`
   background: none;
-  color: ${({ theme }) => theme.colors.brandPrimary};
+  ${textColor('brandPrimary')};
 
   &:hover {
     background: none;

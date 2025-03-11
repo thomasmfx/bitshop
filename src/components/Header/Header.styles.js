@@ -29,7 +29,7 @@ export const Button = styled.button`
   padding: 0.4em 0.8em;
   gap: 0.5em;
   font-weight: 400;
-  background: ${(props) => props.selected ? '#dff0ff' : 'none'};
+  background: ${(props) => (props.selected ? '#dff0ff' : 'none')};
   ${(props) => props.selected && textColor('brandPrimary')};
   border: none;
   border-radius: 5px;

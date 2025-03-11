@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react'
-import { useOutletContext } from 'react-router-dom'
 import fetchProducts from '../../utils/fetchProducts'
 import ProductCard from '../ProductCard/ProductCard'
 import ProductCardLoader from '../Loaders/ProductCardLoader'
-import isProductNew from '../../utils/isProductNew'
 import * as S from './ProductList.styles'
 
 export default function ProductList() {
   const [products, setProducts] = useState([])
-  const { addItem } = useOutletContext()
 
   useEffect(() => {
     fetchProducts().then(setProducts)
@@ -32,12 +29,7 @@ export default function ProductList() {
     <S.Main>
       <S.ProductsContainer>
         {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            isNew={isProductNew(product)}
-            onAddProduct={addItem}
-          />
+          <ProductCard key={product.id} product={product} />
         ))}
       </S.ProductsContainer>
     </S.Main>

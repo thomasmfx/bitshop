@@ -10,8 +10,8 @@ import isProductNew from '../../utils/isProductNew'
 import * as S from './ProductPage.styles'
 
 export default function ProductPage() {
-  const { productId } = useParams()
   const [product, setProduct] = useState(null)
+  const { productId } = useParams()
   const { addItem } = useOutletContext()
 
   useEffect(() => {

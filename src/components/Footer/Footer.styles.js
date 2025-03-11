@@ -48,7 +48,7 @@ export const Footer = styled.footer`
 
 export const SpacedFlexRow = styled(FlexRow)`
   margin-top: 1em;
-  gap: .5em;
+  gap: 0.5em;
   flex-wrap: wrap;
 `
 

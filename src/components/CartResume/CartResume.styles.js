@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Button from '../Button/Button'
 import { P } from '../shared/elements'
+import { textColor, color } from '../shared/mixins'
 
 export const CartResumeContainer = styled.div`
   display: flex;
@@ -28,7 +29,7 @@ export const Price = styled.p`
 `
 
 export const TextLight = styled(P)`
-  color: ${({ theme }) => theme.colors.neutralDark};
+  ${textColor('neutralDark')};
 `
 
 export const TotalPrice = styled(PriceWrapper)`
@@ -56,19 +57,19 @@ export const DiscountCouponWrapper = styled.div`
 `
 
 export const CouponInput = styled.input`
-  border: 2px solid ${({ theme }) => theme.colors.neutralLight};
+  border: 2px solid ${color('neutralLight')};
   border-radius: 5px;
   height: 40px;
   padding: 0 0.8em;
   min-width: 0;
 
   &::placeholder {
-    color: ${({ theme }) => theme.colors.neutral};
+    ${textColor('neutral')};
     opacity: 0.7;
   }
 
   &:focus {
-    outline: 2px solid ${({ theme }) => theme.colors.brandPrimary};
+    outline: 2px solid ${color('brandPrimary')};
     outline-offset: -2px;
   }
 `

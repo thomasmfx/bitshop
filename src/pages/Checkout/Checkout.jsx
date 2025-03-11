@@ -64,7 +64,7 @@ function CheckoutPage() {
 
   useEffect(() => {
     if (canRedirect) navigate('/')
-  }, [canRedirect])
+  })
 
   return (
     <S.Container>

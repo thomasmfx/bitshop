@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
 
 export const Product = styled.div`
   display: grid;
@@ -79,7 +78,6 @@ export const RemoveProductButton = styled.button`
 `
 
 export const ProductName = styled.p`
-  width: 100%;
   grid-row: 1 / 2;
   grid-column: 2 / 3;
 

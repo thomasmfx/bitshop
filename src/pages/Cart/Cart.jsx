@@ -5,22 +5,13 @@ import CartProductCard from '../../components/CartProductCard/CartProductCard'
 import * as S from './Cart.styles'
 
 export default function Cart() {
-  const { items } = useOutletContext()
-
-  function calculateSubtotal() {
-    return items.reduce((count, item) => count + item.price * item.quantity, 0)
-  }
-
-  const subtotal = calculateSubtotal()
-  const shipping = 19.99
-  const tax = subtotal * 0.1
-  const total = subtotal + shipping + tax
+  const { cartProducts } = useOutletContext()
 
   return (
     <S.StyledCart>
       <S.SectionCart>
         <S.SectionHeading>Cart</S.SectionHeading>
-        {items.length === 0 ? (
+        {cartProducts.length === 0 ? (
           <S.EmptyCartDisclaimer>
             <S.TextLight>Empty cart</S.TextLight>
             <S.StyledLink to="/shop">
@@ -32,7 +23,7 @@ export default function Cart() {
           </S.EmptyCartDisclaimer>
         ) : (
           <>
-            {items.map((product) => (
+            {cartProducts.map((product) => (
               <CartProductCard key={product.id} product={product} />
             ))}
           </>
@@ -40,12 +31,7 @@ export default function Cart() {
       </S.SectionCart>
       <S.SectionResume>
         <S.SectionHeading>Resume</S.SectionHeading>
-        <CartResume
-          subtotal={subtotal}
-          shipping={shipping}
-          tax={tax}
-          total={total}
-        />
+        <CartResume />
       </S.SectionResume>
     </S.StyledCart>
   )

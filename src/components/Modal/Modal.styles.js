@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components'
+import { textColor } from '../shared/mixins'
 
 export const ModalContainer = styled.div`
   position: fixed;
   z-index: 2;
-  background-color:rgba(108, 117, 125, 0.47);
+  background-color: rgba(108, 117, 125, 0.47);
   min-height: 100%;
   width: 100%;
   display: flex;
@@ -17,7 +18,7 @@ export const Modal = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 20px;
-  background-color: #FFF;
+  background-color: #fff;
   width: 250px;
   height: 250px;
   padding: 1em;
@@ -29,7 +30,7 @@ export const ModalMessage = styled.p`
 `
 
 export const ButtonCloseModal = styled.div`
-  color: ${({theme}) => theme.colors.brandPrimary};
+  ${textColor('brandPrimary')};
   font-weight: 600;
   cursor: pointer;
 `

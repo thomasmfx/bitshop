@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Circle } from 'react-feather'
+import { textColor } from '../shared/mixins'
 
 const StyledLogo = styled.p`
   display: flex;
@@ -8,7 +9,7 @@ const StyledLogo = styled.p`
   gap: 0.2em;
   font-size: ${(props) => (props.fontSize ? props.fontSize : '2rem')};
   font-weight: bold;
-  color: ${({ theme }) => theme.colors.brandPrimary};
+  ${textColor('brandPrimary')};
 
   > svg {
     min-width: 10px;

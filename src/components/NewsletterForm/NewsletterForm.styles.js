@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { bgColor, color } from '../shared/mixins'
 
 export const Form = styled.form`
   display: grid;
@@ -14,7 +15,7 @@ export const Input = styled.input`
   width: 100%;
 
   &:focus {
-    outline: 2px solid ${({ theme }) => theme.colors.brandPrimary};
+    outline: 2px solid ${color('brandPrimary')};
     outline-offset: -2px;
   }
 `
@@ -25,7 +26,7 @@ export const Button = styled.button`
   justify-content: center;
   border: none;
   border-radius: 0 5px 5px 0;
-  background-color: ${({ theme }) => theme.colors.brandPrimary};
+  ${bgColor('brandPrimary')};
   color: white;
   height: 35px;
   font-weight: 600;

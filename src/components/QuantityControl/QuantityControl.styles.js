@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { color, textColor } from '../shared/mixins'
 
 const mediaQuantityControl = css`
   @media (max-width: ${({ theme }) => theme.device.mobileM}) {
@@ -23,8 +24,8 @@ export const QuantityControl = styled.div`
 
 export const Input = styled.input`
   border: none;
-  border-top: 1px solid ${({ theme }) => theme.colors.neutralLight};
-  border-bottom: 1px solid ${({ theme }) => theme.colors.neutralLight};
+  border-top: 1px solid ${color('neutralLight')};
+  border-bottom: 1px solid ${color('neutralLight')};
   outline: none;
   text-align: center;
   font-size: ${(props) => (props.size === 'L' ? '1rem' : '.8rem')};
@@ -51,7 +52,7 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   background: none;
-  border: 1px solid ${({ theme }) => theme.colors.neutralLight};
+  border: 1px solid ${color('neutralLight')};
   border-radius: ${(props) =>
     props.$roundRight ? '0 5px 5px 0' : '5px 0 0 5px'};
   padding: 0.1em 0.3em;
@@ -65,7 +66,7 @@ export const Button = styled.button`
     cursor: not-allowed;
 
     svg {
-      color: ${({ theme }) => theme.colors.default};
+      ${textColor('default')};
     }
   }
 `

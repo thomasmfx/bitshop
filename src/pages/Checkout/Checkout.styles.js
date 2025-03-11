@@ -1,4 +1,5 @@
 import styled, { keyframes, css } from 'styled-components'
+import { bgColor, textColor } from '../../components/shared/mixins'
 
 const fadeOut = keyframes`
   0% {
@@ -55,7 +56,7 @@ export const Message = styled.div`
 `
 
 export const Logo = styled.span`
-  color: ${({ theme }) => theme.colors.brandPrimary};
+  ${textColor('brandPrimary')};
   display: inline;
 `
 
@@ -66,7 +67,7 @@ export const Dot = styled.div`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: ${({ theme }) => theme.colors.brandPrimary};
+  ${bgColor('brandPrimary')};
   opacity: ${(props) => (props.show ? 1 : 0)};
 
   @media (max-width: ${({ theme }) => theme.device.mobileM}) {

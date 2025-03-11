@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { textColor } from '../../components/shared/mixins'
 
 export const Main = styled.main`
   justify-self: center;
@@ -25,7 +26,7 @@ export const Main = styled.main`
 
 export const Slogan = styled.h1`
   text-align: center;
-  color: ${({ theme }) => theme.colors.brandPrimary};
+  ${textColor('brandPrimary')};
 
   @media (max-width: ${({ theme }) => theme.device.laptop}) {
     padding-bottom: 1em;

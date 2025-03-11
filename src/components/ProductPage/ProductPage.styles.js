@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { textColor, color } from '../shared/mixins'
 
 export const Main = styled.main`
   min-height: 100vh;
@@ -138,7 +139,7 @@ export const TextBold = styled(Text)`
 `
 
 export const TextLight = styled(Text)`
-  color: ${({ theme }) => theme.colors.neutralDark};
+  ${textColor('neutralDark')}
 `
 
 export const ProductPrice = styled(Text)`
@@ -211,7 +212,7 @@ export const ReviewerPicture = styled.div`
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  border: 2px solid ${({ theme }) => theme.colors.default};
+  border: 2px solid ${color('deufalt')};
 `
 
 export const ReviewerName = styled(TextBold)`

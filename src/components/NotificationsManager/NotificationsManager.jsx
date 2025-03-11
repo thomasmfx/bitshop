@@ -1,64 +1,69 @@
 import { Check, X, AlertTriangle } from 'react-feather'
+import PropTypes from 'prop-types'
 import ToastNotification from '../ToastNotification/ToastNotification'
 import Modal from '../Modal/Modal'
 import { useEffect } from 'react'
 
 // Modals included
 function NotificationsManager({ notifications, updater }) {
-
   useEffect(() => {
-    if (notifications.itemAdded) {
+    if (notifications.productAdded) {
       setTimeout(() => {
-        updater('itemAdded', false)
-      }, 3501) // animation duration + 1ms delay
+        updater('productAdded', false)
+      }, 3500)
     }
-    if (notifications.itemRemoved) {
+    if (notifications.productRemoved) {
       setTimeout(() => {
-        updater('itemRemoved', false)
-      }, 3501)
+        updater('productRemoved', false)
+      }, 3500)
     }
-    if (notifications.emptyCart) {
+    if (notifications.cartEmpty) {
       setTimeout(() => {
-        updater('emptyCart', false)
-      }, 3501)
+        updater('cartEmpty', false)
+      }, 3500)
     }
-  }, [notifications])
+  }, [notifications, updater])
 
   return (
     <>
-      {notifications.itemAdded && (
+      {notifications.productAdded && (
         <ToastNotification text={'Added to cart'}>
           <Check color="#38b000" />
         </ToastNotification>
       )}
-      {notifications.itemRemoved && (
+      {notifications.productRemoved && (
         <ToastNotification text={'Removed from cart'}>
           <X color="#ef233c" />
         </ToastNotification>
       )}
-      {notifications.emptyCart && (
+      {notifications.cartEmpty && (
         <ToastNotification text={'Empty cart'}>
           <AlertTriangle color="#ff8800" />
         </ToastNotification>
       )}
       {notifications.cartLimitReached && (
-        <Modal 
+        <Modal
           message={
             'Cart limit of 99 items reached. Please complete your current purchase to add more items.'
           }
           onCloseModal={() => updater('cartLimitReached', false)}
         />
       )}
-      {notifications.actionExceedsCartLimit && (
-        <Modal 
+      {notifications.quantityExceedsLimit && (
+        <Modal
           message={
             'This action exceeds the cart limit of 99 items. Please adjust the quantity or complete your current purchase.'
           }
-          onCloseModal={() => updater('actionExceedsCartLimit', false)}
+          onCloseModal={() => updater('quantityExceedsLimit', false)}
         />
       )}
     </>
   )
+}
+
+NotificationsManager.propTypes = {
+  notifications: PropTypes.object.isRequired,
+  updater: PropTypes.func.isRequired,
 }
 
 export default NotificationsManager

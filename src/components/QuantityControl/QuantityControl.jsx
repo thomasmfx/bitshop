@@ -3,19 +3,19 @@ import { Minus, Plus } from 'react-feather'
 import * as S from './QuantityControl.styles'
 
 function QuantityControl({
-  onMinusClick,
-  onPlusClick,
-  onChange,
+  onDecreaseQuantity,
+  onIncreaseQuantity,
+  onInputQuantityChange,
   value,
-  minusDisabledValue = '',
-  plusDisabledValue = 99,
+  minValue = '',
+  maxValue = 99,
   size,
 }) {
   return (
     <S.QuantityControl size={size}>
       <S.Button
-        onClick={onMinusClick}
-        disabled={value === minusDisabledValue}
+        onClick={onDecreaseQuantity}
+        disabled={value === minValue}
         aria-label="Decrease quantity"
       >
         <Minus size={15} />
@@ -23,16 +23,16 @@ function QuantityControl({
       <S.Input
         name="quantity"
         type="number"
-        disabled={!onChange}
-        onChange={onChange}
+        disabled={!onInputQuantityChange}
+        onChange={onInputQuantityChange}
         value={value}
         onClick={(e) => e.preventDefault()}
         size={size}
       />
       <S.Button
         $roundRight={true}
-        onClick={onPlusClick}
-        disabled={value === plusDisabledValue}
+        onClick={onIncreaseQuantity}
+        disabled={value === maxValue}
         aria-label="Increase quantity"
       >
         <Plus size={15} />
@@ -42,12 +42,12 @@ function QuantityControl({
 }
 
 QuantityControl.propTypes = {
-  onMinusClick: PropTypes.func,
-  onPlusClick: PropTypes.func,
-  onChange: PropTypes.func,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  minusDisabledValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  plusDisabledValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  onDecreaseQuantity: PropTypes.func,
+  onIncreaseQuantity: PropTypes.func,
+  onInputQuantityChange: PropTypes.func,
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  minValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  maxValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   size: PropTypes.string,
 }
 

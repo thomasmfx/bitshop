@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { bgColor } from '../shared/mixins'
 
 const StyledProductTag = styled.div`
   display: flex;
@@ -11,7 +12,7 @@ const StyledProductTag = styled.div`
   padding-right: 0.5em;
 
   border-radius: 10px;
-  background-color: #6c757d;
+  ${bgColor('neutral')};
   font-size: 0.7rem;
   font-weight: bold;
   color: white;
@@ -22,7 +23,7 @@ function ProductTag({ tagName }) {
 }
 
 ProductTag.propTypes = {
-  tagName: PropTypes.string,
+  tagName: PropTypes.string.isRequired,
 }
 
 export default ProductTag

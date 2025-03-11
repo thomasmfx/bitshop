@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { bgColor } from '../shared/mixins'
 
 const StyledTagNew = styled.div`
   display: flex;
@@ -12,7 +13,7 @@ const StyledTagNew = styled.div`
   right: 0;
 
   border-radius: 40px;
-  background-color: ${({ theme }) => theme.colors.brandPrimary};
+  ${bgColor('brandPrimary')};
   font-size: 0.7rem;
   font-weight: bold;
   color: white;

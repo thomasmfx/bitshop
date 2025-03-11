@@ -3,14 +3,15 @@ import { Star } from 'react-feather'
 import TagNew from '../TagNew/TagNew'
 import ProductForm from '../ProductForm/ProductForm'
 import { RouterLink } from '../shared/elements'
+import isProductNew from '../../utils/isProductNew'
 import * as S from './ProductCard.styles'
 
-function ProductCard({ product, isNew, onAddProduct }) {
+function ProductCard({ product }) {
   const rating = Math.round(product.rating)
 
   return (
     <S.ProductContainer as={RouterLink} to={`/shop/${product.id}`}>
-      {isNew && <TagNew />}
+      {isProductNew(product) && <TagNew />}
       <S.ProductImageContainer>
         <S.Image src={product.images[0]} />
       </S.ProductImageContainer>
@@ -29,7 +30,7 @@ function ProductCard({ product, isNew, onAddProduct }) {
             ))}
           </S.ProductRating>
         </S.RowWrapper>
-        <ProductForm product={product} onAddProduct={onAddProduct} />
+        <ProductForm product={product} />
       </S.ProductInfo>
     </S.ProductContainer>
   )
@@ -37,8 +38,6 @@ function ProductCard({ product, isNew, onAddProduct }) {
 
 ProductCard.propTypes = {
   product: PropTypes.object.isRequired,
-  isNew: PropTypes.bool,
-  onAddProduct: PropTypes.func.isRequired,
 }
 
 export default ProductCard

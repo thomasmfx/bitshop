@@ -7,3 +7,7 @@ export const textColor = (value) => css`
 export const bgColor = (value) => css`
   background-color: ${({ theme }) => theme.colors[value]};
 `
+
+export const color = (value) => css`
+  ${({ theme }) => theme.colors[value]}
+`

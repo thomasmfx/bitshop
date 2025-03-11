@@ -2,59 +2,63 @@ import { Outlet } from 'react-router-dom'
 import { useState } from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import ScrollToTop from './utils/scrollToTop'
 import NotificationsManager from './components/NotificationsManager/NotificationsManager'
 
-const initialNotificationsState = {
-  itemAdded: false,
-  itemRemoved: false,
-  emptyCart: false,
+const initialNotificationState = {
+  productAdded: false,
+  productRemoved: false,
+  cartEmpty: false,
   cartLimitReached: false,
-  actionExceedsCartLimit: false
+  quantityExceedsLimit: false,
 }
 
 function App() {
-  const CART_LIMIT = 99
+  const MAX_CART_QUANTITY = 99
   const [cart, setCart] = useState([])
-  const [notifications, setNotifications] = useState(initialNotificationsState)
+  const [notificationStates, setNotificationStates] = useState(
+    initialNotificationState,
+  )
 
-  function updateNotifications(notification, newState) {
-    setNotifications(prevState => ({ ...prevState, [notification]: newState }))
+  function updateNotificationState(notificationType, isActive) {
+    setNotificationStates((prevStates) => ({
+      ...prevStates,
+      [notificationType]: isActive,
+    }))
   }
 
-  function getTotalItems() {
-    return cart.reduce((count, item) => count + item.quantity, 0)
+  function getCartTotalQuantity() {
+    return cart.reduce((total, item) => total + item.quantity, 0)
   }
 
-  function addToCart(product, quantity) {
+  function addProductToCart(product, quantity) {
     if (!product?.id || quantity <= 0 || quantity === '') return
 
-    if (!cart.length) {
-      if (quantity > CART_LIMIT) {
-        updateNotifications('actionExceedsCartLimit', true)
+    if (cart.length === 0) {
+      if (quantity > MAX_CART_QUANTITY) {
+        updateNotificationState('quantityExceedsLimit', true)
         return
       }
-      
-      if (!notifications.itemAdded) updateNotifications('itemAdded', true)
+
+      if (!notificationStates.productAdded)
+        updateNotificationState('productAdded', true)
       setCart([{ ...product, quantity }])
       return
     }
 
-    if (getTotalItems() === CART_LIMIT) {
-      updateNotifications('cartLimitReached', true)
+    if (getCartTotalQuantity() === MAX_CART_QUANTITY) {
+      updateNotificationState('cartLimitReached', true)
       return
     }
 
-    if (getTotalItems() + quantity > CART_LIMIT) {
-      updateNotifications('actionExceedsCartLimit', true)
-
+    if (getCartTotalQuantity() + quantity > MAX_CART_QUANTITY) {
+      updateNotificationState('quantityExceedsLimit', true)
       return
     }
 
-    let productExists = false
-    const updatedCart = cart.map((item) => {
+    let isProductInCart = false
+    const updatedCartItems = cart.map((item) => {
       if (item.id === product.id) {
-        productExists = true
+        isProductInCart = true
         return {
           ...item,
           quantity: item.quantity + quantity,
@@ -63,60 +67,60 @@ function App() {
       return item
     })
 
-    if (!productExists) {
-      updatedCart.push({
+    if (!isProductInCart) {
+      updatedCartItems.push({
         ...product,
         quantity,
       })
     }
 
-    if (!notifications.itemAdded) updateNotifications('itemAdded', true)
-    setCart(updatedCart)
+    if (!notificationStates.productAdded)
+      updateNotificationState('productAdded', true)
+    setCart(updatedCartItems)
   }
 
-  function decreaseQuantity(product, amount) {
-    if (amount > product.quantity || product.quantity - amount <= 0) return
+  function decreaseProductQuantity(product, quantity) {
+    if (quantity > product.quantity || product.quantity - quantity <= 0) return
 
-    const updatedCart = cart.map((item) =>
+    const updatedCartItems = cart.map((item) =>
       item.id === product.id
-        ? { ...item, quantity: item.quantity - amount }
+        ? { ...item, quantity: item.quantity - quantity }
         : item,
     )
 
-    setCart(updatedCart)
+    setCart(updatedCartItems)
   }
 
-  function removeFromCart(product) {
+  function removeProductFromCart(product) {
     setCart(cart.filter((item) => item.id !== product.id))
-    if (!notifications.itemRemoved) updateNotifications('itemRemoved', true)
+    if (!notificationStates.productRemoved)
+      updateNotificationState('productRemoved', true)
   }
 
-  function clearCart() {
+  function clearCartItems() {
     setCart([])
   }
 
   const cartContext = {
-    items: cart,
-    addItem: addToCart,
-    removeItem: removeFromCart,
-    decreaseQuantity,
-    clearCart,
-    notificateEmptyCart: () => updateNotifications('emptyCart', true),
+    cartProducts: cart,
+    addProduct: addProductToCart,
+    removeProduct: removeProductFromCart,
+    decreaseProductQuantity: decreaseProductQuantity,
+    clearCart: clearCartItems,
+    getCartTotalQuantity: getCartTotalQuantity,
+    notifyEmptyCart: () => updateNotificationState('cartEmpty', true),
   }
 
   return (
-    <ScrollToTop>
-      <>
-        <Header cartProductsCount={getTotalItems()} />
-        <NotificationsManager 
-          notifications={notifications}
-          updater={updateNotifications}
-
-        />
-        <Outlet context={cartContext} />
-        <Footer />
-      </>
-    </ScrollToTop>
+    <>
+      <Header cartProductsCount={getCartTotalQuantity()} />
+      <NotificationsManager
+        notifications={notificationStates}
+        updater={updateNotificationState}
+      />
+      <Outlet context={cartContext} />
+      <Footer />
+    </>
   )
 }
 

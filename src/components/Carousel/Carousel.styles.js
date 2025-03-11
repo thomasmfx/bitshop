@@ -111,7 +111,7 @@ export const DotsWrapper = styled.div`
 export const Dot = styled.div`
   width: 10px;
   height: 10px;
-  background-color: ${(props) => (props.currentIndex ? '#6c757d' : '')};
+  background-color: ${(props) => props.currentIndex && '#6c757d'};
   border: 2px solid #6c757d;
   border-radius: 50%;
   cursor: pointer;

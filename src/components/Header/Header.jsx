@@ -1,9 +1,10 @@
-import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Home, ShoppingBag, ShoppingCart, User } from 'react-feather'
 import Logo from '../Logo/Logo'
 import { RouterLink, Span } from '../shared/elements'
+import scrollToTopOnRouteChange from '../../utils/scrollPageToTop'
 import * as S from './Header.styles'
 
 const iconSize = 21
@@ -16,9 +17,7 @@ function CartButton({ itemsCount, selected }) {
         style={{ transform: 'translate(-7%, 10%)' }}
       />
       <S.ItemsCount>
-        <Span>
-          {itemsCount}
-        </Span>
+        <Span>{itemsCount}</Span>
       </S.ItemsCount>
     </S.RoundButton>
   )
@@ -27,19 +26,8 @@ function CartButton({ itemsCount, selected }) {
 function Header({ cartProductsCount }) {
   const currentRoute = useLocation().pathname
 
-  // Scroll to top on route change
-
   useEffect(() => {
-    document.documentElement.setAttribute('data-scroll', '0')
-
-    const handleScroll = () => {
-      const scrollY = window.scrollY
-      document.documentElement.setAttribute('data-scroll', scrollY.toString())
-    }
-
-    window.addEventListener('scroll', handleScroll)
-
-    return () => window.removeEventListener('scroll', handleScroll)
+    scrollToTopOnRouteChange()
   }, [])
 
   return (
@@ -82,12 +70,12 @@ function Header({ cartProductsCount }) {
 }
 
 CartButton.propTypes = {
-  itemsCount: PropTypes.number,
-  selected: PropTypes.bool,
+  itemsCount: PropTypes.number.isRequired,
+  selected: PropTypes.bool.isRequired,
 }
 
 Header.propTypes = {
-  cartProductsCount: PropTypes.number,
+  cartProductsCount: PropTypes.number.isRequired,
 }
 
 export default Header

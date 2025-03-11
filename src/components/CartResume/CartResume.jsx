@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import { useState, useRef } from 'react'
 import { CreditCard, X, Check } from 'react-feather'
 import circleCheck from '../../assets/circle-check.svg'
@@ -12,17 +11,29 @@ const initialCouponState = {
   code: '',
   discount: 0,
   wasTried: false, // Prevent "invalid coupon" feedback before user tries to enter a coupon
-  isValid: false
+  isValid: false,
 }
 
-function CartResume({ subtotal, shipping, tax, total }) {
-  const [couponState, setCouponState] = useState(initialCouponState);
-  const { clearCart, items, notificateEmptyCart } = useOutletContext()
+function CartResume() {
+  const [couponState, setCouponState] = useState(initialCouponState)
+  const { clearCart, cartProducts, notifyEmptyCart } = useOutletContext()
   const input = useRef(null)
   let navigate = useNavigate()
 
+  function calculateSubtotal() {
+    return cartProducts.reduce(
+      (count, item) => count + item.price * item.quantity,
+      0,
+    )
+  }
+
+  const subtotal = calculateSubtotal()
+  const shipping = 19.99
+  const tax = subtotal * 0.1
+  const total = subtotal + shipping + tax
+
   function updateCouponState(property, newValue) {
-    setCouponState(prevState => ({ ...prevState, [property]: newValue }))
+    setCouponState((prevState) => ({ ...prevState, [property]: newValue }))
   }
 
   function handleCouponSubmit() {
@@ -54,13 +65,13 @@ function CartResume({ subtotal, shipping, tax, total }) {
   }
 
   function handleCheckout() {
-    if (!items.length) {
-      notificateEmptyCart()
+    if (!cartProducts.length) {
+      notifyEmptyCart()
       return
     }
 
     navigate('/checkout')
-    // A little delay to not show the items getting cleared during the transition to checkout
+    // A little delay to not show the cartProducts getting cleared during the transition to checkout
     setTimeout(() => {
       clearCart()
     }, 100)
@@ -137,13 +148,6 @@ function CartResume({ subtotal, shipping, tax, total }) {
       </Button>
     </S.CartResumeContainer>
   )
-}
-
-CartResume.propTypes = {
-  subtotal: PropTypes.number,
-  shipping: PropTypes.number,
-  tax: PropTypes.number,
-  total: PropTypes.number,
 }
 
 export default CartResume
