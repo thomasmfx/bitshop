@@ -1,10 +1,8 @@
 import { useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { Home, ShoppingBag, ShoppingCart, User } from 'react-feather'
 import Logo from '../Logo/Logo'
 import { RouterLink, Span } from '../shared/elements'
-import scrollToTopOnRouteChange from '../../utils/scrollPageToTop'
 import * as S from './Header.styles'
 
 const iconSize = 21
@@ -25,10 +23,6 @@ function CartButton({ itemsCount, selected }) {
 
 function Header({ cartProductsCount }) {
   const currentRoute = useLocation().pathname
-
-  useEffect(() => {
-    scrollToTopOnRouteChange()
-  }, [])
 
   return (
     <S.Header>

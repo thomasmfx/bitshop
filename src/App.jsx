@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import NotificationsManager from './components/NotificationsManager/NotificationsManager'
+import ScrollToTop from './utils/ScrollToTop'
 
 const initialNotificationState = {
   productAdded: false,
@@ -113,6 +114,7 @@ function App() {
 
   return (
     <>
+      <ScrollToTop />
       <Header cartProductsCount={getCartTotalQuantity()} />
       <NotificationsManager
         notifications={notificationStates}
