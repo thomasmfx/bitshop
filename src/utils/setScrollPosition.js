@@ -1,4 +1,4 @@
-export default function scrollPageToTop() {
+export default function setScrollPosition() {
   document.documentElement.setAttribute('data-scroll', '0')
 
   const handleScroll = () => {
