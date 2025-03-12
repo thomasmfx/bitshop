@@ -1,29 +1,29 @@
-import { useState, useEffect } from "react"
-import { Check, X, AlertTriangle } from "react-feather"
-import ToastNotification from "../components/ToastNotification/ToastNotification"
+import { useState, useEffect } from 'react'
+import { Check, X, AlertTriangle } from 'react-feather'
+import ToastNotification from '../components/ToastNotification/ToastNotification'
 
 const NOTIFICATIONS_STATE = {
   productAdded: false,
   productRemoved: false,
-  emptyCart: false
+  emptyCart: false,
 }
 
 const NOTIFICATIONS_COMPONENTS = {
-  productAdded: 
+  productAdded: (
     <ToastNotification text={'Added to cart'}>
       <Check color="#38b000" />
-    </ToastNotification> 
-  ,
-  productRemoved: 
+    </ToastNotification>
+  ),
+  productRemoved: (
     <ToastNotification text={'Removed from cart'}>
       <X color="#ef233c" />
     </ToastNotification>
-  ,
-  emptyCart: 
+  ),
+  emptyCart: (
     <ToastNotification text={'Empty cart'}>
       <AlertTriangle color="#ff8800" />
     </ToastNotification>
-  
+  ),
 }
 
 export default function useNotifications(timeout = 3500) {
@@ -38,9 +38,9 @@ export default function useNotifications(timeout = 3500) {
 
   function getNotificationElement(name) {
     if (notifications[name] && NOTIFICATIONS_COMPONENTS[name]) {
-      return NOTIFICATIONS_COMPONENTS[name];
+      return NOTIFICATIONS_COMPONENTS[name]
     }
-    return null;
+    return null
   }
 
   useEffect(() => {
@@ -51,11 +51,11 @@ export default function useNotifications(timeout = 3500) {
         }, timeout)
       }
     })
-  }, [notifications])
+  }, [notifications, timeout])
 
   return {
     notifications,
     handleSetNotifications,
-    getNotificationElement 
+    getNotificationElement,
   }
 }

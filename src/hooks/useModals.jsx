@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from 'react'
 import Modal from '../components/Modal/Modal'
 
 const MODALS_STATE = {
@@ -7,21 +7,22 @@ const MODALS_STATE = {
 }
 
 const MODALS_COMPONENTS = {
-  cartLimitReached: (onCloseModal) => 
+  cartLimitReached: (onCloseModal) => (
     <Modal
       message={
         'Cart limit of 99 items reached. Please complete your current purchase to add more items.'
       }
       onCloseModal={() => onCloseModal('cartLimitReached', false)}
     />
-  ,
-  quantityExceedsLimit: (onCloseModal) => 
+  ),
+  quantityExceedsLimit: (onCloseModal) => (
     <Modal
       message={
         'This action exceeds the cart limit of 99 items. Please adjust the quantity or complete your current purchase.'
       }
       onCloseModal={() => onCloseModal('quantityExceedsLimit', false)}
     />
+  ),
 }
 
 export default function useModals() {
@@ -37,14 +38,14 @@ export default function useModals() {
   function getModalElement(name) {
     if (modals[name] && MODALS_COMPONENTS[name]) {
       const modalComponent = MODALS_COMPONENTS[name]
-      return modalComponent(handleSetModals);
+      return modalComponent(handleSetModals)
     }
-    return null;
+    return null
   }
 
   return {
     modals,
     handleSetModals,
-    getModalElement 
+    getModalElement,
   }
 }

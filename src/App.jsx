@@ -3,29 +3,17 @@ import { useState } from 'react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import NotificationsManager from './components/NotificationsManager/NotificationsManager'
+import ModalsManager from './components/ModalsManager/ModalsManager'
+import useNotifications from './hooks/useNotifications'
+import useModals from './hooks/useModals'
 import ScrollToTop from './utils/ScrollToTop'
-
-const initialNotificationState = {
-  productAdded: false,
-  productRemoved: false,
-  cartEmpty: false,
-  cartLimitReached: false,
-  quantityExceedsLimit: false,
-}
 
 function App() {
   const MAX_CART_QUANTITY = 99
   const [cart, setCart] = useState([])
-  const [notificationStates, setNotificationStates] = useState(
-    initialNotificationState,
-  )
-
-  function updateNotificationState(notificationType, isActive) {
-    setNotificationStates((prevStates) => ({
-      ...prevStates,
-      [notificationType]: isActive,
-    }))
-  }
+  const { modals, handleSetModals, getModalElement } = useModals()
+  const { notifications, handleSetNotifications, getNotificationElement } =
+    useNotifications()
 
   function getCartTotalQuantity() {
     return cart.reduce((total, item) => total + item.quantity, 0)
@@ -34,25 +22,13 @@ function App() {
   function addProductToCart(product, quantity) {
     if (!product?.id || quantity <= 0 || quantity === '') return
 
-    if (cart.length === 0) {
-      if (quantity > MAX_CART_QUANTITY) {
-        updateNotificationState('quantityExceedsLimit', true)
-        return
-      }
-
-      if (!notificationStates.productAdded)
-        updateNotificationState('productAdded', true)
-      setCart([{ ...product, quantity }])
-      return
-    }
-
     if (getCartTotalQuantity() === MAX_CART_QUANTITY) {
-      updateNotificationState('cartLimitReached', true)
+      handleSetModals('cartLimitReached', true)
       return
     }
 
     if (getCartTotalQuantity() + quantity > MAX_CART_QUANTITY) {
-      updateNotificationState('quantityExceedsLimit', true)
+      handleSetModals('quantityExceedsLimit', true)
       return
     }
 
@@ -75,8 +51,8 @@ function App() {
       })
     }
 
-    if (!notificationStates.productAdded)
-      updateNotificationState('productAdded', true)
+    if (!notifications.productAdded)
+      handleSetNotifications('productAdded', true)
     setCart(updatedCartItems)
   }
 
@@ -94,8 +70,8 @@ function App() {
 
   function removeProductFromCart(product) {
     setCart(cart.filter((item) => item.id !== product.id))
-    if (!notificationStates.productRemoved)
-      updateNotificationState('productRemoved', true)
+    if (!notifications.productRemoved)
+      handleSetNotifications('productRemoved', true)
   }
 
   function clearCartItems() {
@@ -109,7 +85,7 @@ function App() {
     decreaseProductQuantity: decreaseProductQuantity,
     clearCart: clearCartItems,
     getCartTotalQuantity: getCartTotalQuantity,
-    notifyEmptyCart: () => updateNotificationState('cartEmpty', true),
+    notifyEmptyCart: () => handleSetNotifications('emptyCart', true),
   }
 
   return (
@@ -117,9 +93,10 @@ function App() {
       <ScrollToTop />
       <Header cartProductsCount={getCartTotalQuantity()} />
       <NotificationsManager
-        notifications={notificationStates}
-        updater={updateNotificationState}
+        notifications={notifications}
+        getNotificationElement={getNotificationElement}
       />
+      <ModalsManager modals={modals} getModalElement={getModalElement} />
       <Outlet context={cartContext} />
       <Footer />
     </>
