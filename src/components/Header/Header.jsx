@@ -11,7 +11,7 @@ const iconSize = 21
 
 function CartButton({ itemsCount, selected }) {
   return (
-    <S.RoundButton selected={selected}>
+    <S.RoundButton as={RouterLink} to={'/cart'} selected={selected}>
       <ShoppingCart
         size={iconSize}
         style={{ transform: 'translate(-7%, 10%)' }}
@@ -36,35 +36,33 @@ function Header({ cartProductsCount }) {
         <Logo size={'1.8rem'} />
       </RouterLink>
       <S.Nav>
-        <RouterLink to={'/'}>
-          <S.Button selected={currentRoute === '/'}>
-            <Home size={iconSize} />
-            <Span>Home</Span>
-          </S.Button>
-        </RouterLink>
-        <RouterLink to={'/about-us'}>
-          <S.Button selected={currentRoute === '/about-us'}>
-            <User size={iconSize} />
-            <Span>About Us</Span>
-          </S.Button>
-        </RouterLink>
-        <RouterLink to={'/shop'}>
-          {/* Method to work with dynamic segments, i.e. when opening a product page.
-          I'm only checking for '/shop' in the route, excluding the productId */}
-          <S.Button
-            selected={currentRoute.split('').slice(0, 5).join('') === '/shop'}
-          >
-            <ShoppingBag size={iconSize} />
-            <Span>Shop</Span>
-          </S.Button>
-        </RouterLink>
+        <S.Button as={RouterLink} to={'/'} selected={currentRoute === '/'}>
+          <Home size={iconSize} />
+          <Span>Home</Span>
+        </S.Button>
+        <S.Button
+          as={RouterLink}
+          to={'/about-us'}
+          selected={currentRoute === '/about-us'}
+        >
+          <User size={iconSize} />
+          <Span>About Us</Span>
+        </S.Button>
+        {/* Method to work with dynamic segments, i.e. when opening a product page.
+        I'm only checking for '/shop' in the route, excluding the productId */}
+        <S.Button
+          as={RouterLink}
+          to={'/shop'}
+          selected={currentRoute.split('').slice(0, 5).join('') === '/shop'}
+        >
+          <ShoppingBag size={iconSize} />
+          <Span>Shop</Span>
+        </S.Button>
       </S.Nav>
-      <RouterLink to={'/cart'}>
-        <CartButton
-          itemsCount={cartProductsCount}
-          selected={currentRoute === '/cart'}
-        />
-      </RouterLink>
+      <CartButton
+        itemsCount={cartProductsCount}
+        selected={currentRoute === '/cart'}
+      />
     </S.Header>
   )
 }
