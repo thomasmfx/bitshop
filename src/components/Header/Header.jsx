@@ -30,6 +30,10 @@ function Header({ cartProductsCount }) {
     setScrollPosition()
   }, [])
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [currentRoute])
+
   return (
     <S.Header>
       <RouterLink to={'/'}>

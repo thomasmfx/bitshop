@@ -6,7 +6,6 @@ import NotificationsManager from './components/NotificationsManager/Notification
 import ModalsManager from './components/ModalsManager/ModalsManager'
 import useNotifications from './hooks/useNotifications'
 import useModals from './hooks/useModals'
-import ScrollToTop from './utils/ScrollToTop'
 
 function App() {
   const MAX_CART_QUANTITY = 99
@@ -90,7 +89,6 @@ function App() {
 
   return (
     <>
-      <ScrollToTop />
       <Header cartProductsCount={getCartTotalQuantity()} />
       <NotificationsManager
         notifications={notifications}
