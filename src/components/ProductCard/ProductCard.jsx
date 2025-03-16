@@ -10,7 +10,11 @@ function ProductCard({ product }) {
   const rating = Math.round(product.rating)
 
   return (
-    <S.ProductContainer as={RouterLink} to={`/shop/${product.id}`} aria-label='Product page'>
+    <S.ProductContainer
+      as={RouterLink}
+      to={`/shop/${product.id}`}
+      aria-label="Product page"
+    >
       {isProductNew(product) && <TagNew />}
       <S.ProductImageContainer>
         <S.Image src={product.images[0]} />
@@ -19,7 +23,7 @@ function ProductCard({ product }) {
         <S.ProductTitle>{product.title}</S.ProductTitle>
         <S.RowWrapper>
           <S.ProductPrice>{product.price}</S.ProductPrice>
-          <S.ProductRating data-testid='Rating'>
+          <S.ProductRating data-testid="Rating">
             {[1, 2, 3, 4, 5].map((star) => (
               <Star
                 key={star}

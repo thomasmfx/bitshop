@@ -7,48 +7,48 @@ import ProductCard from './ProductCard'
 import mockProduct from '../../__mocks__/mockProduct'
 
 vi.mock('react-router-dom', async (importOriginal) => {
-  const actual = await importOriginal(); // Importa as exportações originais
+  const actual = await importOriginal() // Importa as exportações originais
   return {
     ...actual, // Mantém todas as exportações originais
     useOutletContext: vi.fn(), // Mocka apenas o useOutletContext
-  };
-});
+  }
+})
 
-describe("ProductCard", () => {
-  describe("should render", () => {
+describe('ProductCard', () => {
+  describe('should render', () => {
     useOutletContext.mockReturnValue({
       addProduct: vi.fn(),
-    });
+    })
 
-    it("product title", () => {
+    it('product title', () => {
       render(
         <TestWrapper>
-          <ProductCard product={mockProduct}/>
-        </TestWrapper>
+          <ProductCard product={mockProduct} />
+        </TestWrapper>,
       )
-  
+
       expect(screen.getByText(mockProduct.title)).toBeInTheDocument()
     })
-    it("product price", () => {
+    it('product price', () => {
       render(
         <TestWrapper>
-          <ProductCard product={mockProduct}/>
-        </TestWrapper>
+          <ProductCard product={mockProduct} />
+        </TestWrapper>,
       )
-  
+
       expect(screen.getByText(mockProduct.price)).toBeInTheDocument()
     })
-    it("product rating", () => {
+    it('product rating', () => {
       render(
         <TestWrapper>
-          <ProductCard product={mockProduct}/>
-        </TestWrapper>
+          <ProductCard product={mockProduct} />
+        </TestWrapper>,
       )
-  
+
       expect(screen.getByTestId('Rating')).toBeInTheDocument()
     })
   })
-  
+
   it('should redirect to product page on user click', async () => {
     const user = userEvent.setup()
     const expectedRoute = `/shop/${mockProduct.id}`
@@ -56,9 +56,9 @@ describe("ProductCard", () => {
 
     render(
       <TestWrapper>
-        <ProductCard product={mockProduct}/>
+        <ProductCard product={mockProduct} />
         <LocationDisplay />
-      </TestWrapper>
+      </TestWrapper>,
     )
 
     const routerLink = screen.getByRole('link', { name: ariaLabel })
