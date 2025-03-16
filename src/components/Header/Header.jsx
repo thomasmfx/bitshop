@@ -11,7 +11,12 @@ const iconSize = 21
 
 function CartButton({ itemsCount, selected }) {
   return (
-    <S.RoundButton as={RouterLink} to={'/cart'} selected={selected}>
+    <S.RoundButton
+      as={RouterLink}
+      to={'/cart'}
+      selected={selected}
+      aria-label="Cart"
+    >
       <ShoppingCart
         size={iconSize}
         style={{ transform: 'translate(-7%, 10%)' }}
@@ -23,7 +28,7 @@ function CartButton({ itemsCount, selected }) {
   )
 }
 
-function Header({ cartProductsCount }) {
+function Header({ itemsCount = 0 }) {
   const currentRoute = useLocation().pathname
 
   useEffect(() => {
@@ -36,11 +41,16 @@ function Header({ cartProductsCount }) {
 
   return (
     <S.Header>
-      <RouterLink to={'/'}>
+      <RouterLink to={'/'} aria-label="bitShop Logo">
         <Logo size={'1.8rem'} />
       </RouterLink>
       <S.Nav>
-        <S.Button as={RouterLink} to={'/'} selected={currentRoute === '/'}>
+        <S.Button
+          as={RouterLink}
+          to={'/'}
+          selected={currentRoute === '/'}
+          aria-label="Home"
+        >
           <Home size={iconSize} />
           <Span>Home</Span>
         </S.Button>
@@ -48,6 +58,7 @@ function Header({ cartProductsCount }) {
           as={RouterLink}
           to={'/about-us'}
           selected={currentRoute === '/about-us'}
+          aria-label="About Us"
         >
           <User size={iconSize} />
           <Span>About Us</Span>
@@ -58,15 +69,13 @@ function Header({ cartProductsCount }) {
           as={RouterLink}
           to={'/shop'}
           selected={currentRoute.split('').slice(0, 5).join('') === '/shop'}
+          aria-label="Shop"
         >
           <ShoppingBag size={iconSize} />
           <Span>Shop</Span>
         </S.Button>
       </S.Nav>
-      <CartButton
-        itemsCount={cartProductsCount}
-        selected={currentRoute === '/cart'}
-      />
+      <CartButton itemsCount={itemsCount} selected={currentRoute === '/cart'} />
     </S.Header>
   )
 }
@@ -77,7 +86,7 @@ CartButton.propTypes = {
 }
 
 Header.propTypes = {
-  cartProductsCount: PropTypes.number.isRequired,
+  itemsCount: PropTypes.number,
 }
 
 export default Header

@@ -89,7 +89,7 @@ function App() {
 
   return (
     <>
-      <Header cartProductsCount={getCartTotalQuantity()} />
+      <Header itemsCount={getCartTotalQuantity()} />
       <NotificationsManager
         notifications={notifications}
         getNotificationElement={getNotificationElement}
