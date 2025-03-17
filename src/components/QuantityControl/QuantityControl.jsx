@@ -21,7 +21,8 @@ function QuantityControl({
         <Minus size={15} />
       </S.Button>
       <S.Input
-        name="quantity"
+        aria-label="Product quantity"
+        data-testid="product-quantity-input"
         type="number"
         disabled={!onInputQuantityChange}
         onChange={onInputQuantityChange}
