@@ -17,7 +17,7 @@ function ProductCard({ product }) {
     >
       {isProductNew(product) && <TagNew />}
       <S.ProductImageContainer>
-        <S.Image src={product.images[0]} />
+        <S.Image src={product.images[0]} alt={product.title} />
       </S.ProductImageContainer>
       <S.ProductInfo>
         <S.ProductTitle>{product.title}</S.ProductTitle>

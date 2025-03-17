@@ -37,7 +37,7 @@ function ProductForm({ product, defaultQuantity, size }) {
   }
 
   return (
-    <S.Form size={size}>
+    <S.Form size={size} aria-label='Product form'>
       <QuantityControl
         onDecreaseQuantity={handleDecreaseQuantity}
         onIncreaseQuantity={handleIncreaseQuantity}

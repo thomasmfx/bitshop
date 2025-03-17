@@ -7,10 +7,10 @@ import ProductCard from './ProductCard'
 import mockProduct from '../../__mocks__/mockProduct'
 
 vi.mock('react-router-dom', async (importOriginal) => {
-  const actual = await importOriginal() // Importa as exportações originais
+  const actual = await importOriginal()
   return {
-    ...actual, // Mantém todas as exportações originais
-    useOutletContext: vi.fn(), // Mocka apenas o useOutletContext
+    ...actual,
+    useOutletContext: vi.fn(),
   }
 })
 
@@ -28,6 +28,15 @@ describe('ProductCard', () => {
       )
 
       expect(screen.getByText(mockProduct.title)).toBeInTheDocument()
+    })
+    it('product image', () => {
+      render(
+        <TestWrapper>
+          <ProductCard product={mockProduct} />
+        </TestWrapper>,
+      )
+
+      expect(screen.getByAltText(mockProduct.title)).toBeInTheDocument()
     })
     it('product price', () => {
       render(
@@ -68,5 +77,18 @@ describe('ProductCard', () => {
     expect(screen.getByTestId('location-display')).toHaveTextContent(
       expectedRoute,
     )
+  })
+
+  it('should render product form', () => {
+    render(
+      <TestWrapper>
+        <ProductCard product={mockProduct} />
+        <LocationDisplay />
+      </TestWrapper>,
+    )
+
+    expect(
+      screen.getByRole('form', { name: 'Product form' }),
+    ).toBeInTheDocument()
   })
 })
