@@ -37,7 +37,7 @@ function ProductForm({ product, defaultQuantity, size }) {
   }
 
   return (
-    <S.Form size={size} aria-label='Product form'>
+    <S.Form size={size} aria-label="Product form">
       <QuantityControl
         onDecreaseQuantity={handleDecreaseQuantity}
         onIncreaseQuantity={handleIncreaseQuantity}
@@ -46,7 +46,12 @@ function ProductForm({ product, defaultQuantity, size }) {
         value={quantity}
         size={size}
       />
-      <S.StyledButton onClick={handleSubmit} type="submit" size={size}>
+      <S.StyledButton
+        onClick={handleSubmit}
+        type="submit"
+        size={size}
+        aria-label="Add product to cart"
+      >
         {!size && <ShoppingCart size={20} />}
         <S.StyledSpan size={size}>
           {' '}
