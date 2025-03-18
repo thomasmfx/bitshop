@@ -5,14 +5,14 @@ import QuantityControl from '../QuantityControl/QuantityControl'
 import { useOutletContext } from 'react-router-dom'
 import * as S from './ProductForm.styles'
 
-function ProductForm({ product, defaultQuantity, size }) {
-  const [quantity, setQuantity] = useState(defaultQuantity || '')
+function ProductForm({ product, defaultQuantity = 1, size }) {
+  const [quantity, setQuantity] = useState(defaultQuantity)
   const { addProduct } = useOutletContext()
 
   function handleDecreaseQuantity(e) {
     e.preventDefault()
     if (quantity === 1) {
-      setQuantity('')
+      setQuantity(defaultQuantity)
       return
     }
     if (quantity === '') return
@@ -27,13 +27,16 @@ function ProductForm({ product, defaultQuantity, size }) {
 
   function handleInputChange(e) {
     e.preventDefault()
-    setQuantity(Number(e.target.value))
+    e.target.value === ''
+      ? setQuantity(e.target.value)
+      : setQuantity(Number(e.target.value))
   }
 
   function handleSubmit(e) {
     e.preventDefault()
-    quantity !== '' ? addProduct(product, quantity) : addProduct(product, 1)
-    setQuantity(defaultQuantity || '')
+    if (quantity === '' || quantity < 1) return
+    addProduct(product, quantity)
+    setQuantity(defaultQuantity)
   }
 
   return (
@@ -42,7 +45,6 @@ function ProductForm({ product, defaultQuantity, size }) {
         onDecreaseQuantity={handleDecreaseQuantity}
         onIncreaseQuantity={handleIncreaseQuantity}
         onInputQuantityChange={handleInputChange}
-        minValue={defaultQuantity}
         value={quantity}
         size={size}
       />

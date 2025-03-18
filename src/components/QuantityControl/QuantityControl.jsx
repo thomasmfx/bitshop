@@ -7,33 +7,36 @@ function QuantityControl({
   onIncreaseQuantity,
   onInputQuantityChange,
   value,
-  minValue = '',
-  maxValue = 99,
   size,
 }) {
+  const minValue = 1
+  const maxValue = 99
+
   return (
     <S.QuantityControl size={size}>
       <S.Button
         onClick={onDecreaseQuantity}
-        disabled={value === minValue}
+        disabled={value <= minValue}
         aria-label="Decrease quantity"
       >
         <Minus size={15} />
       </S.Button>
       <S.Input
-        aria-label="Product quantity"
+        name='Product quantity'
         data-testid="product-quantity-input"
         type="number"
         disabled={!onInputQuantityChange}
         onChange={onInputQuantityChange}
         value={value}
+        min={minValue}
+        max={maxValue}
         onClick={(e) => e.preventDefault()}
         size={size}
       />
       <S.Button
         $roundRight={true}
         onClick={onIncreaseQuantity}
-        disabled={value === maxValue}
+        disabled={value >= maxValue}
         aria-label="Increase quantity"
       >
         <Plus size={15} />
