@@ -34,6 +34,7 @@ function CartProductCard({ product }) {
           removeProduct(product)
           e.preventDefault()
         }}
+        aria-label='Remove product'
       >
         <X size={15} color="#A5AAB5" />
       </S.RemoveProductButton>
