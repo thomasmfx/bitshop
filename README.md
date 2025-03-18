@@ -31,6 +31,7 @@ This project was developed using modern technologies to provide a great user exp
 bitShop/
 ├── public/
 ├── src/
+│   ├── __mocks__/
 │   ├── assets/
 │   ├── components/
 │   ├── hooks/
@@ -39,7 +40,8 @@ bitShop/
 │   ├── tests/
 │   ├── utils/
 │   ├── App.jsx
-│   └── main.jsx
+│   ├── main.jsx
+│   └── routes.jsx
 ├── .prettierrc
 ├── README.md
 ├── eslint.config.js
