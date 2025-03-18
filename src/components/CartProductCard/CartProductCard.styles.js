@@ -35,7 +35,7 @@ export const Wrapper = styled.div`
     gap: 2em;
   }
 
-  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
+  @media (max-width: ${({ theme }) => theme.device.mobileXL}) {
     margin-top: 2em;
     grid-row: 3 / -1;
     grid-column: 1 / -1;
@@ -49,7 +49,7 @@ export const ProductImage = styled.img`
   grid-row: 1 / -1;
   grid-column: 1 / 2;
 
-  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
+  @media (max-width: ${({ theme }) => theme.device.mobileXL}) {
     max-width: 200px;
     grid-row: 1 / 2;
     grid-column: 1 / -1;
@@ -81,7 +81,7 @@ export const ProductName = styled.p`
   grid-row: 1 / 2;
   grid-column: 2 / 3;
 
-  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
+  @media (max-width: ${({ theme }) => theme.device.mobileXL}) {
     grid-row: 2 / 3;
     grid-column: 1 / -1;
   }
