@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const CarouselContainer = styled.div`
   display: flex;
@@ -34,17 +34,17 @@ export const CarouselContainer = styled.div`
     width: 280px;
     height: 280px;
   }
-`
+`;
 
 export const CarouselWrapper = styled.div`
   display: flex;
   position: relative;
-`
+`;
 
 export const CarouselContentWrapper = styled.div`
   overflow: hidden;
   height: 100%;
-`
+`;
 
 export const CarouselContent = styled.div`
   display: flex;
@@ -60,7 +60,7 @@ export const CarouselContent = styled.div`
     flex-shrink: 0;
     flex-grow: 1;
   }
-`
+`;
 
 const Arrow = styled.button`
   position: absolute;
@@ -75,7 +75,7 @@ const Arrow = styled.button`
   display: grid;
   align-items: center;
   cursor: pointer;
-`
+`;
 
 export const LeftArrow = styled(Arrow)`
   left: 0px;
@@ -83,7 +83,7 @@ export const LeftArrow = styled(Arrow)`
   & > * {
     justify-self: start;
   }
-`
+`;
 
 export const RightArrow = styled(Arrow)`
   right: 0px;
@@ -91,7 +91,7 @@ export const RightArrow = styled(Arrow)`
   & > * {
     justify-self: end;
   }
-`
+`;
 
 export const DotsWrapper = styled.div`
   position: absolute;
@@ -106,7 +106,7 @@ export const DotsWrapper = styled.div`
   @media (max-width: ${({ theme }) => theme.device.mobileXL}) {
     bottom: 0;
   }
-`
+`;
 
 export const Dot = styled.div`
   width: 10px;
@@ -115,4 +115,4 @@ export const Dot = styled.div`
   border: 2px solid #6c757d;
   border-radius: 50%;
   cursor: pointer;
-`
+`;

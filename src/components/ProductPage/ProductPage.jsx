@@ -1,29 +1,29 @@
-import ProductForm from '../ProductForm/ProductForm'
-import { Star, User } from 'react-feather'
-import { useOutletContext, useParams } from 'react-router-dom'
-import fetchProduct from '../../utils/fetchProduct'
-import { useState, useEffect } from 'react'
-import ProductTag from '../ProductTag/ProductTag'
-import DotsLoader from '../Loaders/DotsLoader'
-import Carousel from '../Carousel/Carousel'
-import isProductNew from '../../utils/isProductNew'
-import * as S from './ProductPage.styles'
+import ProductForm from '../ProductForm/ProductForm';
+import { Star, User } from 'react-feather';
+import { useOutletContext, useParams } from 'react-router-dom';
+import fetchProduct from '../../utils/fetchProduct';
+import { useState, useEffect } from 'react';
+import ProductTag from '../ProductTag/ProductTag';
+import DotsLoader from '../Loaders/DotsLoader';
+import Carousel from '../Carousel/Carousel';
+import isProductNew from '../../utils/isProductNew';
+import * as S from './ProductPage.styles';
 
 export default function ProductPage() {
-  const [product, setProduct] = useState(null)
-  const { productId } = useParams()
-  const { addItem } = useOutletContext()
+  const [product, setProduct] = useState(null);
+  const { productId } = useParams();
+  const { addItem } = useOutletContext();
 
   useEffect(() => {
-    fetchProduct(productId).then(setProduct)
-  }, [productId])
+    fetchProduct(productId).then(setProduct);
+  }, [productId]);
 
   if (!product)
     return (
       <S.Main>
         <DotsLoader />
       </S.Main>
-    )
+    );
 
   return (
     <S.Main>
@@ -105,5 +105,5 @@ export default function ProductPage() {
         </S.ReviewsList>
       </S.Page>
     </S.Main>
-  )
+  );
 }

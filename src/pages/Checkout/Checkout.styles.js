@@ -1,5 +1,5 @@
-import styled, { keyframes, css } from 'styled-components'
-import { bgColor, textColor } from '../../components/shared/mixins'
+import styled, { keyframes, css } from 'styled-components';
+import { bgColor, textColor } from '../../components/shared/mixins';
 
 const fadeOut = keyframes`
   0% {
@@ -8,7 +8,7 @@ const fadeOut = keyframes`
   100% {
     opacity: 0;
   }
-`
+`;
 
 const fadeIn = keyframes`
   0% {
@@ -17,7 +17,7 @@ const fadeIn = keyframes`
   100% {
     opacity: 1;
   }
-`
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ export const Container = styled.div`
   min-height: 100vh;
   padding-left: 1em;
   padding-right: 1em;
-`
+`;
 
 export const Video = styled.video`
   ${(props) =>
@@ -35,9 +35,9 @@ export const Video = styled.video`
     css`
       animation: 2s ${fadeOut};
     `}
-`
+`;
 
-export const VideoSource = styled.source``
+export const VideoSource = styled.source``;
 
 export const Message = styled.div`
   font-size: 4rem;
@@ -53,12 +53,12 @@ export const Message = styled.div`
   @media (max-width: ${({ theme }) => theme.device.mobileM}) {
     font-size: 2.5rem;
   }
-`
+`;
 
 export const Logo = styled.span`
   ${textColor('brandPrimary')};
   display: inline;
-`
+`;
 
 export const Dot = styled.div`
   position: relative;
@@ -74,4 +74,4 @@ export const Dot = styled.div`
     width: 15px;
     height: 15px;
   }
-`
+`;

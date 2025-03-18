@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const ProductCard = styled.div`
   width: 256px;
@@ -30,6 +30,6 @@ const ProductCard = styled.div`
         15px 230px;
     }
   }
-`
+`;
 
-export default ProductCard
+export default ProductCard;

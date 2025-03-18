@@ -1,8 +1,8 @@
-import PropTypes from 'prop-types'
-import { ArrowRight } from 'react-feather'
-import CartProductCard from '../../components/CartProductCard/CartProductCard'
-import * as S from './CartProducts.styles'
-import { RouterLink } from '../shared/elements'
+import PropTypes from 'prop-types';
+import { ArrowRight } from 'react-feather';
+import CartProductCard from '../../components/CartProductCard/CartProductCard';
+import * as S from './CartProducts.styles';
+import { RouterLink } from '../shared/elements';
 
 function CartProducts({ products }) {
   return (
@@ -23,11 +23,11 @@ function CartProducts({ products }) {
         </>
       )}
     </>
-  )
+  );
 }
 
 CartProducts.propTypes = {
   products: PropTypes.array,
-}
+};
 
-export default CartProducts
+export default CartProducts;

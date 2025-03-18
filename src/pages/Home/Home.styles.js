@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import Button from '../../components/Button/Button'
+import styled from 'styled-components';
+import Button from '../../components/Button/Button';
 
 export const Main = styled.main`
   min-height: 100vh;
@@ -17,7 +17,7 @@ export const Main = styled.main`
     padding-left: 1em;
     padding-right: 1em;
   }
-`
+`;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
     width: 100%;
     align-items: center;
   }
-`
+`;
 
 export const Image = styled.img`
   width: 500px;
@@ -42,7 +42,7 @@ export const Image = styled.img`
   @media (max-width: ${({ theme }) => theme.device.laptop}) {
     display: none;
   }
-`
+`;
 
 export const Heading = styled.h1`
   font-size: 3rem;
@@ -60,7 +60,7 @@ export const Heading = styled.h1`
   @media (max-width: ${({ theme }) => theme.device.mobileL}) {
     font-size: 2rem;
   }
-`
+`;
 
 export const StyledButton = styled(Button)`
   display: flex;
@@ -68,4 +68,4 @@ export const StyledButton = styled(Button)`
   justify-content: center;
   width: 175px;
   color: white;
-`
+`;

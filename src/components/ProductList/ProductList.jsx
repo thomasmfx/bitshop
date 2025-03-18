@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react'
-import fetchProducts from '../../utils/fetchProducts'
-import ProductCard from '../ProductCard/ProductCard'
-import ProductCardLoader from '../Loaders/ProductCardLoader'
-import * as S from './ProductList.styles'
+import { useState, useEffect } from 'react';
+import fetchProducts from '../../utils/fetchProducts';
+import ProductCard from '../ProductCard/ProductCard';
+import ProductCardLoader from '../Loaders/ProductCardLoader';
+import * as S from './ProductList.styles';
 
 export default function ProductList() {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetchProducts().then(setProducts)
-  }, [])
+    fetchProducts().then(setProducts);
+  }, []);
 
   if (!products.length)
     return (
@@ -23,7 +23,7 @@ export default function ProductList() {
           <ProductCardLoader />
         </S.ProductsContainer>
       </S.Main>
-    )
+    );
 
   return (
     <S.Main>
@@ -33,5 +33,5 @@ export default function ProductList() {
         ))}
       </S.ProductsContainer>
     </S.Main>
-  )
+  );
 }

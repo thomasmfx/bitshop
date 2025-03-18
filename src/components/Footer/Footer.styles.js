@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { FlexRow } from '../shared/elements'
-import { textColor } from '../shared/mixins'
+import styled from 'styled-components';
+import { FlexRow } from '../shared/elements';
+import { textColor } from '../shared/mixins';
 
 export const Footer = styled.footer`
   display: grid;
@@ -44,13 +44,13 @@ export const Footer = styled.footer`
     padding-left: 1em;
     padding-right: 1em;
   }
-`
+`;
 
 export const SpacedFlexRow = styled(FlexRow)`
   margin-top: 1em;
   gap: 0.5em;
   flex-wrap: wrap;
-`
+`;
 
 export const Section = styled.section`
   align-self: start;
@@ -58,25 +58,25 @@ export const Section = styled.section`
   flex-direction: column;
   align-items: flex-start;
   height: 100%;
-`
+`;
 
 export const HelpSection = styled(Section)`
   @media (min-width: 643px) and (max-width: ${({ theme }) =>
       theme.device.laptop}) {
     justify-self: end;
   }
-`
+`;
 
 export const SectionHeading = styled.h2`
   font-size: 0.9rem;
   font-weight: bold;
   margin-bottom: 1em;
-`
+`;
 
 export const Paragraph = styled.p`
   font-size: 0.9rem;
   max-width: 40ch;
-`
+`;
 
 export const Link = styled.a`
   font-size: 0.9rem;
@@ -88,7 +88,7 @@ export const Link = styled.a`
   &:hover {
     text-decoration: underline;
   }
-`
+`;
 
 export const List = styled.ul`
   display: flex;
@@ -96,13 +96,13 @@ export const List = styled.ul`
   align-items: flex-start;
   gap: 0.5em;
   list-style: none;
-`
+`;
 
 export const ListItem = styled.li`
   display: flex;
   align-items: center;
   gap: 0.5em;
-`
+`;
 
 export const SocialLink = styled.a`
   display: flex;
@@ -114,11 +114,11 @@ export const SocialLink = styled.a`
   &:hover {
     ${textColor('brandPrimary')};
   }
-`
+`;
 
 export const Badge = styled.img`
   width: 64px;
-`
+`;
 
 export const Copyright = styled(Paragraph)`
   grid-column: 1 / -1;
@@ -127,4 +127,4 @@ export const Copyright = styled(Paragraph)`
   width: 100%;
   text-align: center;
   justify-self: center;
-`
+`;

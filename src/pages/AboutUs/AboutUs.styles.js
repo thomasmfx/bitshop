@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { textColor } from '../../components/shared/mixins'
+import styled from 'styled-components';
+import { textColor } from '../../components/shared/mixins';
 
 export const Main = styled.main`
   justify-self: center;
@@ -22,7 +22,7 @@ export const Main = styled.main`
     padding-top: 8em;
     padding-bottom: 8em;
   }
-`
+`;
 
 export const Slogan = styled.h1`
   text-align: center;
@@ -35,7 +35,7 @@ export const Slogan = styled.h1`
   @media (max-width: ${({ theme }) => theme.device.mobileS}) {
     font-size: 1.3rem;
   }
-`
+`;
 
 export const Image = styled.img`
   min-width: 350px;
@@ -52,7 +52,7 @@ export const Image = styled.img`
   @media (max-width: ${({ theme }) => theme.device.mobileM}) {
     min-width: 250px;
   }
-`
+`;
 
 export const Column = styled.div`
   display: flex;
@@ -61,7 +61,7 @@ export const Column = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: 2em;
-`
+`;
 
 export const Block = styled.div`
   display: grid;
@@ -72,7 +72,7 @@ export const Block = styled.div`
     grid-template-columns: none;
     grid-template-rows: min-content 1fr;
   }
-`
+`;
 
 export const Paragraph = styled.p`
   font-size: 1.1rem;
@@ -81,11 +81,11 @@ export const Paragraph = styled.p`
   @media (max-width: ${({ theme }) => theme.device.mobileS}) {
     font-size: 0.9rem;
   }
-`
+`;
 
 export const List = styled.ul`
   padding-left: 1em;
-`
+`;
 
 export const ListItem = styled.li`
   font-size: 1.1rem;
@@ -94,4 +94,4 @@ export const ListItem = styled.li`
   @media (max-width: ${({ theme }) => theme.device.mobileS}) {
     font-size: 0.9rem;
   }
-`
+`;

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   @charset "UTF-8";
@@ -49,6 +49,6 @@ const GlobalStyles = createGlobalStyle`
   html:not([data-scroll='0']) header {
     box-shadow: 0px 2px 11px 0px #e0e0e0ff;
   }
-`
+`;
 
-export default GlobalStyles
+export default GlobalStyles;

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { bgColor } from '../shared/mixins'
+import styled from 'styled-components';
+import { bgColor } from '../shared/mixins';
 
 const Container = styled.div`
   width: 100%;
@@ -9,12 +9,12 @@ const Container = styled.div`
   align-items: center;
   margin-left: auto;
   margin-right: auto;
-`
+`;
 
 const DotsWrapper = styled.div`
   display: flex;
   gap: 1em;
-`
+`;
 
 const Dot = styled.div`
   width: 24px;
@@ -44,7 +44,7 @@ const Dot = styled.div`
       transform: translateY(-20px);
     }
   }
-`
+`;
 
 function DotsLoader() {
   return (
@@ -55,7 +55,7 @@ function DotsLoader() {
         <Dot />
       </DotsWrapper>
     </Container>
-  )
+  );
 }
 
-export default DotsLoader
+export default DotsLoader;

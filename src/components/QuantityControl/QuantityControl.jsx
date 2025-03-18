@@ -1,6 +1,6 @@
-import PropTypes from 'prop-types'
-import { Minus, Plus } from 'react-feather'
-import * as S from './QuantityControl.styles'
+import PropTypes from 'prop-types';
+import { Minus, Plus } from 'react-feather';
+import * as S from './QuantityControl.styles';
 
 function QuantityControl({
   onDecreaseQuantity,
@@ -9,8 +9,8 @@ function QuantityControl({
   value,
   size,
 }) {
-  const minValue = 1
-  const maxValue = 99
+  const minValue = 1;
+  const maxValue = 99;
 
   return (
     <S.QuantityControl size={size}>
@@ -22,7 +22,7 @@ function QuantityControl({
         <Minus size={15} />
       </S.Button>
       <S.Input
-        name='Product quantity'
+        name="Product quantity"
         data-testid="product-quantity-input"
         type="number"
         disabled={!onInputQuantityChange}
@@ -42,7 +42,7 @@ function QuantityControl({
         <Plus size={15} />
       </S.Button>
     </S.QuantityControl>
-  )
+  );
 }
 
 QuantityControl.propTypes = {
@@ -53,6 +53,6 @@ QuantityControl.propTypes = {
   minValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   maxValue: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   size: PropTypes.string,
-}
+};
 
-export default QuantityControl
+export default QuantityControl;

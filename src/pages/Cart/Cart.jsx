@@ -1,10 +1,10 @@
-import { useOutletContext } from 'react-router-dom'
-import CartProducts from '../../components/CartProducts/CartProducts'
-import CartResume from '../../components/CartResume/CartResume'
-import * as S from './Cart.styles'
+import { useOutletContext } from 'react-router-dom';
+import CartProducts from '../../components/CartProducts/CartProducts';
+import CartResume from '../../components/CartResume/CartResume';
+import * as S from './Cart.styles';
 
 export default function Cart() {
-  const { cartProducts } = useOutletContext()
+  const { cartProducts } = useOutletContext();
 
   return (
     <S.StyledCart>
@@ -17,5 +17,5 @@ export default function Cart() {
         <CartResume />
       </S.Section>
     </S.StyledCart>
-  )
+  );
 }

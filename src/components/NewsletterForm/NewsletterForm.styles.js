@@ -1,10 +1,10 @@
-import styled from 'styled-components'
-import { bgColor, color } from '../shared/mixins'
+import styled from 'styled-components';
+import { bgColor, color } from '../shared/mixins';
 
 export const Form = styled.form`
   display: grid;
   grid-template-columns: 1fr 80px;
-`
+`;
 
 export const Input = styled.input`
   border: none;
@@ -18,7 +18,7 @@ export const Input = styled.input`
     outline: 2px solid ${color('brandPrimary')};
     outline-offset: -2px;
   }
-`
+`;
 
 export const Button = styled.button`
   display: flex;
@@ -36,4 +36,4 @@ export const Button = styled.button`
   &:active {
     filter: brightness(110%);
   }
-`
+`;

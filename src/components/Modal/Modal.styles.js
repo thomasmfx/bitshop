@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { textColor } from '../shared/mixins'
+import styled from 'styled-components';
+import { textColor } from '../shared/mixins';
 
 export const ModalContainer = styled.div`
   position: fixed;
@@ -10,7 +10,7 @@ export const ModalContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 export const Modal = styled.div`
   display: flex;
@@ -23,14 +23,14 @@ export const Modal = styled.div`
   height: 250px;
   padding: 1em;
   gap: 1.5em;
-`
+`;
 
 export const ModalMessage = styled.p`
   text-align: center;
-`
+`;
 
 export const ButtonCloseModal = styled.div`
   ${textColor('brandPrimary')};
   font-weight: 600;
   cursor: pointer;
-`
+`;

@@ -1,13 +1,13 @@
-import { useState } from 'react'
-import { Span } from '../shared/elements'
-import * as S from './NewsletterForm.styles'
+import { useState } from 'react';
+import { Span } from '../shared/elements';
+import * as S from './NewsletterForm.styles';
 
 function NewsletterForm() {
-  const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('');
 
   function handleSubmit(e) {
-    e.preventDefault()
-    setEmail('')
+    e.preventDefault();
+    setEmail('');
   }
 
   return (
@@ -23,7 +23,7 @@ function NewsletterForm() {
         <Span>Sing up</Span>
       </S.Button>
     </S.Form>
-  )
+  );
 }
 
-export default NewsletterForm
+export default NewsletterForm;

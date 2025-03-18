@@ -1,33 +1,33 @@
-import { useEffect, useState } from 'react'
-import { ChevronLeft, ChevronRight } from 'react-feather'
-import PropTypes from 'prop-types'
-import * as S from './Carousel.styles'
+import { useEffect, useState } from 'react';
+import { ChevronLeft, ChevronRight } from 'react-feather';
+import PropTypes from 'prop-types';
+import * as S from './Carousel.styles';
 
-const ARROW_SIZE = 32
-const ARROW_COLOR = '#6c757d'
+const ARROW_SIZE = 32;
+const ARROW_COLOR = '#6c757d';
 
 export default function Carousel({ children }) {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [length, setLength] = useState(children.length)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [length, setLength] = useState(children.length);
 
   useEffect(() => {
-    setLength(children.length)
-  }, [children])
+    setLength(children.length);
+  }, [children]);
 
   function next() {
     if (currentIndex < length - 1) {
-      setCurrentIndex((prevState) => prevState + 1)
+      setCurrentIndex((prevState) => prevState + 1);
     }
   }
 
   function prev() {
     if (currentIndex > 0) {
-      setCurrentIndex((prevState) => prevState - 1)
+      setCurrentIndex((prevState) => prevState - 1);
     }
   }
 
   function jumpImage(index) {
-    setCurrentIndex(index)
+    setCurrentIndex(index);
   }
 
   return (
@@ -61,9 +61,9 @@ export default function Carousel({ children }) {
         </S.DotsWrapper>
       </S.CarouselWrapper>
     </S.CarouselContainer>
-  )
+  );
 }
 
 Carousel.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};

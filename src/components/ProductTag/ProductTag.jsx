@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
-import { bgColor } from '../shared/mixins'
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { bgColor } from '../shared/mixins';
 
 const StyledProductTag = styled.div`
   display: flex;
@@ -16,14 +16,14 @@ const StyledProductTag = styled.div`
   font-size: 0.7rem;
   font-weight: bold;
   color: white;
-`
+`;
 
 function ProductTag({ tagName }) {
-  return <StyledProductTag>{tagName}</StyledProductTag>
+  return <StyledProductTag>{tagName}</StyledProductTag>;
 }
 
 ProductTag.propTypes = {
   tagName: PropTypes.string.isRequired,
-}
+};
 
-export default ProductTag
+export default ProductTag;

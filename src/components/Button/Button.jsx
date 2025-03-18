@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const Button = styled.button`
   padding: ${(props) => (props.size === 'l' ? '0.5em 1em' : '0.3em 0.5em')};
@@ -22,6 +22,6 @@ const Button = styled.button`
       background-color: ${({ theme }) => theme.colors.brandSecondary};
     }
   }
-`
+`;
 
-export default Button
+export default Button;

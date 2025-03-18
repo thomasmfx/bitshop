@@ -1,80 +1,80 @@
-import { useState, useRef } from 'react'
-import { CreditCard, X, Check } from 'react-feather'
-import circleCheck from '../../assets/circle-check.svg'
-import Button from '../Button/Button'
-import { useOutletContext } from 'react-router-dom'
-import { useNavigate } from 'react-router-dom'
-import { P } from '../shared/elements'
-import * as S from './CartResume.styles'
+import { useState, useRef } from 'react';
+import { CreditCard, X, Check } from 'react-feather';
+import circleCheck from '../../assets/circle-check.svg';
+import Button from '../Button/Button';
+import { useOutletContext } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { P } from '../shared/elements';
+import * as S from './CartResume.styles';
 
 const initialCouponState = {
   code: '',
   discount: 0,
   wasTried: false, // Prevent "invalid coupon" feedback before user tries to enter a coupon
   isValid: false,
-}
+};
 
 function CartResume() {
-  const [couponState, setCouponState] = useState(initialCouponState)
-  const { clearCart, cartProducts, notifyEmptyCart } = useOutletContext()
-  const input = useRef(null)
-  let navigate = useNavigate()
+  const [couponState, setCouponState] = useState(initialCouponState);
+  const { clearCart, cartProducts, notifyEmptyCart } = useOutletContext();
+  const input = useRef(null);
+  let navigate = useNavigate();
 
   function calculateSubtotal() {
     return cartProducts.reduce(
       (count, item) => count + item.price * item.quantity,
       0,
-    )
+    );
   }
 
-  const subtotal = calculateSubtotal()
-  const shipping = 19.99
-  const tax = subtotal * 0.1
-  const total = subtotal + shipping + tax
+  const subtotal = calculateSubtotal();
+  const shipping = 19.99;
+  const tax = subtotal * 0.1;
+  const total = subtotal + shipping + tax;
 
   function updateCouponState(property, newValue) {
-    setCouponState((prevState) => ({ ...prevState, [property]: newValue }))
+    setCouponState((prevState) => ({ ...prevState, [property]: newValue }));
   }
 
   function handleCouponSubmit() {
-    input.current.blur()
-    const couponCode = couponState.code.toLocaleUpperCase()
-    updateCouponState('wasTried', true)
+    input.current.blur();
+    const couponCode = couponState.code.toLocaleUpperCase();
+    updateCouponState('wasTried', true);
 
     switch (couponCode) {
       case 'VAICORINTHIANS':
-        updateCouponState('discount', 50)
-        updateCouponState('isValid', true)
-        break
+        updateCouponState('discount', 50);
+        updateCouponState('isValid', true);
+        break;
       case '15OFF':
-        updateCouponState('discount', 15)
-        updateCouponState('isValid', true)
-        break
+        updateCouponState('discount', 15);
+        updateCouponState('isValid', true);
+        break;
       case '10OFF':
-        updateCouponState('discount', 10)
-        updateCouponState('isValid', true)
-        break
+        updateCouponState('discount', 10);
+        updateCouponState('isValid', true);
+        break;
       case '5OFF':
-        updateCouponState('discount', 5)
-        updateCouponState('isValid', true)
-        break
+        updateCouponState('discount', 5);
+        updateCouponState('isValid', true);
+        break;
       default:
-        updateCouponState('discount', 0)
-        updateCouponState('isValid', false)
+        updateCouponState('discount', 0);
+        updateCouponState('isValid', false);
     }
   }
 
   function handleCheckout() {
     if (!cartProducts.length) {
-      notifyEmptyCart()
-      return
+      notifyEmptyCart();
+      return;
     }
 
-    navigate('/checkout')
+    navigate('/checkout');
     // A little delay to not show the cartProducts getting cleared during the transition to checkout
     setTimeout(() => {
-      clearCart()
-    }, 100)
+      clearCart();
+    }, 100);
   }
 
   return (
@@ -116,7 +116,7 @@ function CartResume() {
             value={couponState.code}
             onChange={(e) => updateCouponState('code', e.target.value)}
             onKeyDown={(e) => {
-              if (e.key === 'Enter') handleCouponSubmit()
+              if (e.key === 'Enter') handleCouponSubmit();
             }}
           />
           <S.ApplyCouponButton onClick={handleCouponSubmit}>
@@ -149,7 +149,7 @@ function CartResume() {
         <S.Icon src={circleCheck} />
       </Button>
     </S.CartResumeContainer>
-  )
+  );
 }
 
-export default CartResume
+export default CartResume;

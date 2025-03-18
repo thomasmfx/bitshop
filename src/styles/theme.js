@@ -19,6 +19,6 @@ const theme = {
     laptopL: '1440px',
     desktop: '1500px',
   },
-}
+};
 
-export default theme
+export default theme;

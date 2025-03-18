@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import PropTypes from 'prop-types'
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const ToastCard = styled.div`
   display: flex;
@@ -37,11 +37,11 @@ const ToastCard = styled.div`
       transform: translateY(0);
     }
   }
-`
+`;
 
 const Text = styled.p`
   color: ${({ theme }) => theme.colors.default};
-`
+`;
 
 function ToastCardNotification({ text, children }) {
   return (
@@ -49,12 +49,12 @@ function ToastCardNotification({ text, children }) {
       {children}
       <Text>{text}</Text>
     </ToastCard>
-  )
+  );
 }
 
 ToastCardNotification.propTypes = {
   text: PropTypes.string,
   children: PropTypes.node,
-}
+};
 
-export default ToastCardNotification
+export default ToastCardNotification;

@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components'
-import Button from '../Button/Button'
-import { Span } from '../shared/elements'
+import styled, { css } from 'styled-components';
+import Button from '../Button/Button';
+import { Span } from '../shared/elements';
 
 export const mediaStyledForm = css`
   @media (max-width: ${({ theme }) => theme.device.laptop}) and (min-width: ${({
@@ -21,13 +21,13 @@ export const mediaStyledForm = css`
   @media (max-width: ${({ theme }) => theme.device.mobileM}) {
     display: flex;
   }
-`
+`;
 
 export const mediaStyledButton = css`
   @media (max-width: ${({ theme }) => theme.device.mobileM}) {
     width: 120px;
   }
-`
+`;
 
 export const Form = styled.form`
   display: grid;
@@ -36,16 +36,16 @@ export const Form = styled.form`
   grid-template-rows: 1fr;
   gap: ${(props) => (props.size === 'L' ? '3em' : '2em')};
   ${(props) => props.size && mediaStyledForm};
-`
+`;
 
 export const StyledButton = styled(Button)`
   width: ${(props) => (props.size === 'L' ? '150px' : '100%')};
   height: ${(props) => (props.size === 'L' ? '45px' : '')};
   align-items: center;
   ${(props) => props.size && mediaStyledButton};
-`
+`;
 
 export const StyledSpan = styled(Span)`
   height: ${(props) => (props.size === 'L' ? '' : '22px')};
   font-size: ${(props) => (props.size === 'L' ? '1rem' : '')};
-`
+`;

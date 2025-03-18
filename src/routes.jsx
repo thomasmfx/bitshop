@@ -1,12 +1,12 @@
-import App from './App'
-import Home from './pages/Home/Home'
-import AboutUs from './pages/AboutUs/AboutUs'
-import Shop from './pages/Shop/Shop'
-import Cart from './pages/Cart/Cart'
-import ErrorPage from './pages/ErrorPage/ErrorPage'
-import ProductList from './components/ProductList/ProductList'
-import ProductPage from './components/ProductPage/ProductPage'
-import Checkout from './pages/Checkout/Checkout'
+import App from './App';
+import Home from './pages/Home/Home';
+import AboutUs from './pages/AboutUs/AboutUs';
+import Shop from './pages/Shop/Shop';
+import Cart from './pages/Cart/Cart';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
+import ProductList from './components/ProductList/ProductList';
+import ProductPage from './components/ProductPage/ProductPage';
+import Checkout from './pages/Checkout/Checkout';
 
 const routes = [
   {
@@ -28,6 +28,6 @@ const routes = [
     ],
     errorElement: <ErrorPage />,
   },
-]
+];
 
-export default routes
+export default routes;

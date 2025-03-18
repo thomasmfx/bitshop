@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Main = styled.main`
   min-height: 100vh;
@@ -19,7 +19,7 @@ export const Main = styled.main`
     padding-left: 1em;
     padding-right: 1em;
   }
-`
+`;
 
 export const ProductsContainer = styled.div`
   grid-column: 2 / 3;
@@ -35,4 +35,4 @@ export const ProductsContainer = styled.div`
   @media (max-width: 700px) {
     grid-template-columns: repeat(1, min-content);
   }
-`
+`;

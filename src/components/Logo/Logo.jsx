@@ -1,7 +1,7 @@
-import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import { Circle } from 'react-feather'
-import { textColor } from '../shared/mixins'
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { Circle } from 'react-feather';
+import { textColor } from '../shared/mixins';
 
 const StyledLogo = styled.p`
   display: flex;
@@ -25,9 +25,9 @@ const StyledLogo = styled.p`
       width: 18px;
     }
   }
-`
+`;
 
-const Span = styled.span``
+const Span = styled.span``;
 
 function Logo({ size }) {
   return (
@@ -35,11 +35,11 @@ function Logo({ size }) {
       <Span>bitShop</Span>
       <Circle fill="#188efe" />
     </StyledLogo>
-  )
+  );
 }
 
 Logo.propTypes = {
   size: PropTypes.string,
-}
+};
 
-export default Logo
+export default Logo;

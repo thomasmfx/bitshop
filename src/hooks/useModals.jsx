@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import Modal from '../components/Modal/Modal'
+import { useState } from 'react';
+import Modal from '../components/Modal/Modal';
 
 const MODALS_STATE = {
   cartLimitReached: false,
   quantityExceedsLimit: false,
-}
+};
 
 const MODALS_COMPONENTS = {
   cartLimitReached: (onCloseModal) => (
@@ -23,29 +23,29 @@ const MODALS_COMPONENTS = {
       onCloseModal={() => onCloseModal('quantityExceedsLimit', false)}
     />
   ),
-}
+};
 
 export default function useModals() {
-  const [modals, setModals] = useState(MODALS_STATE)
+  const [modals, setModals] = useState(MODALS_STATE);
 
   function handleSetModals(name, isActive) {
     setModals((prevState) => ({
       ...prevState,
       [name]: isActive,
-    }))
+    }));
   }
 
   function getModalElement(name) {
     if (modals[name] && MODALS_COMPONENTS[name]) {
-      const modalComponent = MODALS_COMPONENTS[name]
-      return modalComponent(handleSetModals)
+      const modalComponent = MODALS_COMPONENTS[name];
+      return modalComponent(handleSetModals);
     }
-    return null
+    return null;
   }
 
   return {
     modals,
     handleSetModals,
     getModalElement,
-  }
+  };
 }

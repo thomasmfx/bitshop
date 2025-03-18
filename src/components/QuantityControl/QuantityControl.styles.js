@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components'
-import { color, textColor } from '../shared/mixins'
+import styled, { css } from 'styled-components';
+import { color, textColor } from '../shared/mixins';
 
 const mediaQuantityControl = css`
   @media (max-width: ${({ theme }) => theme.device.mobileM}) {
@@ -11,7 +11,7 @@ const mediaQuantityControl = css`
     grid-template-columns: 35px 50px 35px;
     grid-template-rows: 45px;
   }
-`
+`;
 
 export const QuantityControl = styled.div`
   display: grid;
@@ -20,7 +20,7 @@ export const QuantityControl = styled.div`
   grid-template-rows: ${(props) => (props.size === 'L' ? '45px' : '32px')};
   max-width: fit-content;
   ${(props) => props.size && mediaQuantityControl};
-`
+`;
 
 export const Input = styled.input`
   border: none;
@@ -45,7 +45,7 @@ export const Input = styled.input`
   &[type='number'] {
     -moz-appearance: textfield;
   }
-`
+`;
 
 export const Button = styled.button`
   display: flex;
@@ -69,4 +69,4 @@ export const Button = styled.button`
       ${textColor('default')};
     }
   }
-`
+`;

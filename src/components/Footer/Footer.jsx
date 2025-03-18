@@ -1,12 +1,12 @@
-import applePayBadge from '../../assets/badges/apple-pay.png'
-import googlePayBadge from '../../assets/badges/google-pay.png'
-import masterCardBadge from '../../assets/badges/mastercard.png'
-import payPalBadge from '../../assets/badges/paypal.png'
-import visaBadge from '../../assets/badges/visa.png'
+import applePayBadge from '../../assets/badges/apple-pay.png';
+import googlePayBadge from '../../assets/badges/google-pay.png';
+import masterCardBadge from '../../assets/badges/mastercard.png';
+import payPalBadge from '../../assets/badges/paypal.png';
+import visaBadge from '../../assets/badges/visa.png';
 
-import { GitHub, Linkedin, Phone, Mail, MapPin } from 'react-feather'
-import NewsletterForm from '../NewsletterForm/NewsletterForm'
-import * as S from './Footer.styles'
+import { GitHub, Linkedin, Phone, Mail, MapPin } from 'react-feather';
+import NewsletterForm from '../NewsletterForm/NewsletterForm';
+import * as S from './Footer.styles';
 
 function Footer() {
   return (
@@ -69,7 +69,7 @@ function Footer() {
       </S.Section>
       <S.Copyright>Copyright © bitShop - All rights reserved</S.Copyright>
     </S.Footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;

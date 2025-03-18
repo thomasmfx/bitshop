@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Product = styled.div`
   display: grid;
@@ -18,7 +18,7 @@ export const Product = styled.div`
   @media (max-width: ${({ theme }) => theme.device.mobileXXL}) {
     grid-template-rows: min-content min-content min-content;
   }
-`
+`;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -40,7 +40,7 @@ export const Wrapper = styled.div`
     grid-row: 3 / -1;
     grid-column: 1 / -1;
   }
-`
+`;
 
 export const ProductImage = styled.img`
   min-width: 124px;
@@ -54,7 +54,7 @@ export const ProductImage = styled.img`
     grid-row: 1 / 2;
     grid-column: 1 / -1;
   }
-`
+`;
 
 export const ProductPrice = styled.p`
   height: 20px;
@@ -62,7 +62,7 @@ export const ProductPrice = styled.p`
   &::before {
     content: '$ ';
   }
-`
+`;
 
 export const RemoveProductButton = styled.button`
   position: absolute;
@@ -75,7 +75,7 @@ export const RemoveProductButton = styled.button`
   background: none;
   border: none;
   opacity: 0.7;
-`
+`;
 
 export const ProductName = styled.p`
   grid-row: 1 / 2;
@@ -85,4 +85,4 @@ export const ProductName = styled.p`
     grid-row: 2 / 3;
     grid-column: 1 / -1;
   }
-`
+`;

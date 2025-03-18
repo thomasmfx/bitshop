@@ -1,7 +1,7 @@
-import { ShoppingBag } from 'react-feather'
-import svgUrl from '../../assets/lazy-man.svg'
-import { Span, RouterLink } from '../../components/shared/elements'
-import * as S from './Home.styles'
+import { ShoppingBag } from 'react-feather';
+import svgUrl from '../../assets/lazy-man.svg';
+import { Span, RouterLink } from '../../components/shared/elements';
+import * as S from './Home.styles';
 
 export default function Home() {
   return (
@@ -17,5 +17,5 @@ export default function Home() {
       </S.Wrapper>
       <S.Image src={svgUrl} />
     </S.Main>
-  )
+  );
 }

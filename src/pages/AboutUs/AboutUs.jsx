@@ -1,7 +1,7 @@
-import imageOneUrl from '../../assets/computer-man.svg'
-import imageTwoUrl from '../../assets/lifestyle.svg'
-import imageThreeUrl from '../../assets/team.svg'
-import * as S from './AboutUs.styles'
+import imageOneUrl from '../../assets/computer-man.svg';
+import imageTwoUrl from '../../assets/lifestyle.svg';
+import imageThreeUrl from '../../assets/team.svg';
+import * as S from './AboutUs.styles';
 
 export default function AboutUs() {
   return (
@@ -67,5 +67,5 @@ export default function AboutUs() {
         <S.Image src={imageThreeUrl} />
       </S.Block>
     </S.Main>
-  )
+  );
 }

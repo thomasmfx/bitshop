@@ -1,13 +1,13 @@
-import { useLocation } from 'react-router-dom'
-import { useEffect } from 'react'
-import PropTypes from 'prop-types'
-import { Home, ShoppingBag, ShoppingCart, User } from 'react-feather'
-import Logo from '../Logo/Logo'
-import { RouterLink, Span } from '../shared/elements'
-import setScrollPosition from '../../utils/setScrollPosition'
-import * as S from './Header.styles'
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { Home, ShoppingBag, ShoppingCart, User } from 'react-feather';
+import Logo from '../Logo/Logo';
+import { RouterLink, Span } from '../shared/elements';
+import setScrollPosition from '../../utils/setScrollPosition';
+import * as S from './Header.styles';
 
-const iconSize = 21
+const iconSize = 21;
 
 function CartButton({ itemsCount, selected }) {
   return (
@@ -25,19 +25,19 @@ function CartButton({ itemsCount, selected }) {
         <Span>{itemsCount}</Span>
       </S.ItemsCount>
     </S.RoundButton>
-  )
+  );
 }
 
 function Header({ itemsCount = 0 }) {
-  const currentRoute = useLocation().pathname
+  const currentRoute = useLocation().pathname;
 
   useEffect(() => {
-    setScrollPosition()
-  }, [])
+    setScrollPosition();
+  }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [currentRoute])
+    window.scrollTo(0, 0);
+  }, [currentRoute]);
 
   return (
     <S.Header>
@@ -77,16 +77,16 @@ function Header({ itemsCount = 0 }) {
       </S.Nav>
       <CartButton itemsCount={itemsCount} selected={currentRoute === '/cart'} />
     </S.Header>
-  )
+  );
 }
 
 CartButton.propTypes = {
   itemsCount: PropTypes.number.isRequired,
   selected: PropTypes.bool.isRequired,
-}
+};
 
 Header.propTypes = {
   itemsCount: PropTypes.number,
-}
+};
 
-export default Header
+export default Header;

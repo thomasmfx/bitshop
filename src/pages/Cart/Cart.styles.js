@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const StyledCart = styled.main`
   min-height: 100vh;
@@ -31,15 +31,15 @@ export const StyledCart = styled.main`
   @media (max-width: ${({ theme }) => theme.device.mobileM}) {
     width: 90%;
   }
-`
+`;
 
 export const Section = styled.section`
   display: flex;
   flex-direction: column;
   gap: 2em;
   min-width: 100%;
-`
+`;
 
 export const SectionHeading = styled.h2`
   font-size: 1.4rem;
-`
+`;

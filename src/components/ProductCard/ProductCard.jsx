@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types'
-import { Star } from 'react-feather'
-import TagNew from '../TagNew/TagNew'
-import ProductForm from '../ProductForm/ProductForm'
-import { RouterLink } from '../shared/elements'
-import isProductNew from '../../utils/isProductNew'
-import * as S from './ProductCard.styles'
+import PropTypes from 'prop-types';
+import { Star } from 'react-feather';
+import TagNew from '../TagNew/TagNew';
+import ProductForm from '../ProductForm/ProductForm';
+import { RouterLink } from '../shared/elements';
+import isProductNew from '../../utils/isProductNew';
+import * as S from './ProductCard.styles';
 
 function ProductCard({ product }) {
-  const rating = Math.round(product.rating)
+  const rating = Math.round(product.rating);
 
   return (
     <S.ProductContainer
@@ -37,11 +37,11 @@ function ProductCard({ product }) {
         <ProductForm product={product} />
       </S.ProductInfo>
     </S.ProductContainer>
-  )
+  );
 }
 
 ProductCard.propTypes = {
   product: PropTypes.object.isRequired,
-}
+};
 
-export default ProductCard
+export default ProductCard;

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { bgColor, textColor } from '../shared/mixins'
+import styled from 'styled-components';
+import { bgColor, textColor } from '../shared/mixins';
 
 export const Header = styled.header`
   position: fixed;
@@ -13,13 +13,13 @@ export const Header = styled.header`
   background-color: white;
   z-index: 2;
   transition: all 0.5s ease-in-out;
-`
+`;
 
 export const Nav = styled.nav`
   display: grid;
   grid-template-columns: repeat(3, min-content);
   gap: 1em;
-`
+`;
 
 export const Button = styled.button`
   display: flex;
@@ -51,14 +51,14 @@ export const Button = styled.button`
       display: none;
     }
   }
-`
+`;
 
 export const RoundButton = styled(Button)`
   border-radius: 50%;
   padding: 0.7em;
   width: 46.5px;
   position: relative;
-`
+`;
 
 export const ItemsCount = styled.div`
   width: 16.5px;
@@ -76,4 +76,4 @@ export const ItemsCount = styled.div`
   font-size: 10px;
   font-weight: bold;
   transform: translate(-7%, 10%);
-`
+`;

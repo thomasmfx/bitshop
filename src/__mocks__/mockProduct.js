@@ -58,6 +58,6 @@ const mockProduct = {
   ],
   thumbnail:
     'https://cdn.dummyjson.com/products/images/laptops/Huawei%20Matebook%20X%20Pro/thumbnail.png',
-}
+};
 
-export default mockProduct
+export default mockProduct;

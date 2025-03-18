@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { bgColor } from '../shared/mixins'
+import styled from 'styled-components';
+import { bgColor } from '../shared/mixins';
 
 const StyledTagNew = styled.div`
   display: flex;
@@ -17,10 +17,10 @@ const StyledTagNew = styled.div`
   font-size: 0.7rem;
   font-weight: bold;
   color: white;
-`
+`;
 
 function TagNew() {
-  return <StyledTagNew>New</StyledTagNew>
+  return <StyledTagNew>New</StyledTagNew>;
 }
 
-export default TagNew
+export default TagNew;

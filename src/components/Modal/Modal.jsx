@@ -1,5 +1,5 @@
-import * as S from './Modal.styles'
-import PropTypes from 'prop-types'
+import * as S from './Modal.styles';
+import PropTypes from 'prop-types';
 
 function Modal({ message, onCloseModal }) {
   return (
@@ -9,12 +9,12 @@ function Modal({ message, onCloseModal }) {
         <S.ButtonCloseModal onClick={onCloseModal}>OK</S.ButtonCloseModal>
       </S.Modal>
     </S.ModalContainer>
-  )
+  );
 }
 
 Modal.propTypes = {
   message: PropTypes.string.isRequired,
   onCloseModal: PropTypes.func.isRequired,
-}
+};
 
-export default Modal
+export default Modal;
