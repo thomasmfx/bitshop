@@ -94,7 +94,9 @@ function CartResume() {
         </S.PriceWrapper>
         <S.PriceWrapper>
           <S.TextLight>Discount</S.TextLight>
-          <S.CouponDiscount>{couponState.discount}</S.CouponDiscount>
+          <S.CouponDiscount data-testid="coupon-discount">
+            {couponState.discount}
+          </S.CouponDiscount>
         </S.PriceWrapper>
         <S.Divider />
         <S.TotalPrice>
