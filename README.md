@@ -1,8 +1,18 @@
-# <span style="color:#188efe">bitShop •</span>
+# bitShop •
+
+<div align='center'>
+  <a href='./README-pt-br.md'>
+    PT-BR 
+  </a>
+</div>
+
+<br>
 
 Welcome to bitShop! bitShop is an online tech e-commerce that offers not just devices and gadgets, but smart solutions that actually makes difference in your daily life. Our goal is to improve the world with innovative and practical technology, bit by bit. 
 
 ![Product Page on bitShop live website](/public/bitshop-productpage.png)
+
+<br>
 
 ## 🚀 Features
 
@@ -12,6 +22,8 @@ Welcome to bitShop! bitShop is an online tech e-commerce that offers not just de
 - **Modern Styling:** Elegant and consistent UI design powered by Styled-Components.
 - **Testing:** Comprehensive test coverage using Vitest for reliable and maintainable code.
 - **Code Quality:** ESLint and Prettier integration for clean and consistent code.
+
+<br>
 
 ## 👨🏽‍💻 Technologies
 
@@ -24,6 +36,8 @@ This project was developed using modern technologies to provide a great user exp
 - **Vitest:** Fast testing framework optimized for Vite projects.
 - **ESLint:** Code analyzer that finds and fixes JavaScript problems.
 - **Prettier:** Automatic code formatter that ensures consistent style.
+
+<br>
 
 ## 📜 Project Structure
 
@@ -48,6 +62,8 @@ bitShop/
 └── vite.config.js
 ```
 
+<br>
+
 ## ☕ Contact
 
 If you have any questions, suggestions, or just want to connect, feel free to reach out:
@@ -58,4 +74,5 @@ If you have any questions, suggestions, or just want to connect, feel free to re
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
 
-> Note: bitShop is a demonstration project only, not a real e-commerce store. No actual products are sold and no real transactions occur. This project was created for educational and portfolio purposes.
+> [!NOTE]
+> bitShop is a demonstration project only, not a real e-commerce store. No actual products are sold and no real transactions occur. This project was created for educational and portfolio purposes.
