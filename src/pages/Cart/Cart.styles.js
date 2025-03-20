@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { fadeIn } from '../../components/shared/mixins';
 
 export const StyledCart = styled.main`
   min-height: 100vh;
@@ -11,6 +12,7 @@ export const StyledCart = styled.main`
   padding-top: 10em;
   width: 70%;
   justify-self: center;
+  animation: 0.5s ${fadeIn};
 
   @media (max-width: ${({ theme }) => theme.device.desktop}) {
     padding-left: 0;

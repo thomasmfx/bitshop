@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { textColor } from '../../components/shared/mixins';
+import { fadeIn } from '../../components/shared/mixins';
 
 export const Main = styled.main`
   justify-self: center;
@@ -12,6 +13,7 @@ export const Main = styled.main`
   padding: 5em;
   padding-top: 10em;
   padding-bottom: 10em;
+  animation: 0.5s ${fadeIn};
 
   @media (max-width: ${({ theme }) => theme.device.tablet}) {
     padding-left: 2em;

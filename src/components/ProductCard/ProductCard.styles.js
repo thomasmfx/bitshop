@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { P } from '../shared/elements';
+import { fadeIn } from '../shared/mixins';
 
 export const ProductContainer = styled.div`
   min-width: 256px;
@@ -11,6 +12,7 @@ export const ProductContainer = styled.div`
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
+  animation: 0.3s ${fadeIn} ease-out forwards;
 
   @media (hover: hover) {
     &:hover {

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Button from '../../components/Button/Button';
+import { fadeIn } from '../../components/shared/mixins';
 
 export const Main = styled.main`
   min-height: 100vh;
@@ -8,6 +9,7 @@ export const Main = styled.main`
   align-items: center;
   gap: 5em;
   padding: 6em;
+  animation: 0.5s ${fadeIn};
 
   @media (max-width: 1290px) {
     gap: 1em;
