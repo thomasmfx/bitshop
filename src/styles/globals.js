@@ -46,6 +46,10 @@ const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme.colors.default};
   }
 
+  #root {
+    display: grid;
+  }
+
   html:not([data-scroll='0']) header {
     box-shadow: 0px 2px 11px 0px #e0e0e0ff;
   }
