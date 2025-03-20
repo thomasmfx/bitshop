@@ -20,7 +20,7 @@ function NewsletterForm() {
         value={email}
       />
       <S.Button type="submit" onClick={handleSubmit}>
-        <Span>Sing up</Span>
+        <Span>Sign up</Span>
       </S.Button>
     </S.Form>
   );
