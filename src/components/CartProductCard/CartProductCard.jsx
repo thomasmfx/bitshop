@@ -11,7 +11,7 @@ function CartProductCard({ product }) {
 
   return (
     <S.Product key={product.id} as={RouterLink} to={`/shop/${product.id}`}>
-      <S.ProductImage src={product.images[0]} />
+      <S.ProductImage src={product.thumbnail} />
       <S.ProductName>{product.title}</S.ProductName>
       <S.Wrapper alignSelf="end" alignItems="center">
         <QuantityControl
