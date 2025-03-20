@@ -1,18 +1,23 @@
 import { Outlet } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import NotificationsManager from './components/NotificationsManager/NotificationsManager';
 import ModalsManager from './components/ModalsManager/ModalsManager';
 import useNotifications from './hooks/useNotifications';
 import useModals from './hooks/useModals';
+import { storeCart, retrieveCart } from './utils/cartLocalStorage';
 
 function App() {
   const MAX_CART_QUANTITY = 99;
-  const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState(retrieveCart());
   const { modals, handleSetModals, getModalElement } = useModals();
   const { notifications, handleSetNotifications, getNotificationElement } =
     useNotifications();
+
+  useEffect(() => {
+    storeCart(cart);
+  }, [cart]);
 
   function getCartTotalQuantity() {
     return cart.reduce((total, item) => total + item.quantity, 0);
