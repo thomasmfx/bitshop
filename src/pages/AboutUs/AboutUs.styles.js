@@ -40,19 +40,19 @@ export const Slogan = styled.h1`
 `;
 
 export const Image = styled.img`
-  min-width: 350px;
-  width: 500px;
+  width: 100%;
+  height: 500px;
 
   @media (max-width: ${({ theme }) => theme.device.laptop}) {
     grid-row: 2 / -1;
   }
 
   @media (max-width: ${({ theme }) => theme.device.mobileL}) {
-    min-width: 300px;
+    height: 300px;
   }
 
   @media (max-width: ${({ theme }) => theme.device.mobileM}) {
-    min-width: 250px;
+    height: 250px;
   }
 `;
 
