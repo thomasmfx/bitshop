@@ -104,7 +104,36 @@ export const ProductTitle = styled.p`
   ${(props) => props.isNew && TagNew};
 `;
 
-export const ProductImage = styled.img``;
+export const ProductImage = styled.img`
+  min-height: 450px;
+
+  // Copied from Carousel.styles.js
+  @media (min-width: ${({ theme }) => theme.device.tablet}) and (max-width: ${({
+    theme,
+  }) => theme.device.laptop}) {
+    min-width: 500px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileXXL}) {
+    width: 400px;
+    min-height: 400px
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileXL}) {
+    width: 350px;
+    min-height: 350px
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileL}) {
+    width: 320px;
+    min-height: 320px
+  }
+
+  @media (max-width: ${({ theme }) => theme.device.mobileM}) {
+    width: 280px;
+    min-height: 280px;
+  }
+`;
 
 export const ProductInfo = styled.div`
   grid-row: 1 / -1;

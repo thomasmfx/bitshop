@@ -8,7 +8,6 @@ export const CarouselContainer = styled.div`
   flex-direction: column;
   grid-row: -1 / 1;
 
-    
   @media (min-width: ${({ theme }) => theme.device.tablet}) and (max-width: ${({
     theme,
   }) => theme.device.laptop}) {
@@ -17,22 +16,22 @@ export const CarouselContainer = styled.div`
 
   @media (max-width: ${({ theme }) => theme.device.mobileXXL}) {
     width: 400px;
-    height: 400px
+    min-height: 400px
   }
 
   @media (max-width: ${({ theme }) => theme.device.mobileXL}) {
     width: 350px;
-    height: 350px
+    min-height: 350px
   }
 
   @media (max-width: ${({ theme }) => theme.device.mobileL}) {
     width: 320px;
-    height: 320px
+    min-height: 320px
   }
 
   @media (max-width: ${({ theme }) => theme.device.mobileM}) {
     width: 280px;
-    height: 280px;
+    min-height: 280px;
   }
 `;
 
